@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FORGE Studio — Gym & Personal Training di Cyberjaya</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+  :root{
+    --void:#0a0a0a;
+    --panel:#131313;
+    --line:#252525;
+    --volt:#d4ff3d;
+    --orange:#ff5722;
+    --white:#f5f5f5;
+    --mute:#8a8a8a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Space Grotesk',sans-serif;background:var(--void);color:var(--white);line-height:1.6;overflow-x:hidden}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 26px}
+  h1,h2,h3,.arch{font-family:'Archivo',sans-serif;font-weight:900;line-height:.92;text-transform:uppercase;letter-spacing:-1px}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-family:'Archivo';font-weight:900;font-size:24px;letter-spacing:1px}
+  .logo span{color:var(--volt)}
+  .navlinks{display:flex;gap:32px}
+  .navlinks a{color:var(--mute);text-decoration:none;font-size:13px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600;transition:color .2s}
+  .navlinks a:hover{color:var(--volt)}
+  @media(max-width:780px){.navlinks{display:none}}
+  .btn{display:inline-block;font-family:'Archivo';font-weight:700;text-transform:uppercase;letter-spacing:1px;font-size:14px;padding:14px 28px;text-decoration:none;transition:all .2s;border:2px solid var(--volt)}
+  .btn-volt{background:var(--volt);color:var(--void)}
+  .btn-volt:hover{background:transparent;color:var(--volt)}
+  .btn-ghost{background:transparent;color:var(--white);border-color:var(--line)}
+  .btn-ghost:hover{border-color:var(--volt);color:var(--volt)}
+
+  .hero{position:relative;padding:70px 0 0;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:end}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr}}
+  .tagline{display:inline-block;background:var(--volt);color:var(--void);font-family:'Archivo';font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;margin-bottom:26px}
+  .hero h1{font-size:clamp(58px,13vw,142px);margin-bottom:20px}
+  .hero h1 .out{-webkit-text-stroke:2px var(--volt);color:transparent}
+  .hero p{color:var(--mute);max-width:400px;font-size:17px;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:50px}
+  .hero-img{position:relative}
+  .hero-img img{width:100%;display:block;filter:grayscale(.3) contrast(1.1)}
+
+  .ticker{background:var(--volt);color:var(--void);overflow:hidden;white-space:nowrap;padding:14px 0;border-top:3px solid var(--void);border-bottom:3px solid var(--void)}
+  .ticker-track{display:inline-block;animation:scroll 18s linear infinite}
+  .ticker-track span{font-family:'Archivo';font-weight:900;font-size:18px;text-transform:uppercase;margin:0 24px;letter-spacing:1px}
+  .ticker-track span::after{content:"●";margin-left:24px;font-size:12px;vertical-align:middle}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  section{padding:96px 0}
+  .eyebrow{color:var(--volt);font-family:'Archivo';font-weight:700;font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;display:block}
+  .sec-title{font-size:clamp(38px,6vw,72px);margin-bottom:12px}
+
+  .prog{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line);border:2px solid var(--line)}
+  @media(max-width:760px){.prog{grid-template-columns:1fr}}
+  .pcard{background:var(--void);padding:40px 30px;transition:background .25s}
+  .pcard:hover{background:var(--panel)}
+  .pcard .num{font-family:'Archivo';font-weight:900;font-size:16px;color:var(--volt);margin-bottom:20px}
+  .pcard h3{font-size:30px;margin-bottom:12px}
+  .pcard p{color:var(--mute);font-size:15px;margin-bottom:18px}
+  .pcard .tag{display:inline-block;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--volt);border:1px solid var(--line);padding:5px 12px}
+
+  .price-sec{background:var(--panel)}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:820px){.plans{grid-template-columns:1fr;max-width:420px;margin:0 auto}}
+  .plan{border:2px solid var(--line);padding:36px 30px;position:relative;transition:border-color .25s}
+  .plan:hover{border-color:var(--volt)}
+  .plan.pop{border-color:var(--volt);background:var(--void)}
+  .plan .ribbon{position:absolute;top:-13px;left:30px;background:var(--volt);color:var(--void);font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px}
+  .plan .pname{font-family:'Archivo';font-weight:700;font-size:15px;letter-spacing:2px;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+  .plan .amt{font-family:'Archivo';font-weight:900;font-size:54px;line-height:1;margin-bottom:4px}
+  .plan .amt small{font-size:18px;color:var(--mute);font-weight:500}
+  .plan .per{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
+  .plan ul{list-style:none;margin-bottom:28px}
+  .plan li{font-size:15px;color:var(--white);padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px}
+  .plan li::before{content:"→";color:var(--volt);font-weight:700}
+  .plan .btn{width:100%;text-align:center}
+
+  .cta{text-align:center;background:var(--volt);color:var(--void);padding:96px 26px}
+  .cta h2{font-size:clamp(48px,9vw,110px);margin-bottom:18px}
+  .cta p{font-size:18px;max-width:440px;margin:0 auto 32px;font-weight:500}
+  .btn-dark{background:var(--void);color:var(--volt);border-color:var(--void)}
+  .btn-dark:hover{background:transparent;color:var(--void)}
+
+  footer{padding:54px 0 28px;border-top:1px solid var(--line)}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:36px}
+  .foot-col h4{font-family:'Archivo';font-weight:700;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--volt);margin-bottom:12px}
+  .foot-col p{font-size:14px;color:var(--mute);margin-bottom:5px}
+  .foot-bot{border-top:1px solid var(--line);padding-top:20px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);text-decoration:none;transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">FORGE<span>.</span></div>
+    <div class="navlinks">
+      <a href="#program">Program</a>
+      <a href="#pelan">Pelan</a>
+      <a href="#sertai">Sertai</a>
+    </div>
+    <a href="#sertai" class="btn btn-volt" style="padding:10px 22px">Free Trial</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <span class="tagline">Cyberjaya · 24 Jam</span>
+      <h1>BENTUK<br><span class="out">DIRI</span><br>BARU.</h1>
+      <p>Gym lengkap, jurulatih bertauliah, dan komuniti yang push anda lebih jauh. Bukan janji — tapi hasil.</p>
+      <div class="hero-cta">
+        <a href="#sertai" class="btn btn-volt">Mula Free Trial</a>
+        <a href="#pelan" class="btn btn-ghost">Lihat Pelan</a>
+      </div>
+    </div>
+    <div class="hero-img reveal in">
+      <img src="https://placehold.co/480x560/131313/d4ff3d?text=FORGE" alt="Gym">
+    </div>
+  </div>
+</header>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <span>Strength</span><span>Conditioning</span><span>Personal Training</span><span>HIIT</span><span>Strength</span><span>Conditioning</span><span>Personal Training</span><span>HIIT</span>
+  </div>
+</div>
+
+<section id="program">
+  <div class="wrap">
+    <span class="eyebrow reveal">Apa Yang Kami Ada</span>
+    <h2 class="sec-title reveal">Program</h2>
+    <div style="height:44px"></div>
+    <div class="prog">
+      <div class="pcard reveal"><div class="num">01</div><h3>Personal<br>Training</h3><p>Sesi one-on-one dengan jurulatih bertauliah. Pelan disesuaikan untuk matlamat anda.</p><span class="tag">Paling Berkesan</span></div>
+      <div class="pcard reveal"><div class="num">02</div><h3>Group<br>Class</h3><p>HIIT, strength &amp; conditioning dalam kumpulan bertenaga. Seronok &amp; mencabar.</p><span class="tag">Best Beramai</span></div>
+      <div class="pcard reveal"><div class="num">03</div><h3>Open<br>Gym</h3><p>Akses penuh peralatan moden 24 jam. Latih ikut jadual anda sendiri.</p><span class="tag">Fleksibel</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pelan" class="price-sec">
+  <div class="wrap">
+    <span class="eyebrow reveal">Yuran Keahlian</span>
+    <h2 class="sec-title reveal">Pilih Pelan</h2>
+    <div style="height:44px"></div>
+    <div class="plans">
+      <div class="plan reveal">
+        <div class="pname">Open Gym</div>
+        <div class="amt">RM99<small>/bln</small></div>
+        <div class="per">Tiada kontrak</div>
+        <ul>
+          <li>Akses gym 24 jam</li>
+          <li>Semua peralatan</li>
+          <li>Loker &amp; shower</li>
+        </ul>
+        <a href="#sertai" class="btn btn-ghost">Pilih</a>
+      </div>
+      <div class="plan pop reveal">
+        <div class="ribbon">Popular</div>
+        <div class="pname">Unlimited</div>
+        <div class="amt">RM179<small>/bln</small></div>
+        <div class="per">Akses penuh</div>
+        <ul>
+          <li>Semua dalam Open Gym</li>
+          <li>Group class tanpa had</li>
+          <li>Penilaian fitness bulanan</li>
+        </ul>
+        <a href="#sertai" class="btn btn-volt">Pilih</a>
+      </div>
+      <div class="plan reveal">
+        <div class="pname">PT Pakej</div>
+        <div class="amt">RM499<small>/bln</small></div>
+        <div class="per">8 sesi PT</div>
+        <ul>
+          <li>Semua dalam Unlimited</li>
+          <li>8 sesi personal training</li>
+          <li>Pelan pemakanan</li>
+        </ul>
+        <a href="#sertai" class="btn btn-ghost">Pilih</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sertai" class="cta reveal" style="padding:0">
+  <div class="cta">
+    <h2>NO EXCUSES.</h2>
+    <p>Cuba percuma selama 3 hari. Tiada komitmen, tiada alasan. Datang dan rasa sendiri.</p>
+    <a href="https://wa.me/60187654321" class="btn btn-dark">Claim Free Trial via WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>FORGE Studio</h4>
+        <p>Block C, Tamarind Square</p>
+        <p>63000 Cyberjaya, Selangor</p>
+      </div>
+      <div class="foot-col">
+        <h4>Waktu</h4>
+        <p>Akses ahli: 24 jam</p>
+        <p>Kaunter: 9am – 10pm</p>
+      </div>
+      <div class="foot-col">
+        <h4>Hubungi</h4>
+        <p>018-765 4321</p>
+        <p>@forge.cyberjaya</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 FORGE Studio.</span>
+      <span>Instagram · TikTok · Maps</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60187654321" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
