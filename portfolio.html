@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio — AdamSofi</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="Lihat hasil kerja AdamSofi: projek featured CodeCikgu dan koleksi demo website untuk pelbagai industri.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
   :root{
     --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
     --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
@@ -20,10 +21,15 @@
 
   nav{position:sticky;top:0;z-index:50;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
-  .logo{font-family:'Space Grotesk';font-weight:700;font-size:21px;color:var(--white);display:flex;align-items:center;gap:9px}
-  .logo .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#06121a;font-weight:700;font-size:16px}
-  .logo .name b{font-weight:700;color:var(--cyan)}
-  .logo .dot{color:var(--blue);margin-left:-7px}
+  .logo{display:flex;align-items:center;gap:11px;text-decoration:none}
+  .logo .mk{position:relative;display:flex;align-items:center;font-family:'JetBrains Mono',monospace;font-weight:700;font-size:25px;line-height:1}
+  .logo .mk .ag{color:#33C9E8}
+  .logo .mk .ag.r{color:#2F7BEA}
+  .logo .mk .ax{color:#fff;margin:0 -1px;transform:translateY(1px)}
+  .logo .mk .gd{position:absolute;top:-4px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#E9B949}
+  .logo .word{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:-.02em;line-height:1;color:var(--white)}
+  .logo .word .g{background:linear-gradient(90deg,#34D0EC,#2F7BEA);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .logo .word .pd{color:#E9B949}
   .navlinks{display:flex;gap:30px}
   .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
   .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
@@ -128,7 +134,7 @@
 <body>
 <nav>
   <div class="wrap">
-    <a href="index.html" class="logo"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+    <a href="index.html" class="logo"><span class="mk"><span class="gd"></span><span class="ag">&lt;</span><span class="ax">A</span><span class="ag r">&gt;</span></span><span class="word">adam<span class="g">sofi</span><span class="pd">.</span></span></a>
     <div class="navlinks">
       <a href="index.html">Utama</a>
       <a href="servis.html">Servis</a>
@@ -255,7 +261,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-col" style="max-width:280px">
-        <a href="index.html" class="logo" style="margin-bottom:12px"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+        <a href="index.html" class="logo" style="margin-bottom:12px"><span class="mk"><span class="gd"></span><span class="ag">&lt;</span><span class="ax">A</span><span class="ag r">&gt;</span></span><span class="word">adam<span class="g">sofi</span><span class="pd">.</span></span></a>
         <p>Landing page pantas &amp; berpatutan untuk bisnes Malaysia.</p>
       </div>
       <div class="foot-col">
