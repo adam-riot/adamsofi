@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://adamsofi.com/</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://adamsofi.com/servis.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://adamsofi.com/portfolio.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://adamsofi.com/hubungi.html</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url><loc>https://adamsofi.com/demos/01-cafe-kopi-lembah.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/02-barbershop-blade.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/03-klinik-gigi-senyum.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/04-gym-forge.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/05-butik-fesyen.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/06-hartanah-realty.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/07-tadika-ceria.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/08-kedai-elektronik.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/09-spa-wellness.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://adamsofi.com/demos/10-restoran-tomyam.html</loc><lastmod>2026-06-26</lastmod><changefreq>yearly</changefreq><priority>0.5</priority></url>
+</urlset>
