@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servis &amp; Harga — AdamSofi</title>
+<meta name="description" content="Pakej website AdamSofi: Starter RM500, Professional RM1,200, Enterprise RM2,500+. Add-ons & pelan penyelenggaraan.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
+    --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.5px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{text-decoration:none}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:21px;color:var(--white);display:flex;align-items:center;gap:9px}
+  .logo .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#06121a;font-weight:700;font-size:16px}
+  .logo .name b{font-weight:700;color:var(--cyan)}
+  .logo .dot{color:var(--blue);margin-left:-7px}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
+  @media(max-width:780px){.navlinks{display:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn-pri{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;box-shadow:0 8px 24px rgba(34,211,238,.25)}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.4)}
+  .btn-gho{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
+  .btn-gho:hover{border-color:var(--cyan);color:var(--cyan)}
+
+  .phero{position:relative;padding:80px 0 40px;text-align:center;overflow:hidden}
+  .phero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:700px;height:480px;background:radial-gradient(ellipse,rgba(34,211,238,.14),transparent 65%);z-index:0}
+  .phero .wrap{position:relative;z-index:1}
+  .eyebrow{color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+  .phero h1{font-size:clamp(38px,6vw,64px);font-weight:700;letter-spacing:-2px;margin-bottom:18px}
+  .phero h1 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .phero p{color:var(--mute);font-size:18px;max-width:540px;margin:0 auto}
+
+  section{padding:60px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 48px}
+  .sec-head h2{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-1px}
+  .sec-head p{color:var(--mute);font-size:16px;margin-top:12px}
+
+  /* plans */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start}
+  @media(max-width:880px){.plans{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+  .plan{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px 30px;position:relative;transition:border-color .25s,transform .25s}
+  .plan:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
+  .plan.pop{border-color:var(--cyan);background:linear-gradient(180deg,rgba(34,211,238,.06),var(--panel))}
+  .plan .rb{position:absolute;top:-13px;left:30px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 13px;border-radius:6px}
+  .plan .pn{font-family:'Space Grotesk';font-weight:600;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+  .plan .amt{font-family:'Space Grotesk';font-weight:700;font-size:44px;line-height:1;margin-bottom:5px}
+  .plan .amt small{font-size:17px;color:var(--mute);font-weight:500}
+  .plan .pp{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
+  .plan ul{list-style:none;margin-bottom:28px}
+  .plan li{font-size:14.5px;padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start}
+  .plan li:last-child{border-bottom:none}
+  .plan li .c{color:var(--cyan);font-weight:700;flex-shrink:0}
+  .plan li .x{color:#4b5263;font-weight:700;flex-shrink:0}
+  .plan li.off{color:var(--mute)}
+  .plan .btn{width:100%;justify-content:center}
+
+  /* add-ons */
+  .addon-sec{background:var(--panel)}
+  .addons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:760px){.addons{grid-template-columns:1fr}}
+  .addon{display:flex;justify-content:space-between;align-items:center;gap:16px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:20px 24px;transition:.25s}
+  .addon:hover{border-color:rgba(34,211,238,.4)}
+  .addon .l h3{font-size:17px;font-weight:600;margin-bottom:3px}
+  .addon .l p{color:var(--mute);font-size:13px}
+  .addon .pr{font-family:'Space Grotesk';font-weight:700;font-size:18px;color:var(--cyan);white-space:nowrap}
+
+  /* maintenance */
+  .maint{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:880px){.maint{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
+  .mcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px 28px;transition:.25s}
+  .mcard:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
+  .mcard .pn{font-family:'Space Grotesk';font-weight:600;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+  .mcard .amt{font-family:'Space Grotesk';font-weight:700;font-size:38px;line-height:1;margin-bottom:4px}
+  .mcard .amt small{font-size:15px;color:var(--mute);font-weight:500}
+  .mcard .pp{font-size:13px;color:var(--mute);margin-bottom:20px}
+  .mcard ul{list-style:none}
+  .mcard li{font-size:14px;padding:7px 0;display:flex;gap:9px;color:var(--white)}
+  .mcard li .c{color:var(--cyan);flex-shrink:0}
+
+  .final{text-align:center}
+  .final-box{background:linear-gradient(135deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:28px;padding:60px 36px;position:relative;overflow:hidden}
+  .final-box::before{content:"";position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:500px;height:380px;background:radial-gradient(ellipse,rgba(34,211,238,.16),transparent 65%)}
+  .final-box .inner{position:relative;z-index:1}
+  .final-box h2{font-size:clamp(30px,4.5vw,46px);font-weight:700;margin-bottom:14px}
+  .final-box h2 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .final-box p{color:var(--mute);font-size:17px;max-width:440px;margin:0 auto 28px}
+
+  footer{padding:54px 0 30px;border-top:1px solid var(--line);margin-top:80px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
+  .foot-col h4{font-family:'Space Grotesk';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .foot-col p{font-size:14px;color:var(--mute);margin-bottom:6px}
+  .foot-col a{color:var(--mute);font-size:14px;display:block;margin-bottom:6px;transition:color .2s}
+  .foot-col a:hover{color:var(--cyan)}
+  .foot-bot{border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal-up{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+  .reveal-up.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+    <div class="navlinks">
+      <a href="index.html">Utama</a>
+      <a href="servis.html" class="active">Servis</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="hubungi.html">Hubungi</a>
+    </div>
+    <a href="hubungi.html" class="btn btn-pri" style="padding:10px 22px;font-size:14px">Mulakan Projek</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="wrap">
+    <span class="eyebrow">Servis &amp; Harga</span>
+    <h1>Pilih pakej yang <span class="g">sesuai</span>.</h1>
+    <p>Harga jelas, tiada caj tersembunyi. Setiap pakej direka untuk membawa bisnes anda ke online dengan yakin.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="plans">
+      <div class="plan reveal-up">
+        <div class="pn">Starter</div>
+        <div class="amt">RM 500</div>
+        <div class="pp">Siap 5–7 hari · 2x revision</div>
+        <ul>
+          <li><span class="c">✓</span> 1 halaman</li>
+          <li><span class="c">✓</span> Domain .com (1 tahun)</li>
+          <li><span class="c">✓</span> Hosting Cloudflare percuma</li>
+          <li><span class="c">✓</span> SSL + Mobile responsive</li>
+          <li><span class="c">✓</span> Borang kenalan</li>
+          <li class="off"><span class="x">✕</span> WhatsApp integration</li>
+          <li class="off"><span class="x">✕</span> Google Maps</li>
+          <li class="off"><span class="x">✕</span> SEO asas</li>
+        </ul>
+        <a href="hubungi.html" class="btn btn-gho">Pilih Starter</a>
+      </div>
+      <div class="plan pop reveal-up">
+        <div class="rb">Popular</div>
+        <div class="pn">Professional</div>
+        <div class="amt">RM 1,200</div>
+        <div class="pp">Siap 10–14 hari · 5x revision</div>
+        <ul>
+          <li><span class="c">✓</span> Sehingga 5 halaman</li>
+          <li><span class="c">✓</span> Domain .com / .my (1 tahun)</li>
+          <li><span class="c">✓</span> Hosting setahun termasuk</li>
+          <li><span class="c">✓</span> SSL + Mobile responsive</li>
+          <li><span class="c">✓</span> Borang kenalan</li>
+          <li><span class="c">✓</span> WhatsApp integration</li>
+          <li><span class="c">✓</span> Google Maps</li>
+          <li><span class="c">✓</span> SEO asas</li>
+        </ul>
+        <a href="hubungi.html" class="btn btn-pri">Pilih Professional</a>
+      </div>
+      <div class="plan reveal-up">
+        <div class="pn">Enterprise</div>
+        <div class="amt">RM 2,500<small>+</small></div>
+        <div class="pp">Siap 21–30 hari · revision tanpa had</div>
+        <ul>
+          <li><span class="c">✓</span> Halaman tidak terhad</li>
+          <li><span class="c">✓</span> Domain .com / .my + Premium hosting</li>
+          <li><span class="c">✓</span> WhatsApp + Google Maps + SEO</li>
+          <li><span class="c">✓</span> E-commerce / sistem booking</li>
+          <li><span class="c">✓</span> CMS admin panel</li>
+          <li><span class="c">✓</span> Payment gateway</li>
+          <li><span class="c">✓</span> Training penggunaan</li>
+          <li><span class="c">✓</span> Sokongan keutamaan</li>
+        </ul>
+        <a href="hubungi.html" class="btn btn-gho">Bincang Projek</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="addon-sec">
+  <div class="wrap">
+    <div class="sec-head reveal-up">
+      <span class="eyebrow">Add-ons</span>
+      <h2>Tambah ikut keperluan</h2>
+      <p>Lengkapkan website anda dengan servis tambahan ini.</p>
+    </div>
+    <div class="addons reveal-up">
+      <div class="addon"><div class="l"><h3>Domain .my / .com.my</h3><p>Domain rasmi Malaysia</p></div><div class="pr">RM 80<small style="color:var(--mute);font-size:12px">/thn</small></div></div>
+      <div class="addon"><div class="l"><h3>Email Rasmi</h3><p>anda@bisnes.com</p></div><div class="pr">RM 120<small style="color:var(--mute);font-size:12px">/thn</small></div></div>
+      <div class="addon"><div class="l"><h3>Logo Design</h3><p>Logo profesional jenama anda</p></div><div class="pr">RM 200–400</div></div>
+      <div class="addon"><div class="l"><h3>Copywriting</h3><p>Teks yang menjual</p></div><div class="pr">RM 150<small style="color:var(--mute);font-size:12px">/hlmn</small></div></div>
+      <div class="addon"><div class="l"><h3>Google My Business</h3><p>Setup profil Google Maps</p></div><div class="pr">RM 150</div></div>
+      <div class="addon"><div class="l"><h3>Facebook Pixel + Analytics</h3><p>Tracking untuk iklan</p></div><div class="pr">RM 200</div></div>
+      <div class="addon"><div class="l"><h3>Blog / Artikel SEO</h3><p>Artikel optimum carian</p></div><div class="pr">RM 100<small style="color:var(--mute);font-size:12px">/artikel</small></div></div>
+      <div class="addon"><div class="l"><h3>Terjemahan BM/EN/CN</h3><p>Website pelbagai bahasa</p></div><div class="pr">RM 100<small style="color:var(--mute);font-size:12px">/bahasa</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal-up">
+      <span class="eyebrow">Penyelenggaraan</span>
+      <h2>Pelan maintenance bulanan</h2>
+      <p>Pastikan website anda sentiasa segar dan terkini.</p>
+    </div>
+    <div class="maint">
+      <div class="mcard reveal-up">
+        <div class="pn">Basic</div>
+        <div class="amt">RM 80<small>/bulan</small></div>
+        <div class="pp">Untuk website ringkas</div>
+        <ul>
+          <li><span class="c">✓</span> Hosting &amp; domain renewal</li>
+          <li><span class="c">✓</span> Backup bulanan</li>
+          <li><span class="c">✓</span> 1 kemas kini kandungan</li>
+          <li><span class="c">✓</span> Pemantauan uptime</li>
+        </ul>
+      </div>
+      <div class="mcard reveal-up">
+        <div class="pn">Standard</div>
+        <div class="amt">RM 180<small>/bulan</small></div>
+        <div class="pp">Untuk bisnes aktif</div>
+        <ul>
+          <li><span class="c">✓</span> Semua dalam Basic</li>
+          <li><span class="c">✓</span> 4 kemas kini kandungan</li>
+          <li><span class="c">✓</span> Backup mingguan</li>
+          <li><span class="c">✓</span> Laporan prestasi bulanan</li>
+        </ul>
+      </div>
+      <div class="mcard reveal-up">
+        <div class="pn">Premium</div>
+        <div class="amt">RM 350<small>/bulan</small></div>
+        <div class="pp">Untuk bisnes berkembang</div>
+        <ul>
+          <li><span class="c">✓</span> Semua dalam Standard</li>
+          <li><span class="c">✓</span> Kemas kini tanpa had</li>
+          <li><span class="c">✓</span> Sokongan keutamaan 24/7</li>
+          <li><span class="c">✓</span> Optimum SEO berterusan</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="final-box reveal-up">
+      <div class="inner">
+        <h2>Tak pasti pakej mana <span class="g">sesuai</span>?</h2>
+        <p>Mesej kami untuk konsultasi percuma. Kita bincang keperluan anda dan cadangkan pilihan terbaik.</p>
+        <a href="hubungi.html" class="btn btn-pri" style="font-size:16px;padding:15px 30px">Hubungi Kami →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:280px">
+        <a href="index.html" class="logo" style="margin-bottom:12px"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+        <p>Landing page pantas &amp; berpatutan untuk bisnes Malaysia.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Pautan</h4>
+        <a href="index.html">Utama</a>
+        <a href="servis.html">Servis &amp; Harga</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="hubungi.html">Hubungi</a>
+      </div>
+      <div class="foot-col">
+        <h4>Hubungi</h4>
+        <a href="https://wa.me/60182399476">WhatsApp: 018-2399476</a>
+        <a href="#">Threads: @mhmd.adam44</a>
+        <a href="mailto:muhammad.adamx96@gmail.com">muhammad.adamx96@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 AdamSofi. Hak cipta terpelihara.</span>
+      <span>Dibina di Malaysia 🇲🇾</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60182399476" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

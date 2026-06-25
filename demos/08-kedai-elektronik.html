@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechZone — Gadget Terbaik, Harga Terbaik</title>
+<meta name="description" content="Kedai gadget & elektronik. Laptop, telefon, earbuds, smartwatch. Jual beli, repair, trade-in.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+  :root{
+    --blue:#0066ff;--blue-l:#3d8bff;--cyan:#00e5ff;--black:#0a0a0a;--panel:#121319;--panel2:#1a1c26;
+    --white:#f0f2f8;--mute:#7e8499;--line:#23262f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Rajdhani',sans-serif;background:var(--black);color:var(--white);line-height:1.55;overflow-x:hidden;font-size:17px}
+  h1,h2,h3{font-family:'Orbitron',sans-serif;line-height:1.15;font-weight:700;letter-spacing:.5px}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,10,10,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+  .logo{font-family:'Orbitron';font-weight:800;font-size:20px;display:flex;align-items:center;gap:9px;text-transform:uppercase}
+  .logo .m{width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--blue),var(--cyan));display:grid;place-items:center;color:#000;font-size:18px}
+  .logo b{color:var(--cyan)}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{font-size:16px;font-weight:600;color:var(--mute);text-transform:uppercase;letter-spacing:1px;transition:.2s}
+  .navlinks a:hover{color:var(--cyan)}
+  @media(max-width:860px){.navlinks{display:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Rajdhani';font-weight:700;font-size:16px;text-transform:uppercase;letter-spacing:1px;padding:12px 26px;border-radius:8px;transition:.25s;cursor:pointer;border:none}
+  .btn-pri{background:linear-gradient(135deg,var(--blue),var(--cyan));color:#001226;box-shadow:0 0 24px rgba(0,102,255,.4)}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(0,229,255,.6)}
+  .btn-out{background:var(--panel2);border:1px solid var(--line);color:var(--white)}
+  .btn-out:hover{border-color:var(--cyan);color:var(--cyan)}
+
+  .hero{position:relative;padding:100px 0 90px;overflow:hidden;text-align:center}
+  .tech-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,102,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,102,255,.12) 1px,transparent 1px);background-size:44px 44px;mask:radial-gradient(ellipse 70% 60% at 50% 35%,#000,transparent 75%);z-index:0;animation:gridmove 18s linear infinite}
+  @keyframes gridmove{from{background-position:0 0}to{background-position:44px 44px}}
+  .hero::after{content:"";position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(0,102,255,.22),transparent 65%);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .pill{display:inline-flex;align-items:center;gap:8px;background:var(--panel2);border:1px solid var(--line);color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:1.5px;font-size:13px;padding:8px 18px;border-radius:6px;margin-bottom:24px}
+  .blink{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 10px var(--cyan);animation:blink 1.4s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+  .hero h1{font-size:clamp(40px,7vw,80px);margin-bottom:20px}
+  .hero h1 span{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{font-size:20px;color:var(--mute);max-width:540px;margin:0 auto 34px}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  section{padding:90px 0}
+  .head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .head .eb{color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:14px;margin-bottom:12px}
+  .head h2{font-size:clamp(30px,4.5vw,46px)}
+
+  /* flash sale */
+  .flash{background:linear-gradient(135deg,#001a3d,#0a0a0a);border-top:1px solid var(--blue);border-bottom:1px solid var(--blue)}
+  .flash .wrap{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;text-align:center}
+  .flash h2{font-size:28px;color:var(--cyan)}
+  .flash p{color:var(--mute)}
+  .timer{display:flex;gap:12px}
+  .tcell{background:var(--panel2);border:1px solid var(--blue);border-radius:10px;padding:14px 18px;min-width:74px;text-align:center}
+  .tcell .num{font-family:'Orbitron';font-size:32px;font-weight:800;color:var(--cyan)}
+  .tcell .lab{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--mute)}
+
+  /* products */
+  .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.prods{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.prods{grid-template-columns:1fr}}
+  .prod{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:.3s;position:relative}
+  .prod:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 10px 30px rgba(0,102,255,.2)}
+  .prod .pic{height:180px;display:grid;place-items:center;font-size:64px;position:relative}
+  .pp1{background:linear-gradient(135deg,#1a2a4a,#0a0a0a)}
+  .pp2{background:linear-gradient(135deg,#2a1a4a,#0a0a0a)}
+  .pp3{background:linear-gradient(135deg,#1a4a3a,#0a0a0a)}
+  .pp4{background:linear-gradient(135deg,#4a3a1a,#0a0a0a)}
+  .pp5{background:linear-gradient(135deg,#4a1a2a,#0a0a0a)}
+  .pp6{background:linear-gradient(135deg,#1a3a4a,#0a0a0a)}
+  .tag{position:absolute;top:12px;right:12px;font-family:'Orbitron';font-size:11px;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:1px}
+  .t-hot{background:#ff3d57;color:#fff}
+  .t-new{background:var(--cyan);color:#001226}
+  .prod .body{padding:20px}
+  .prod h3{font-size:19px;margin-bottom:6px}
+  .prod .cat{color:var(--mute);font-size:14px;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+  .prod .price{font-family:'Orbitron';font-size:24px;font-weight:700;color:var(--cyan)}
+
+  /* brands */
+  .brands-sec{background:var(--panel)}
+  .brands{display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
+  .brand{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:18px 34px;font-family:'Orbitron';font-weight:700;font-size:18px;color:var(--mute);transition:.2s}
+  .brand:hover{color:var(--cyan);border-color:var(--blue)}
+
+  /* servis */
+  .srv{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:820px){.srv{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.srv{grid-template-columns:1fr}}
+  .scard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:30px 24px;text-align:center;transition:.3s}
+  .scard:hover{border-color:var(--blue);transform:translateY(-5px)}
+  .scard .ic{font-size:38px;margin-bottom:14px}
+  .scard h3{font-size:19px;margin-bottom:8px}
+  .scard p{color:var(--mute);font-size:15px}
+
+  .cta{text-align:center}
+  .cta-box{background:linear-gradient(135deg,var(--panel2),var(--panel));border:1px solid var(--blue);border-radius:20px;padding:64px 36px;position:relative;overflow:hidden}
+  .cta-box::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,102,255,.2),transparent 60%)}
+  .cta-box>*{position:relative;z-index:1}
+  .cta-box h2{font-size:clamp(30px,5vw,50px);margin-bottom:16px}
+  .cta-box p{color:var(--mute);margin:0 auto 28px;max-width:440px;font-size:18px}
+
+  footer{padding:48px 0 26px;border-top:1px solid var(--line)}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:26px}
+  footer h4{font-family:'Orbitron';font-size:14px;text-transform:uppercase;color:var(--white);margin-bottom:14px;letter-spacing:1px}
+  footer a{display:block;color:var(--mute);font-size:15px;margin-bottom:8px;transition:.2s}
+  footer a:hover{color:var(--cyan)}
+  .foot-bot{border-top:1px solid var(--line);padding-top:20px;text-align:center;font-size:14px;color:var(--mute)}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><span class="m">⚡</span> Tech<b>Zone</b></a>
+    <div class="navlinks">
+      <a href="#produk">Produk</a>
+      <a href="#brands">Jenama</a>
+      <a href="#servis">Servis</a>
+      <a href="#sale">Flash Sale</a>
+    </div>
+    <a href="https://wa.me/60182399476" class="btn btn-pri">Tanya Stok</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="tech-grid"></div>
+  <div class="wrap">
+    <span class="pill"><span class="blink"></span> Stok Baru Setiap Minggu</span>
+    <h1>Gadget Terbaik.<br><span>Harga Terbaik.</span></h1>
+    <p>Laptop, telefon, audio dan aksesori gaming dari jenama terpercaya — original, bergaransi, harga berbaloi.</p>
+    <div class="hero-cta">
+      <a href="#produk" class="btn btn-pri">Lihat Produk</a>
+      <a href="https://wa.me/60182399476" class="btn btn-out">Tanya Stok via WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<section id="sale" class="flash" style="padding:40px 0">
+  <div class="wrap">
+    <div>
+      <h2>⚡ FLASH SALE</h2>
+      <p>Diskaun gila-gila tamat tengah malam!</p>
+    </div>
+    <div class="timer" id="timer">
+      <div class="tcell"><div class="num" id="hh">00</div><div class="lab">Jam</div></div>
+      <div class="tcell"><div class="num" id="mm">00</div><div class="lab">Minit</div></div>
+      <div class="tcell"><div class="num" id="ss">00</div><div class="lab">Saat</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="produk">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Pilihan Terlaris</div>
+      <h2>Produk Pilihan</h2>
+    </div>
+    <div class="prods">
+      <div class="prod reveal"><div class="pic pp1">💻<span class="tag t-hot">HOT</span></div><div class="body"><div class="cat">Laptop</div><h3>UltraBook Pro 14"</h3><div class="price">RM 3,499</div></div></div>
+      <div class="prod reveal"><div class="pic pp2">📱<span class="tag t-new">NEW</span></div><div class="body"><div class="cat">Telefon</div><h3>Galaxy X5 5G</h3><div class="price">RM 2,199</div></div></div>
+      <div class="prod reveal"><div class="pic pp3">🎧<span class="tag t-hot">HOT</span></div><div class="body"><div class="cat">Audio</div><h3>SoundPods Air</h3><div class="price">RM 299</div></div></div>
+      <div class="prod reveal"><div class="pic pp4">⌚<span class="tag t-new">NEW</span></div><div class="body"><div class="cat">Wearable</div><h3>FitWatch S2</h3><div class="price">RM 449</div></div></div>
+      <div class="prod reveal"><div class="pic pp5">📶</div><div class="body"><div class="cat">Networking</div><h3>Router WiFi 6</h3><div class="price">RM 359</div></div></div>
+      <div class="prod reveal"><div class="pic pp6">📷</div><div class="body"><div class="cat">Aksesori</div><h3>4K Webcam Pro</h3><div class="price">RM 189</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="brands" class="brands-sec">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Rakan Jenama</div>
+      <h2>Jenama Yang Kami Bawa</h2>
+    </div>
+    <div class="brands reveal">
+      <div class="brand">Apple</div><div class="brand">Samsung</div><div class="brand">Xiaomi</div><div class="brand">Logitech</div><div class="brand">ASUS</div>
+    </div>
+  </div>
+</section>
+
+<section id="servis">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Servis Kedai</div>
+      <h2>Lebih Dari Sekadar Jual</h2>
+    </div>
+    <div class="srv">
+      <div class="scard reveal"><div class="ic">🛒</div><h3>Jual Beli</h3><p>Produk original dengan harga kompetitif.</p></div>
+      <div class="scard reveal"><div class="ic">🔧</div><h3>Repair</h3><p>Pembaikan pantas oleh teknisi pakar.</p></div>
+      <div class="scard reveal"><div class="ic">🔄</div><h3>Trade-In</h3><p>Tukar gadget lama dapat diskaun.</p></div>
+      <div class="scard reveal"><div class="ic">🛡️</div><h3>Warranty</h3><p>Jaminan rasmi untuk ketenangan anda.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <h2>Nak Tahu Stok Terkini?</h2>
+      <p>Mesej kami terus di WhatsApp untuk pertanyaan stok, harga dan tempahan.</p>
+      <a href="https://wa.me/60182399476" class="btn btn-pri">Tanya Stok via WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px">
+        <a href="#" class="logo" style="margin-bottom:12px"><span class="m">⚡</span> Tech<b>Zone</b></a>
+        <p style="color:var(--mute);font-size:15px">Kedai gadget &amp; elektronik terpercaya. Original &amp; bergaransi.</p>
+      </div>
+      <div><h4>Produk</h4><a href="#produk">Laptop</a><a href="#produk">Telefon</a><a href="#produk">Audio</a><a href="#produk">Aksesori</a></div>
+      <div><h4>Hubungi</h4><a href="https://wa.me/60182399476">WhatsApp: 018-2399476</a><a href="#">Lot G-12, Mall Tech</a><a href="#">Buka 10am–10pm</a></div>
+    </div>
+    <div class="foot-bot">© 2026 TechZone Gadget Store · Demo oleh AdamSofi</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60182399476" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  // Flash sale countdown to midnight
+  function pad(n){return String(n).padStart(2,'0')}
+  function tick(){
+    const now=new Date();const end=new Date();end.setHours(24,0,0,0);
+    let d=Math.max(0,Math.floor((end-now)/1000));
+    document.getElementById('hh').textContent=pad(Math.floor(d/3600));
+    document.getElementById('mm').textContent=pad(Math.floor(d%3600/60));
+    document.getElementById('ss').textContent=pad(d%60);
+  }
+  tick();setInterval(tick,1000);
+</script>
+</body>
+</html>

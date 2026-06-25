@@ -239,5 +239,9 @@
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   document.querySelectorAll('.qhead').forEach(h=>h.addEventListener('click',()=>h.parentElement.classList.toggle('open')));
 </script>
+<script>
+  window.va = window.va || function () { (window.vai = window.vai || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

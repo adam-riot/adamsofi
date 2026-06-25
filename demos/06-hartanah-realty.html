@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prima Realty — Ejen Hartanah Terpercaya</title>
+<meta name="description" content="Rumah impian anda. Kami bantu cari. Jual, beli, sewa hartanah di Klang Valley, Selangor & KL.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root{
+    --navy:#0a1628;--navy2:#0f1f38;--navy3:#16294a;--gold:#c9a84c;--gold-l:#e0c876;
+    --white:#f7f9fc;--mute:#8ea0bd;--line:#1c3052;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Playfair Display',serif;line-height:1.12;font-weight:600}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,22,40,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .logo{font-family:'Playfair Display';font-weight:700;font-size:24px;display:flex;align-items:center;gap:10px}
+  .logo .m{width:34px;height:34px;border-radius:7px;background:linear-gradient(135deg,var(--gold),var(--gold-l));display:grid;place-items:center;color:var(--navy);font-weight:700;font-family:'Inter'}
+  .logo b{color:var(--gold)}
+  .navlinks{display:flex;gap:32px}
+  .navlinks a{font-size:14px;font-weight:500;color:var(--mute);transition:.2s;letter-spacing:.3px}
+  .navlinks a:hover{color:var(--gold)}
+  @media(max-width:860px){.navlinks{display:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;padding:13px 26px;border-radius:6px;transition:.25s;cursor:pointer;border:none;letter-spacing:.3px}
+  .btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-l));color:var(--navy)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(201,168,76,.3)}
+  .btn-out{background:transparent;border:1px solid var(--line);color:var(--white)}
+  .btn-out:hover{border-color:var(--gold);color:var(--gold)}
+
+  .hero{position:relative;padding:110px 0 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 70% 20%,rgba(201,168,76,.12),transparent 60%);z-index:0}
+  .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(28,48,82,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(28,48,82,.4) 1px,transparent 1px);background-size:60px 60px;mask:radial-gradient(ellipse 80% 60% at 50% 30%,#000,transparent 75%);z-index:0}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .eb{color:var(--gold);font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;font-weight:600}
+  .hero h1{font-size:clamp(40px,6.5vw,74px);margin-bottom:20px;max-width:780px}
+  .hero h1 i{color:var(--gold);font-style:italic}
+  .hero p{font-size:18px;color:var(--mute);max-width:520px;margin-bottom:36px}
+  /* search bar */
+  .search{display:flex;gap:0;background:var(--navy2);border:1px solid var(--line);border-radius:10px;padding:8px;max-width:760px;flex-wrap:wrap}
+  .search .f{flex:1;min-width:140px;padding:12px 16px;border-right:1px solid var(--line)}
+  .search .f label{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--mute);display:block;margin-bottom:4px}
+  .search .f select,.search .f input{width:100%;background:transparent;border:none;color:var(--white);font-size:14px;font-family:inherit;outline:none}
+  .search .f select option{background:var(--navy2)}
+  .search .btn-gold{margin:0;border-radius:7px}
+  @media(max-width:620px){.search .f{border-right:none;border-bottom:1px solid var(--line);min-width:100%}.search .btn-gold{width:100%;justify-content:center;margin-top:6px}}
+
+  section{padding:96px 0}
+  .head{text-align:center;max-width:620px;margin:0 auto 56px}
+  .head .eb{color:var(--gold);font-size:13px;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+  .head h2{font-size:clamp(32px,4.5vw,48px)}
+  .head p{color:var(--mute);margin-top:12px}
+
+  /* listings */
+  .listings{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  @media(max-width:820px){.listings{grid-template-columns:1fr}}
+  .lcard{background:var(--navy2);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.3s}
+  .lcard:hover{transform:translateY(-6px);border-color:rgba(201,168,76,.5)}
+  .lthumb{height:220px;position:relative;display:flex;align-items:flex-end;padding:18px}
+  .lt1{background:linear-gradient(135deg,#1c3a5e,#0a1628)}
+  .lt2{background:linear-gradient(135deg,#2d4a3e,#0d1f18)}
+  .lt3{background:linear-gradient(135deg,#3e2d4a,#1a0d28)}
+  .lt4{background:linear-gradient(135deg,#4a3a1c,#28200a)}
+  .badge{position:absolute;top:16px;left:16px;background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:5px}
+  .lthumb .price{position:relative;z-index:1;font-family:'Playfair Display';font-size:28px;font-weight:700;color:var(--gold-l)}
+  .lbody{padding:22px 24px}
+  .lbody h3{font-size:21px;margin-bottom:6px}
+  .lbody .loc{color:var(--mute);font-size:14px;margin-bottom:14px}
+  .lspecs{display:flex;gap:18px;font-size:13px;color:var(--mute);border-top:1px solid var(--line);padding-top:14px}
+  .lspecs b{color:var(--white)}
+
+  /* stats */
+  .stats-sec{background:var(--navy2)}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;text-align:center}
+  @media(max-width:680px){.stats{grid-template-columns:1fr}}
+  .stat .n{font-family:'Playfair Display';font-size:54px;font-weight:700;color:var(--gold);line-height:1}
+  .stat p{color:var(--mute);margin-top:8px;font-size:15px}
+
+  /* servis */
+  .srv{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:820px){.srv{grid-template-columns:1fr 1fr}}
+  @media(max-width:480px){.srv{grid-template-columns:1fr}}
+  .scard{background:var(--navy2);border:1px solid var(--line);border-radius:12px;padding:32px 26px;text-align:center;transition:.3s}
+  .scard:hover{border-color:rgba(201,168,76,.5);transform:translateY(-5px)}
+  .scard .ic{font-size:34px;margin-bottom:16px}
+  .scard h3{font-size:20px;margin-bottom:8px}
+  .scard p{color:var(--mute);font-size:14px}
+
+  /* area */
+  .area-sec{background:var(--navy2);text-align:center}
+  .areas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:30px}
+  .area{background:var(--navy3);border:1px solid var(--line);padding:12px 26px;border-radius:50px;font-size:15px;color:var(--white)}
+
+  /* agents */
+  .agents{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:820px){.agents{grid-template-columns:1fr}}
+  .agent{background:var(--navy2);border:1px solid var(--line);border-radius:14px;padding:34px 28px;text-align:center;transition:.3s}
+  .agent:hover{border-color:rgba(201,168,76,.5)}
+  .agent .ph{width:110px;height:110px;border-radius:50%;margin:0 auto 20px;background:linear-gradient(135deg,var(--gold),var(--navy3));display:grid;place-items:center;font-family:'Playfair Display';font-size:38px;color:var(--navy)}
+  .agent h3{font-size:22px;margin-bottom:4px}
+  .agent .role{color:var(--gold);font-size:13px;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
+  .agent a{color:var(--white);font-size:15px;font-weight:600}
+
+  .cta{text-align:center;position:relative;overflow:hidden}
+  .cta-box{background:linear-gradient(135deg,var(--navy3),var(--navy2));border:1px solid var(--line);border-radius:24px;padding:70px 36px;position:relative}
+  .cta-box::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,.15),transparent 60%)}
+  .cta-box>*{position:relative;z-index:1}
+  .cta-box h2{font-size:clamp(32px,5vw,52px);margin-bottom:16px}
+  .cta-box p{color:var(--mute);max-width:460px;margin:0 auto 30px;font-size:17px}
+
+  footer{padding:50px 0 26px;border-top:1px solid var(--line)}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:28px}
+  footer h4{font-family:'Inter';font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+  footer a{display:block;color:var(--mute);font-size:14px;margin-bottom:8px;transition:.2s}
+  footer a:hover{color:var(--gold)}
+  .foot-bot{border-top:1px solid var(--line);padding-top:20px;text-align:center;font-size:13px;color:var(--mute)}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(32px);transition:opacity .8s,transform .8s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><span class="m">P</span> Prima<b>Realty</b></a>
+    <div class="navlinks">
+      <a href="#listings">Hartanah</a>
+      <a href="#servis">Servis</a>
+      <a href="#ejen">Ejen</a>
+      <a href="#area">Kawasan</a>
+    </div>
+    <a href="https://wa.me/60182399476" class="btn btn-gold">Konsultasi Percuma</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="wrap">
+    <div class="eb">Ejen Hartanah Berlesen · REN 12345</div>
+    <h1>Rumah Impian Anda.<br><i>Kami Bantu Cari.</i></h1>
+    <p>Lebih 500 hartanah eksklusif di Klang Valley. Pasukan ejen berpengalaman bantu anda jual, beli, dan sewa dengan yakin.</p>
+    <div class="search">
+      <div class="f"><label>Lokasi</label><select><option>Semua Kawasan</option><option>Kuala Lumpur</option><option>Petaling Jaya</option><option>Shah Alam</option><option>Subang Jaya</option></select></div>
+      <div class="f"><label>Jenis</label><select><option>Semua Jenis</option><option>Kondominium</option><option>Banglo</option><option>Rumah Teres</option><option>Komersial</option></select></div>
+      <div class="f"><label>Harga</label><select><option>Mana-mana</option><option>Bawah RM500k</option><option>RM500k–1M</option><option>Atas RM1M</option></select></div>
+      <a href="https://wa.me/60182399476" class="btn btn-gold">🔍 Cari</a>
+    </div>
+  </div>
+</header>
+
+<section id="listings">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Pilihan Eksklusif</div>
+      <h2>Hartanah Pilihan</h2>
+      <p>Hartanah terbaik yang sedia untuk dimiliki.</p>
+    </div>
+    <div class="listings">
+      <div class="lcard reveal"><div class="lthumb lt1"><span class="badge">Untuk Dijual</span><div class="price">RM 680,000</div></div><div class="lbody"><h3>Kondominium Mewah</h3><div class="loc">📍 Mont Kiara, Kuala Lumpur</div><div class="lspecs"><span><b>3</b> Bilik</span><span><b>2</b> Tandas</span><span><b>1,250</b> kps</span></div></div></div>
+      <div class="lcard reveal"><div class="lthumb lt2"><span class="badge">Untuk Dijual</span><div class="price">RM 1,200,000</div></div><div class="lbody"><h3>Banglo 2 Tingkat</h3><div class="loc">📍 Bukit Jelutong, Shah Alam</div><div class="lspecs"><span><b>5</b> Bilik</span><span><b>4</b> Tandas</span><span><b>3,400</b> kps</span></div></div></div>
+      <div class="lcard reveal"><div class="lthumb lt3"><span class="badge">Untuk Dijual</span><div class="price">RM 480,000</div></div><div class="lbody"><h3>Rumah Teres 2 Tingkat</h3><div class="loc">📍 USJ, Subang Jaya</div><div class="lspecs"><span><b>4</b> Bilik</span><span><b>3</b> Tandas</span><span><b>1,800</b> kps</span></div></div></div>
+      <div class="lcard reveal"><div class="lthumb lt4"><span class="badge">Komersial</span><div class="price">RM 380,000</div></div><div class="lbody"><h3>Lot Kedai / Pejabat</h3><div class="loc">📍 Cyberjaya, Selangor</div><div class="lspecs"><span><b>Ground</b> Floor</span><span><b>1,100</b> kps</span><span><b>Corner</b> Lot</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-sec">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal"><div class="n" data-count="500">500+</div><p>Hartanah Tersedia</p></div>
+      <div class="stat reveal"><div class="n" data-count="12">12</div><p>Tahun Pengalaman</p></div>
+      <div class="stat reveal"><div class="n" data-count="98">98%</div><p>Kepuasan Pelanggan</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="servis">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Apa Kami Tawarkan</div>
+      <h2>Servis Lengkap</h2>
+    </div>
+    <div class="srv">
+      <div class="scard reveal"><div class="ic">🏷️</div><h3>Jual</h3><p>Kami pasarkan hartanah anda dengan strategi yang berkesan.</p></div>
+      <div class="scard reveal"><div class="ic">🔑</div><h3>Beli</h3><p>Cari hartanah idaman dengan bantuan ejen pakar kami.</p></div>
+      <div class="scard reveal"><div class="ic">🏠</div><h3>Sewa</h3><p>Penyewa atau pemilik — kami uruskan semuanya untuk anda.</p></div>
+      <div class="scard reveal"><div class="ic">📊</div><h3>Penilaian</h3><p>Dapatkan penilaian pasaran tepat untuk hartanah anda.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="area" class="area-sec">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Liputan Kawasan</div>
+      <h2>Kami Beroperasi Di</h2>
+    </div>
+    <div class="areas reveal">
+      <span class="area">Kuala Lumpur</span><span class="area">Petaling Jaya</span><span class="area">Shah Alam</span>
+      <span class="area">Subang Jaya</span><span class="area">Cyberjaya</span><span class="area">Puchong</span>
+      <span class="area">Klang</span><span class="area">Selangor</span>
+    </div>
+  </div>
+</section>
+
+<section id="ejen">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Pasukan Kami</div>
+      <h2>Ejen Berpengalaman</h2>
+    </div>
+    <div class="agents">
+      <div class="agent reveal"><div class="ph">A</div><h3>Ahmad Razif</h3><div class="role">Senior Negotiator</div><a href="https://wa.me/60182399476">📞 012-345 6789</a></div>
+      <div class="agent reveal"><div class="ph">S</div><h3>Siti Nurhaliza</h3><div class="role">Property Consultant</div><a href="https://wa.me/60182399476">📞 013-456 7890</a></div>
+      <div class="agent reveal"><div class="ph">R</div><h3>Raj Kumar</h3><div class="role">Commercial Specialist</div><a href="https://wa.me/60182399476">📞 014-567 8901</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box reveal">
+      <h2>Sedia Mula Perjalanan Hartanah?</h2>
+      <p>Konsultasi percuma tanpa komitmen. Kami dengar keperluan anda dan cadangkan pilihan terbaik.</p>
+      <a href="https://wa.me/60182399476" class="btn btn-gold">Konsultasi Percuma →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px">
+        <a href="#" class="logo" style="margin-bottom:12px"><span class="m">P</span> Prima<b>Realty</b></a>
+        <p style="color:var(--mute);font-size:14px">Ejen hartanah berlesen yang dipercayai di Klang Valley sejak 2014.</p>
+      </div>
+      <div><h4>Servis</h4><a href="#servis">Jual Hartanah</a><a href="#servis">Beli Hartanah</a><a href="#servis">Sewa</a><a href="#servis">Penilaian</a></div>
+      <div><h4>Hubungi</h4><a href="https://wa.me/60182399476">WhatsApp: 018-2399476</a><a href="#">Pejabat: KL Sentral</a><a href="#">prima@realty.my</a></div>
+    </div>
+    <div class="foot-bot">© 2026 Prima Realty · Demo oleh AdamSofi</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60182399476" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const hg=document.querySelector('.hero-grid');let t=false;
+  window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(()=>{const y=window.scrollY;if(y<700&&hg)hg.style.transform='translateY('+(y*0.35)+'px)';t=false});t=true}},{passive:true});
+</script>
+</body>
+</html>

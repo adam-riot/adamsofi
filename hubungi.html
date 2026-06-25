@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hubungi — AdamSofi</title>
+<meta name="description" content="Hubungi AdamSofi untuk website bisnes anda. Konsultasi percuma, respons dalam 24 jam.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
+    --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.5px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{text-decoration:none}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:21px;color:var(--white);display:flex;align-items:center;gap:9px}
+  .logo .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#06121a;font-weight:700;font-size:16px}
+  .logo .name b{font-weight:700;color:var(--cyan)}
+  .logo .dot{color:var(--blue);margin-left:-7px}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
+  @media(max-width:780px){.navlinks{display:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn-pri{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;box-shadow:0 8px 24px rgba(34,211,238,.25)}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.4)}
+  .btn-gho{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
+  .btn-gho:hover{border-color:var(--cyan);color:var(--cyan)}
+  .btn-wa{background:#25d366;color:#03260f}
+  .btn-wa:hover{transform:translateY(-2px)}
+
+  .phero{position:relative;padding:74px 0 30px;text-align:center;overflow:hidden}
+  .phero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:700px;height:460px;background:radial-gradient(ellipse,rgba(34,211,238,.14),transparent 65%);z-index:0}
+  .phero .wrap{position:relative;z-index:1}
+  .eyebrow{color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+  .phero h1{font-size:clamp(36px,6vw,60px);font-weight:700;letter-spacing:-2px;margin-bottom:16px}
+  .phero h1 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .phero p{color:var(--mute);font-size:18px;max-width:520px;margin:0 auto}
+
+  section{padding:50px 0 70px}
+  .contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}
+  @media(max-width:880px){.contact-grid{grid-template-columns:1fr}}
+
+  /* form */
+  .form-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:38px 34px}
+  .fg{margin-bottom:20px}
+  .fg label{display:block;font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--white);margin-bottom:8px;font-family:'Space Grotesk'}
+  .fg label .req{color:var(--cyan)}
+  .fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--white);font-family:inherit;font-size:15px;outline:none;transition:border-color .2s}
+  .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--cyan)}
+  .fg textarea{resize:vertical;min-height:120px}
+  .fg select option{background:var(--panel)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:560px){.row2{grid-template-columns:1fr}}
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:560px){.checks{grid-template-columns:1fr}}
+  .chk{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;transition:border-color .2s;font-size:13.5px;color:var(--white)}
+  .chk:hover{border-color:rgba(34,211,238,.4)}
+  .chk input{width:auto;margin-top:3px;accent-color:var(--cyan);flex-shrink:0}
+  .form-card .btn{width:100%;justify-content:center;font-size:16px;padding:15px}
+  .success-msg{display:none;background:linear-gradient(135deg,rgba(34,211,238,.1),rgba(59,130,246,.1));border:1px solid rgba(34,211,238,.4);border-radius:14px;padding:24px;text-align:center;color:var(--white);font-size:16px;line-height:1.6}
+  .success-msg b{color:var(--cyan)}
+  .err-msg{display:none;color:#f87171;font-size:14px;margin-top:12px;text-align:center}
+
+  /* info side */
+  .info-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:32px 30px;margin-bottom:18px}
+  .info-card.hl{background:linear-gradient(180deg,rgba(34,211,238,.06),var(--panel));border-color:rgba(34,211,238,.35)}
+  .info-card .ic{font-size:24px;margin-bottom:10px}
+  .info-card h3{font-size:18px;font-weight:600;margin-bottom:8px}
+  .info-card .big{font-family:'Space Grotesk';font-weight:700;font-size:22px;color:var(--cyan);margin-bottom:14px}
+  .info-card p{color:var(--mute);font-size:14.5px;margin-bottom:6px}
+  .info-card p b{color:var(--white)}
+  .info-card a.mail{color:var(--cyan);font-size:16px;font-weight:600}
+
+  footer{padding:54px 0 30px;border-top:1px solid var(--line);margin-top:50px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
+  .foot-col h4{font-family:'Space Grotesk';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .foot-col p{font-size:14px;color:var(--mute);margin-bottom:6px}
+  .foot-col a{color:var(--mute);font-size:14px;display:block;margin-bottom:6px;transition:color .2s}
+  .foot-col a:hover{color:var(--cyan)}
+  .foot-bot{border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal-up{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+  .reveal-up.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+    <div class="navlinks">
+      <a href="index.html">Utama</a>
+      <a href="servis.html">Servis</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="hubungi.html" class="active">Hubungi</a>
+    </div>
+    <a href="https://wa.me/60182399476" class="btn btn-pri" style="padding:10px 22px;font-size:14px">WhatsApp Saya</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="wrap">
+    <span class="eyebrow">Hubungi</span>
+    <h1>Jom mula <span class="g">projek anda</span>.</h1>
+    <p>Isi borang ini atau WhatsApp kami terus. Konsultasi percuma, tanpa komitmen.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="form-card reveal-up">
+        <form id="contactForm">
+          <!-- Web3Forms hidden fields -->
+          <input type="hidden" name="access_key" value="0ccfc1aa-9134-4cd6-8ee4-6aac4af6b692">
+          <input type="hidden" name="subject" value="Permintaan Baru — AdamSofi Web Service">
+          <input type="hidden" name="from_name" value="AdamSofi Website">
+          <!-- Web3Forms access key sudah disetkan. Pastikan email penerima dalam dashboard Web3Forms = muhammad.adamx96@gmail.com -->
+          <!-- Honeypot anti-spam -->
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="row2">
+            <div class="fg"><label>Nama Penuh <span class="req">*</span></label><input type="text" name="Nama" placeholder="Nama anda" required></div>
+            <div class="fg"><label>Nombor WhatsApp <span class="req">*</span></label><input type="tel" name="WhatsApp" placeholder="0123456789" required></div>
+          </div>
+          <div class="row2">
+            <div class="fg"><label>Emel <span class="req">*</span></label><input type="email" name="Emel" placeholder="anda@email.com" required></div>
+            <div class="fg"><label>Nama Bisnes <span class="req">*</span></label><input type="text" name="Bisnes" placeholder="Nama bisnes anda" required></div>
+          </div>
+          <div class="fg">
+            <label>Jenis Pakej <span class="req">*</span></label>
+            <select name="Pakej" required>
+              <option value="">— Pilih pakej —</option>
+              <option>Starter — RM 500</option>
+              <option>Professional — RM 1,200</option>
+              <option>Enterprise — RM 2,500+</option>
+              <option>Belum pasti / Nak tanya dulu</option>
+            </select>
+          </div>
+          <div class="fg">
+            <label>Add-ons (pilihan)</label>
+            <div class="checks">
+              <label class="chk"><input type="checkbox" name="Add-on" value="Domain .my/.com.my (RM80/thn)"> Domain .my / .com.my <span style="color:var(--mute)">(RM80/thn)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Email Rasmi (RM120/thn)"> Email Rasmi <span style="color:var(--mute)">(RM120/thn)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Logo Design (RM200-400)"> Logo Design <span style="color:var(--mute)">(RM200–400)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Copywriting (RM150/hlmn)"> Copywriting <span style="color:var(--mute)">(RM150/hlmn)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Google My Business (RM150)"> Google My Business <span style="color:var(--mute)">(RM150)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Facebook Pixel + Analytics (RM200)"> Facebook Pixel + Analytics <span style="color:var(--mute)">(RM200)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Blog/Artikel SEO (RM100/artikel)"> Blog / Artikel SEO <span style="color:var(--mute)">(RM100/artikel)</span></label>
+              <label class="chk"><input type="checkbox" name="Add-on" value="Terjemahan BM/EN/CN (RM100/bahasa)"> Terjemahan BM/EN/CN <span style="color:var(--mute)">(RM100/bahasa)</span></label>
+            </div>
+          </div>
+          <div class="fg">
+            <label>Penerangan Ringkas <span class="req">*</span></label>
+            <textarea name="Penerangan" placeholder="Cerita sikit tentang bisnes anda dan apa yang anda perlukan..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-pri" id="submitBtn">Hantar Permintaan →</button>
+          <div class="err-msg" id="errMsg">Maaf, ada masalah menghantar. Sila cuba lagi atau WhatsApp kami terus.</div>
+        </form>
+        <div class="success-msg" id="successMsg">
+          ✅ <b>Terima kasih!</b> Kami akan hubungi anda dalam masa 24 jam.<br>Semak WhatsApp atau email anda.
+        </div>
+      </div>
+
+      <!-- INFO -->
+      <div class="reveal-up">
+        <div class="info-card hl">
+          <div class="ic">💬</div>
+          <h3>WhatsApp Terus</h3>
+          <div class="big">+60 18-239 9476</div>
+          <a href="https://wa.me/60182399476" class="btn btn-wa" style="width:100%;justify-content:center">Chat Sekarang →</a>
+        </div>
+        <div class="info-card">
+          <div class="ic">📧</div>
+          <h3>Email</h3>
+          <a href="mailto:muhammad.adamx96@gmail.com" class="mail">muhammad.adamx96@gmail.com</a>
+        </div>
+        <div class="info-card">
+          <div class="ic">⏰</div>
+          <h3>Waktu Respons</h3>
+          <p><b>Isnin–Jumaat:</b> 9am–6pm</p>
+          <p><b>Sabtu:</b> 10am–2pm</p>
+          <p style="margin-top:8px">Respons biasanya dalam masa 24 jam.</p>
+        </div>
+        <div class="info-card">
+          <div class="ic">🎯</div>
+          <h3>Konsultasi Percuma</h3>
+          <p>Tiada komitmen. Kami dengar keperluan anda dan cadangkan penyelesaian terbaik.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:280px">
+        <a href="index.html" class="logo" style="margin-bottom:12px"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+        <p>Landing page pantas &amp; berpatutan untuk bisnes Malaysia.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Pautan</h4>
+        <a href="index.html">Utama</a>
+        <a href="servis.html">Servis &amp; Harga</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="hubungi.html">Hubungi</a>
+      </div>
+      <div class="foot-col">
+        <h4>Hubungi</h4>
+        <a href="https://wa.me/60182399476">WhatsApp: 018-2399476</a>
+        <a href="#">Threads: @mhmd.adam44</a>
+        <a href="mailto:muhammad.adamx96@gmail.com">muhammad.adamx96@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 AdamSofi. Hak cipta terpelihara.</span>
+      <span>Dibina di Malaysia 🇲🇾</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60182399476" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal-up').forEach(el=>obs.observe(el));
+
+  // Form submit via Web3Forms AJAX → inline success (no redirect)
+  const form=document.getElementById('contactForm');
+  const okMsg=document.getElementById('successMsg');
+  const errMsg=document.getElementById('errMsg');
+  const btn=document.getElementById('submitBtn');
+  form.addEventListener('submit',async(e)=>{
+    e.preventDefault();
+    errMsg.style.display='none';
+    const key=form.querySelector('[name=access_key]').value;
+    // If access key not yet configured, guide the user to WhatsApp instead of failing silently
+    if(key==='PLACEHOLDER_ACCESS_KEY'){
+      errMsg.textContent='Borang belum disambung. Sila WhatsApp kami terus di 018-2399476.';
+      errMsg.style.display='block';
+      return;
+    }
+    btn.textContent='Menghantar...';btn.disabled=true;
+    try{
+      const data=new FormData(form);
+      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:data});
+      const json=await res.json();
+      if(json.success){
+        form.style.display='none';
+        okMsg.style.display='block';
+        okMsg.scrollIntoView({behavior:'smooth',block:'center'});
+      }else{throw new Error(json.message||'gagal')}
+    }catch(err){
+      errMsg.style.display='block';
+      btn.textContent='Hantar Permintaan →';btn.disabled=false;
+    }
+  });
+</script>
+</body>
+</html>

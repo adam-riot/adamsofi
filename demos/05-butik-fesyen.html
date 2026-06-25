@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wardrobe by Nur — Koleksi Fesyen Wanita</title>
+<meta name="description" content="Butik fesyen wanita eksklusif. Casual, formal, kurung moden. Ditubuhkan 2019, Klang Valley.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+  :root{
+    --rose:#e8b4b8;--rose-d:#c98b90;--cream:#fdf8f5;--char:#1a1a1a;--char2:#262321;
+    --ink:#2b2624;--mute:#9b8e88;--line:#e6dcd6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7;overflow-x:hidden}
+  h1,h2,h3{font-family:'Cormorant Garamond',serif;line-height:1.1;font-weight:600}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+  img{max-width:100%}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(253,248,245,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .logo{font-family:'Cormorant Garamond';font-weight:700;font-size:26px;letter-spacing:1px}
+  .logo b{color:var(--rose-d)}
+  .navlinks{display:flex;gap:34px}
+  .navlinks a{font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);transition:color .2s}
+  .navlinks a:hover{color:var(--rose-d)}
+  @media(max-width:820px){.navlinks{display:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border-radius:2px;transition:.25s;cursor:pointer;border:none}
+  .btn-pri{background:var(--char);color:var(--cream)}
+  .btn-pri:hover{background:var(--rose-d)}
+  .btn-out{background:transparent;border:1px solid var(--char);color:var(--char)}
+  .btn-out:hover{background:var(--char);color:var(--cream)}
+
+  /* hero */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden;background:linear-gradient(120deg,#f3e3df 0%,#fdf8f5 55%,#efd9d6 100%)}
+  .hero-art{position:absolute;inset:0;z-index:0}
+  .hero-art .shape{position:absolute;border-radius:50%;filter:blur(2px)}
+  .s1{width:520px;height:640px;right:-60px;top:-40px;background:linear-gradient(160deg,var(--rose),#d49ca0);border-radius:46% 54% 50% 50%/60% 55% 45% 40%;opacity:.55}
+  .s2{width:300px;height:300px;left:6%;bottom:-60px;background:radial-gradient(circle,rgba(233,180,184,.7),transparent 70%)}
+  .hero .wrap{position:relative;z-index:1}
+  .hero .tag{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--rose-d);margin-bottom:22px}
+  .hero h1{font-size:clamp(48px,8vw,92px);letter-spacing:-1px;margin-bottom:20px;max-width:760px}
+  .hero p{font-size:19px;color:var(--mute);max-width:460px;margin-bottom:36px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+
+  section{padding:100px 0}
+  .head{text-align:center;max-width:620px;margin:0 auto 60px}
+  .head .eb{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--rose-d);margin-bottom:14px}
+  .head h2{font-size:clamp(34px,5vw,56px)}
+  .head p{color:var(--mute);margin-top:12px}
+
+  /* koleksi */
+  .col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:820px){.col-grid{grid-template-columns:1fr}}
+  .col{position:relative;height:440px;border-radius:4px;overflow:hidden;display:flex;align-items:flex-end;cursor:pointer}
+  .col .bg{position:absolute;inset:0;transition:transform .6s ease}
+  .col:hover .bg{transform:scale(1.08)}
+  .c1 .bg{background:linear-gradient(180deg,#d8b8a0,#8a6650)}
+  .c2 .bg{background:linear-gradient(180deg,#2b2b33,#0d0d12)}
+  .c3 .bg{background:linear-gradient(180deg,#e8b4b8,#9c5f72)}
+  .col .ov{position:relative;z-index:1;width:100%;padding:28px;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);color:#fff}
+  .col .ov h3{font-size:30px}
+  .col .ov span{font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85}
+
+  /* bestseller */
+  .best{background:#fff}
+  .prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:900px){.prods{grid-template-columns:1fr 1fr}}
+  .prod{text-align:center}
+  .prod .pic{height:300px;border-radius:4px;margin-bottom:16px;position:relative;overflow:hidden}
+  .prod .pic .g{position:absolute;inset:0;transition:transform .5s}
+  .prod:hover .pic .g{transform:scale(1.06)}
+  .pg1{background:linear-gradient(150deg,#e8d3c0,#b98e74)}
+  .pg2{background:linear-gradient(150deg,#cdd2da,#5a6270)}
+  .pg3{background:linear-gradient(150deg,#f0c4c8,#c07f8a)}
+  .pg4{background:linear-gradient(150deg,#d8c4a8,#8a7350)}
+  .prod h3{font-size:22px;margin-bottom:4px}
+  .prod .price{color:var(--rose-d);font-size:15px;letter-spacing:1px}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+  @media(max-width:820px){.about-grid{grid-template-columns:1fr}}
+  .about-art{height:440px;border-radius:6px;background:linear-gradient(135deg,var(--rose),#9c6a72);position:relative;overflow:hidden}
+  .about-art::after{content:"est. 2019";position:absolute;inset:0;display:grid;place-items:center;font-family:'Cormorant Garamond';font-size:60px;color:rgba(255,255,255,.4)}
+  .about-txt h2{font-size:clamp(32px,4.5vw,50px);margin-bottom:20px}
+  .about-txt p{color:var(--mute);margin-bottom:16px;font-size:16px}
+
+  /* testimoni */
+  .tst{background:var(--char);color:var(--cream)}
+  .tst .head h2{color:var(--cream)}
+  .tst .head .eb{color:var(--rose)}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:820px){.quotes{grid-template-columns:1fr}}
+  .qt{background:var(--char2);border:1px solid #36302d;border-radius:6px;padding:32px}
+  .qt .st{color:var(--rose);letter-spacing:3px;margin-bottom:16px}
+  .qt p{font-family:'Cormorant Garamond';font-size:21px;font-style:italic;margin-bottom:18px;color:#f0e6e0}
+  .qt .nm{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--rose)}
+
+  /* instagram */
+  .ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  @media(max-width:820px){.ig-grid{grid-template-columns:repeat(3,1fr)}}
+  .ig{aspect-ratio:1;border-radius:4px;position:relative;overflow:hidden;cursor:pointer}
+  .ig .ov{position:absolute;inset:0;background:rgba(26,26,26,.55);display:grid;place-items:center;opacity:0;transition:.3s;color:#fff;font-size:24px}
+  .ig:hover .ov{opacity:1}
+  .ig:nth-child(1){background:linear-gradient(135deg,#e8b4b8,#b07682)}
+  .ig:nth-child(2){background:linear-gradient(135deg,#d8c4a8,#8a7350)}
+  .ig:nth-child(3){background:linear-gradient(135deg,#cdd2da,#5a6270)}
+  .ig:nth-child(4){background:linear-gradient(135deg,#f0c4c8,#c07f8a)}
+  .ig:nth-child(5){background:linear-gradient(135deg,#e8d3c0,#b98e74)}
+  .ig:nth-child(6){background:linear-gradient(135deg,#d49ca0,#8a4f5a)}
+
+  /* cta */
+  .cta{text-align:center;background:linear-gradient(120deg,#f3e3df,#efd9d6)}
+  .cta h2{font-size:clamp(34px,5vw,58px);margin-bottom:16px}
+  .cta p{color:var(--mute);margin-bottom:32px;font-size:17px}
+
+  footer{background:var(--char);color:var(--mute);padding:54px 0 28px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:30px}
+  footer .logo{color:var(--cream);margin-bottom:10px}
+  footer h4{color:var(--cream);font-family:'Jost';font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px}
+  footer a{display:block;margin-bottom:8px;font-size:14px;transition:.2s}
+  footer a:hover{color:var(--rose)}
+  .foot-bot{border-top:1px solid #36302d;padding-top:22px;font-size:13px;text-align:center}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.4);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo">Wardrobe <b>by Nur</b></a>
+    <div class="navlinks">
+      <a href="#koleksi">Koleksi</a>
+      <a href="#best">Bestseller</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#ig">Instagram</a>
+    </div>
+    <a href="https://wa.me/60182399476" class="btn btn-pri">Order WhatsApp</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-art"><div class="shape s1"></div><div class="shape s2"></div></div>
+  <div class="wrap">
+    <div class="tag">Koleksi Raya 2026</div>
+    <h1>Koleksi Terkini.<br>Gaya Tanpa Kompromi.</h1>
+    <p>Fesyen wanita yang elegan untuk setiap majlis — dari santai ke formal. Dijahit dengan teliti, direka untuk anda.</p>
+    <div class="hero-cta">
+      <a href="#koleksi" class="btn btn-pri">Lihat Koleksi</a>
+      <a href="https://wa.me/60182399476" class="btn btn-out">Order Sekarang</a>
+    </div>
+  </div>
+</header>
+
+<section id="koleksi">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Kategori</div>
+      <h2>Koleksi Kami</h2>
+      <p>Tiga koleksi utama untuk setiap gaya dan majlis.</p>
+    </div>
+    <div class="col-grid">
+      <div class="col c1 reveal"><div class="bg"></div><div class="ov"><span>Santai &amp; Selesa</span><h3>Casual</h3></div></div>
+      <div class="col c2 reveal"><div class="bg"></div><div class="ov"><span>Untuk Majlis Rasmi</span><h3>Formal</h3></div></div>
+      <div class="col c3 reveal"><div class="bg"></div><div class="ov"><span>Tradisi Moden</span><h3>Kurung Moden</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="best" class="best">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Pilihan Pelanggan</div>
+      <h2>Bestseller</h2>
+      <p>Yang paling laris bulan ini.</p>
+    </div>
+    <div class="prods">
+      <div class="prod reveal"><div class="pic"><div class="g pg1"></div></div><h3>Kaftan Aisya</h3><div class="price">RM 189</div></div>
+      <div class="prod reveal"><div class="pic"><div class="g pg2"></div></div><h3>Blazer Set Mira</h3><div class="price">RM 299</div></div>
+      <div class="prod reveal"><div class="pic"><div class="g pg3"></div></div><h3>Kurung Sofea</h3><div class="price">RM 159</div></div>
+      <div class="prod reveal"><div class="pic"><div class="g pg4"></div></div><h3>Blouse Linen</h3><div class="price">RM 89</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="tentang">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-art reveal"></div>
+      <div class="about-txt reveal">
+        <div class="eb" style="font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--rose-d);margin-bottom:14px">Kisah Kami</div>
+        <h2>Ditubuhkan dengan Cinta, 2019</h2>
+        <p>Wardrobe by Nur bermula dari sebuah bilik kecil di Klang Valley. Apa yang dimulakan sebagai hobi menjahit kini menjadi destinasi fesyen pilihan ribuan wanita di seluruh Malaysia.</p>
+        <p>Setiap helai pakaian kami direka dengan teliti — fabrik berkualiti, jahitan kemas, dan harga yang berpatutan. Kerana setiap wanita berhak tampil bergaya.</p>
+        <a href="https://wa.me/60182399476" class="btn btn-out" style="margin-top:10px">Hubungi Kami</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tst">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">Testimoni</div>
+      <h2>Kata Pelanggan</h2>
+    </div>
+    <div class="quotes">
+      <div class="qt reveal"><div class="st">★★★★★</div><p>"Kualiti fabrik memang terbaik. Jahitan kemas, muat dengan sempurna. Akan order lagi!"</p><div class="nm">— Aina, Shah Alam</div></div>
+      <div class="qt reveal"><div class="st">★★★★★</div><p>"Order kurung untuk raya, sampai cepat dan cantik macam dalam gambar. Highly recommended!"</p><div class="nm">— Farah, Kuala Lumpur</div></div>
+      <div class="qt reveal"><div class="st">★★★★★</div><p>"Customer service sangat mesra. Bantu pilih saiz dan warna. Puas hati sangat!"</p><div class="nm">— Liyana, Petaling Jaya</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="ig">
+  <div class="wrap">
+    <div class="head reveal">
+      <div class="eb">@wardrobebynur</div>
+      <h2>Ikuti Kami di Instagram</h2>
+      <p>Inspirasi gaya harian dan koleksi terbaru.</p>
+    </div>
+    <div class="ig-grid reveal">
+      <div class="ig"><div class="ov">♡</div></div>
+      <div class="ig"><div class="ov">♡</div></div>
+      <div class="ig"><div class="ov">♡</div></div>
+      <div class="ig"><div class="ov">♡</div></div>
+      <div class="ig"><div class="ov">♡</div></div>
+      <div class="ig"><div class="ov">♡</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap reveal">
+    <h2>Jumpa Gaya Anda Hari Ini</h2>
+    <p>Order terus melalui WhatsApp — mudah, pantas, mesra.</p>
+    <a href="https://wa.me/60182399476" class="btn btn-pri">Order via WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div style="max-width:280px">
+        <div class="logo" style="font-size:24px">Wardrobe <b style="color:var(--rose)">by Nur</b></div>
+        <p style="font-size:14px">Butik fesyen wanita. Elegan, berpatutan, untuk setiap wanita Malaysia.</p>
+      </div>
+      <div><h4>Koleksi</h4><a href="#koleksi">Casual</a><a href="#koleksi">Formal</a><a href="#koleksi">Kurung Moden</a></div>
+      <div><h4>Hubungi</h4><a href="https://wa.me/60182399476">WhatsApp: 018-2399476</a><a href="#">@wardrobebynur</a><a href="#">Klang Valley</a></div>
+    </div>
+    <div class="foot-bot">© 2026 Wardrobe by Nur · Demo oleh AdamSofi</div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60182399476" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const hero=document.querySelector('.hero-art');let t=false;
+  window.addEventListener('scroll',()=>{if(!t){requestAnimationFrame(()=>{const y=window.scrollY;if(y<800&&hero)hero.style.transform='translateY('+(y*0.3)+'px)';t=false});t=true}},{passive:true});
+</script>
+</body>
+</html>

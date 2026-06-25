@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — AdamSofi</title>
+<meta name="description" content="Lihat hasil kerja AdamSofi: projek featured CodeCikgu dan koleksi demo website untuk pelbagai industri.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+  :root{
+    --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
+    --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.5px}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+  a{text-decoration:none}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(8,9,13,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:'Space Grotesk';font-weight:700;font-size:21px;color:var(--white);display:flex;align-items:center;gap:9px}
+  .logo .mk{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--blue));display:grid;place-items:center;color:#06121a;font-weight:700;font-size:16px}
+  .logo .name b{font-weight:700;color:var(--cyan)}
+  .logo .dot{color:var(--blue);margin-left:-7px}
+  .navlinks{display:flex;gap:30px}
+  .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
+  @media(max-width:780px){.navlinks{display:none}}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn-pri{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;box-shadow:0 8px 24px rgba(34,211,238,.25)}
+  .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.4)}
+  .btn-gho{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
+  .btn-gho:hover{border-color:var(--cyan);color:var(--cyan)}
+
+  /* page hero */
+  .phero{position:relative;padding:80px 0 50px;text-align:center;overflow:hidden}
+  .phero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:700px;height:480px;background:radial-gradient(ellipse,rgba(34,211,238,.14),transparent 65%);z-index:0}
+  .phero .wrap{position:relative;z-index:1}
+  .eyebrow{color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+  .phero h1{font-size:clamp(38px,6vw,64px);font-weight:700;letter-spacing:-2px;margin-bottom:18px}
+  .phero h1 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .phero p{color:var(--mute);font-size:18px;max-width:540px;margin:0 auto}
+
+  section{padding:50px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 44px}
+  .sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:700;letter-spacing:-1px}
+  .sec-head p{color:var(--mute);font-size:16px;margin-top:12px}
+
+  /* featured CodeCikgu */
+  .feat{position:relative;border-radius:24px;padding:2px;background:linear-gradient(135deg,var(--cyan),var(--blue));margin-bottom:20px}
+  .feat-inner{background:var(--panel);border-radius:22px;overflow:hidden;position:relative}
+  .feat-glow{position:absolute;inset:0;background:radial-gradient(ellipse at 80% 0%,rgba(34,211,238,.12),transparent 55%);pointer-events:none}
+  .feat-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:0;position:relative;z-index:1}
+  @media(max-width:840px){.feat-grid{grid-template-columns:1fr}}
+  .feat-shot{min-height:340px;background:linear-gradient(135deg,#0b3d5c,#0a0f1f);position:relative;display:flex;align-items:flex-end;padding:30px;overflow:hidden}
+  .feat-shot::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(34,211,238,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.1) 1px,transparent 1px);background-size:38px 38px;mask:radial-gradient(ellipse 80% 80% at 60% 30%,#000,transparent 75%)}
+  .feat-shot .mock{position:relative;z-index:1;font-family:'Space Grotesk';font-weight:700;font-size:42px;color:var(--white);text-shadow:0 4px 24px rgba(0,0,0,.5)}
+  .feat-shot .mock span{color:var(--cyan)}
+  .feat-body{padding:40px 38px}
+  .feat-body .tag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(34,211,238,.15),rgba(59,130,246,.15));border:1px solid rgba(34,211,238,.4);color:var(--cyan);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:50px;margin-bottom:18px}
+  .feat-body h2{font-size:34px;font-weight:700;margin-bottom:8px}
+  .feat-body .sub{color:var(--mute);font-size:16px;margin-bottom:22px}
+  .feat-body .meta{margin-bottom:10px;font-size:14px;color:var(--white)}
+  .feat-body .meta b{color:var(--cyan);font-family:'Space Grotesk'}
+  .feat-body .stack{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
+  .feat-body .stack span{font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--white);padding:5px 12px;border-radius:50px}
+  .feat-body .status{display:inline-flex;align-items:center;gap:7px;color:#4ade80;font-size:14px;font-weight:600;margin-bottom:24px}
+  .feat-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* filter tabs */
+  .tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
+  .tab{background:var(--panel2);border:1px solid var(--line);color:var(--mute);font-family:'Space Grotesk';font-weight:600;font-size:14px;padding:10px 22px;border-radius:50px;cursor:pointer;transition:.2s}
+  .tab:hover{color:var(--white);border-color:var(--cyan)}
+  .tab.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;border-color:transparent}
+
+  /* demo grid */
+  .pf{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:880px){.pf{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.pf{grid-template-columns:1fr}}
+  .pcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s,opacity .35s;display:block;color:inherit}
+  .pcard:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:0 14px 36px rgba(34,211,238,.12)}
+  .pcard.hide{display:none}
+  .pthumb{height:160px;display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:.5px;position:relative;text-align:center;padding:0 16px}
+  .p1{background:linear-gradient(135deg,#c0673c,#2b1d14);color:#f6f0e6}
+  .p2{background:linear-gradient(135deg,#1c1d22,#000);color:#c9a24b}
+  .p3{background:linear-gradient(135deg,#1ba8a0,#0d2b3e);color:#fff}
+  .p4{background:linear-gradient(135deg,#d4ff3d,#0a0a0a);color:#0a0a0a}
+  .p5{background:linear-gradient(135deg,#e8b4b8,#9c5f72);color:#fff;font-family:'Space Grotesk'}
+  .p6{background:linear-gradient(135deg,#16294a,#c9a84c);color:#fff}
+  .p7{background:linear-gradient(135deg,#6c63ff,#ffd93d);color:#fff}
+  .p8{background:linear-gradient(135deg,#0066ff,#00e5ff);color:#001226}
+  .p9{background:linear-gradient(135deg,#0d4f4f,#87a878);color:#faf7f2}
+  .p10{background:linear-gradient(135deg,#8b0000,#d4a017);color:#fdf2e0}
+  .badge{position:absolute;top:12px;left:12px;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:5px 11px;border-radius:50px;background:rgba(8,9,13,.6);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.18)}
+  .pmeta{padding:22px 24px}
+  .pmeta .cat{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:7px}
+  .pmeta h3{font-size:19px;font-weight:600;margin-bottom:5px}
+  .pmeta p{color:var(--mute);font-size:14px}
+  .pmeta .v{margin-top:14px;font-size:14px;color:var(--cyan);font-weight:600;font-family:'Space Grotesk'}
+
+  /* cta */
+  .final{text-align:center}
+  .final-box{background:linear-gradient(135deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:28px;padding:60px 36px;position:relative;overflow:hidden}
+  .final-box::before{content:"";position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:500px;height:380px;background:radial-gradient(ellipse,rgba(34,211,238,.16),transparent 65%)}
+  .final-box .inner{position:relative;z-index:1}
+  .final-box h2{font-size:clamp(30px,4.5vw,46px);font-weight:700;margin-bottom:14px}
+  .final-box h2 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .final-box p{color:var(--mute);font-size:17px;max-width:440px;margin:0 auto 28px}
+
+  footer{padding:54px 0 30px;border-top:1px solid var(--line);margin-top:80px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
+  .foot-col h4{font-family:'Space Grotesk';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .foot-col p{font-size:14px;color:var(--mute);margin-bottom:6px}
+  .foot-col a{color:var(--mute);font-size:14px;display:block;margin-bottom:6px;transition:color .2s}
+  .foot-col a:hover{color:var(--cyan)}
+  .foot-bot{border-top:1px solid var(--line);padding-top:22px;font-size:13px;color:var(--mute);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+  .wa-float{position:fixed;bottom:22px;right:22px;z-index:60;background:#25d366;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .2s}
+  .wa-float:hover{transform:scale(1.08)}
+  .wa-float svg{width:30px;height:30px;fill:#fff}
+
+  .reveal-up{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+  .reveal-up.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+    <div class="navlinks">
+      <a href="index.html">Utama</a>
+      <a href="servis.html">Servis</a>
+      <a href="portfolio.html" class="active">Portfolio</a>
+      <a href="hubungi.html">Hubungi</a>
+    </div>
+    <a href="hubungi.html" class="btn btn-pri" style="padding:10px 22px;font-size:14px">Mulakan Projek</a>
+  </div>
+</nav>
+
+<header class="phero">
+  <div class="wrap">
+    <span class="eyebrow">Portfolio</span>
+    <h1>Hasil kerja yang <span class="g">bercakap</span>.</h1>
+    <p>Dari platform pembelajaran sebenar ke demo website untuk pelbagai industri — inilah kualiti yang anda boleh harapkan.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal-up" style="margin-bottom:30px">
+      <span class="eyebrow">🏆 Projek Featured</span>
+      <h2>Projek sebenar yang sedang live</h2>
+    </div>
+    <div class="feat reveal-up">
+      <div class="feat-inner">
+        <div class="feat-glow"></div>
+        <div class="feat-grid">
+          <div class="feat-shot"><div class="mock">Code<span>Cikgu</span></div></div>
+          <div class="feat-body">
+            <span class="tag">⭐ Featured Project</span>
+            <h2>CodeCikgu.com</h2>
+            <div class="sub">Platform Pembelajaran KSSM Sains Komputer Gamifikasi</div>
+            <div class="meta"><b>160</b> soalan kuiz · <b>Sistem tutoring</b> · <b>PDF download</b> · <b>Admin dashboard</b></div>
+            <div class="stack">
+              <span>Next.js 15</span><span>TypeScript</span><span>TailwindCSS</span><span>Supabase</span><span>Vercel</span>
+            </div>
+            <div class="status">✅ Status: Live</div>
+            <div class="feat-cta">
+              <a href="https://codecikgu.com" target="_blank" rel="noopener" class="btn btn-pri">Lawati codecikgu.com →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal-up">
+      <h2>Demo Websites</h2>
+      <p>Contoh kerja untuk pelbagai industri. Klik untuk lihat demo penuh.</p>
+    </div>
+
+    <div class="tabs reveal-up">
+      <button class="tab active" data-filter="semua">Semua</button>
+      <button class="tab" data-filter="fnb">F&amp;B</button>
+      <button class="tab" data-filter="fesyen">Fesyen</button>
+      <button class="tab" data-filter="hartanah">Hartanah</button>
+      <button class="tab" data-filter="pendidikan">Pendidikan</button>
+      <button class="tab" data-filter="elektronik">Elektronik</button>
+      <button class="tab" data-filter="wellness">Wellness</button>
+    </div>
+
+    <div class="pf" id="grid">
+      <a href="demos/01-cafe-kopi-lembah.html" target="_blank" class="pcard" data-cat="fnb">
+        <div class="pthumb p1"><span class="badge">F&amp;B</span>Kopi Lembah</div>
+        <div class="pmeta"><div class="cat">F&amp;B · Kafe</div><h3>Kafe Kopi Lembah</h3><p>Menu, review, tempahan WhatsApp.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/02-barbershop-blade.html" target="_blank" class="pcard" data-cat="wellness">
+        <div class="pthumb p2"><span class="badge">Gaya Hidup</span>BLADE &amp; CO.</div>
+        <div class="pmeta"><div class="cat">Barbershop</div><h3>Blade &amp; Co.</h3><p>Senarai harga, tempah slot.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/03-klinik-gigi-senyum.html" target="_blank" class="pcard" data-cat="wellness">
+        <div class="pthumb p3"><span class="badge">Kesihatan</span>Klinik Senyum</div>
+        <div class="pmeta"><div class="cat">Klinik Gigi</div><h3>Klinik Gigi Senyum</h3><p>Servis, FAQ, sistem temujanji.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/04-gym-forge.html" target="_blank" class="pcard" data-cat="wellness">
+        <div class="pthumb p4"><span class="badge" style="border-color:rgba(0,0,0,.25);background:rgba(255,255,255,.5)">Wellness</span>FORGE.</div>
+        <div class="pmeta"><div class="cat">Gym · Fitness</div><h3>Gym Forge</h3><p>Program, pelan harga, free trial.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/05-butik-fesyen.html" target="_blank" class="pcard" data-cat="fesyen">
+        <div class="pthumb p5"><span class="badge">Fesyen</span>Wardrobe by Nur</div>
+        <div class="pmeta"><div class="cat">Butik Fesyen</div><h3>Wardrobe by Nur</h3><p>Koleksi, bestseller, Instagram.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/06-hartanah-realty.html" target="_blank" class="pcard" data-cat="hartanah">
+        <div class="pthumb p6"><span class="badge">Hartanah</span>Prima Realty</div>
+        <div class="pmeta"><div class="cat">Hartanah</div><h3>Prima Realty</h3><p>Listing, ejen, carian hartanah.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/07-tadika-ceria.html" target="_blank" class="pcard" data-cat="pendidikan">
+        <div class="pthumb p7"><span class="badge">Pendidikan</span>Tadika Ceria</div>
+        <div class="pmeta"><div class="cat">Tadika</div><h3>Tadika Ceria Bestari</h3><p>Program, yuran, borang daftar.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/08-kedai-elektronik.html" target="_blank" class="pcard" data-cat="elektronik">
+        <div class="pthumb p8"><span class="badge" style="border-color:rgba(0,0,0,.25)">Elektronik</span>TechZone</div>
+        <div class="pmeta"><div class="cat">Elektronik</div><h3>TechZone Gadget</h3><p>Produk, flash sale, servis.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/09-spa-wellness.html" target="_blank" class="pcard" data-cat="wellness">
+        <div class="pthumb p9"><span class="badge">Wellness</span>Serenity Spa</div>
+        <div class="pmeta"><div class="cat">Spa &amp; Wellness</div><h3>Serenity Spa KL</h3><p>Rawatan, pakej, tempahan.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+      <a href="demos/10-restoran-tomyam.html" target="_blank" class="pcard" data-cat="fnb">
+        <div class="pthumb p10"><span class="badge">F&amp;B</span>Tom Yam SB</div>
+        <div class="pmeta"><div class="cat">Restoran</div><h3>Tom Yam Sungai Besar</h3><p>Menu, signature, review.</p><div class="v">Lihat Demo →</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="final-box reveal-up">
+      <div class="inner">
+        <h2>Nak website macam ni untuk <span class="g">bisnes anda</span>?</h2>
+        <p>Konsultasi percuma, tanpa komitmen. Kita bincang keperluan anda dulu.</p>
+        <a href="hubungi.html" class="btn btn-pri" style="font-size:16px;padding:15px 30px">Hubungi Kami →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col" style="max-width:280px">
+        <a href="index.html" class="logo" style="margin-bottom:12px"><span class="mk">A</span> <span class="name">Adam<b>Sofi</b></span><span class="dot">.</span></a>
+        <p>Landing page pantas &amp; berpatutan untuk bisnes Malaysia.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Pautan</h4>
+        <a href="index.html">Utama</a>
+        <a href="servis.html">Servis &amp; Harga</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="hubungi.html">Hubungi</a>
+      </div>
+      <div class="foot-col">
+        <h4>Hubungi</h4>
+        <a href="https://wa.me/60182399476">WhatsApp: 018-2399476</a>
+        <a href="#">Threads: @mhmd.adam44</a>
+        <a href="mailto:muhammad.adamx96@gmail.com">muhammad.adamx96@gmail.com</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 AdamSofi. Hak cipta terpelihara.</span>
+      <span>Dibina di Malaysia 🇲🇾</span>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/60182399476" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.507 5.26l-.999 3.648 3.981-.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.247-.694.247-1.289.173-1.413z"/></svg>
+</a>
+
+<script>
+  const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.reveal-up').forEach(el=>obs.observe(el));
+
+  // Filter tabs
+  const tabs=document.querySelectorAll('.tab');
+  const cards=document.querySelectorAll('.pcard');
+  tabs.forEach(t=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    const f=t.dataset.filter;
+    cards.forEach(c=>{
+      const match=f==='semua'||c.dataset.cat===f;
+      if(match){c.classList.remove('hide');c.style.opacity=0;requestAnimationFrame(()=>c.style.opacity=1)}
+      else c.classList.add('hide');
+    });
+  }));
+</script>
+</body>
+</html>

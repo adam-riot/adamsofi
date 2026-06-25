@@ -236,5 +236,9 @@
   const obs=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
+<script>
+  window.va = window.va || function () { (window.vai = window.vai || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
