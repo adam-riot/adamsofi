@@ -7,15 +7,16 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="Hubungi AdamSofi untuk website bisnes anda. Konsultasi percuma, respons dalam 24 jam.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700,900&display=swap');
   :root{
     --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
     --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.5px}
+  body{font-family:'Satoshi',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Clash Display',sans-serif;line-height:1.08;letter-spacing:-.5px}
   .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
   a{text-decoration:none}
 
@@ -34,7 +35,7 @@
   .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
   .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
   @media(max-width:780px){.navlinks{display:none}}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Clash Display';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
   .btn-pri{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;box-shadow:0 8px 24px rgba(34,211,238,.25)}
   .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.4)}
   .btn-gho{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
@@ -45,7 +46,7 @@
   .phero{position:relative;padding:74px 0 30px;text-align:center;overflow:hidden}
   .phero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:700px;height:460px;background:radial-gradient(ellipse,rgba(34,211,238,.14),transparent 65%);z-index:0}
   .phero .wrap{position:relative;z-index:1}
-  .eyebrow{color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+  .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:block}
   .phero h1{font-size:clamp(36px,6vw,60px);font-weight:700;letter-spacing:-2px;margin-bottom:16px}
   .phero h1 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .phero p{color:var(--mute);font-size:18px;max-width:520px;margin:0 auto}
@@ -57,7 +58,7 @@
   /* form */
   .form-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:38px 34px}
   .fg{margin-bottom:20px}
-  .fg label{display:block;font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--white);margin-bottom:8px;font-family:'Space Grotesk'}
+  .fg label{display:block;font-size:13px;font-weight:600;letter-spacing:.5px;color:var(--white);margin-bottom:8px;font-family:'Clash Display'}
   .fg label .req{color:var(--cyan)}
   .fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;background:var(--bg);border:1px solid var(--line);border-radius:10px;color:var(--white);font-family:inherit;font-size:15px;outline:none;transition:border-color .2s}
   .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--cyan)}
@@ -80,14 +81,14 @@
   .info-card.hl{background:linear-gradient(180deg,rgba(34,211,238,.06),var(--panel));border-color:rgba(34,211,238,.35)}
   .info-card .ic{font-size:24px;margin-bottom:10px}
   .info-card h3{font-size:18px;font-weight:600;margin-bottom:8px}
-  .info-card .big{font-family:'Space Grotesk';font-weight:700;font-size:22px;color:var(--cyan);margin-bottom:14px}
+  .info-card .big{font-family:'Clash Display';font-weight:700;font-size:22px;color:var(--cyan);margin-bottom:14px}
   .info-card p{color:var(--mute);font-size:14.5px;margin-bottom:6px}
   .info-card p b{color:var(--white)}
   .info-card a.mail{color:var(--cyan);font-size:16px;font-weight:600}
 
   footer{padding:54px 0 30px;border-top:1px solid var(--line);margin-top:50px}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
-  .foot-col h4{font-family:'Space Grotesk';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .foot-col h4{font-family:'Clash Display';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
   .foot-col p{font-size:14px;color:var(--mute);margin-bottom:6px}
   .foot-col a{color:var(--mute);font-size:14px;display:block;margin-bottom:6px;transition:color .2s}
   .foot-col a:hover{color:var(--cyan)}

@@ -7,15 +7,16 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="Lihat hasil kerja AdamSofi: projek featured CodeCikgu dan koleksi demo website untuk pelbagai industri.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700,900&display=swap');
   :root{
     --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
     --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.5px}
+  body{font-family:'Satoshi',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Clash Display',sans-serif;line-height:1.08;letter-spacing:-.5px}
   .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
   a{text-decoration:none}
 
@@ -34,7 +35,7 @@
   .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
   .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
   @media(max-width:780px){.navlinks{display:none}}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Clash Display';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
   .btn-pri{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;box-shadow:0 8px 24px rgba(34,211,238,.25)}
   .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.4)}
   .btn-gho{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
@@ -44,7 +45,7 @@
   .phero{position:relative;padding:80px 0 50px;text-align:center;overflow:hidden}
   .phero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:700px;height:480px;background:radial-gradient(ellipse,rgba(34,211,238,.14),transparent 65%);z-index:0}
   .phero .wrap{position:relative;z-index:1}
-  .eyebrow{color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+  .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:block}
   .phero h1{font-size:clamp(38px,6vw,64px);font-weight:700;letter-spacing:-2px;margin-bottom:18px}
   .phero h1 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .phero p{color:var(--mute);font-size:18px;max-width:540px;margin:0 auto}
@@ -62,14 +63,14 @@
   @media(max-width:840px){.feat-grid{grid-template-columns:1fr}}
   .feat-shot{min-height:340px;background:linear-gradient(135deg,#0b3d5c,#0a0f1f);position:relative;display:flex;align-items:flex-end;padding:30px;overflow:hidden}
   .feat-shot::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(34,211,238,.1) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.1) 1px,transparent 1px);background-size:38px 38px;mask:radial-gradient(ellipse 80% 80% at 60% 30%,#000,transparent 75%)}
-  .feat-shot .mock{position:relative;z-index:1;font-family:'Space Grotesk';font-weight:700;font-size:42px;color:var(--white);text-shadow:0 4px 24px rgba(0,0,0,.5)}
+  .feat-shot .mock{position:relative;z-index:1;font-family:'Clash Display';font-weight:700;font-size:42px;color:var(--white);text-shadow:0 4px 24px rgba(0,0,0,.5)}
   .feat-shot .mock span{color:var(--cyan)}
   .feat-body{padding:40px 38px}
   .feat-body .tag{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,rgba(34,211,238,.15),rgba(59,130,246,.15));border:1px solid rgba(34,211,238,.4);color:var(--cyan);font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:50px;margin-bottom:18px}
   .feat-body h2{font-size:34px;font-weight:700;margin-bottom:8px}
   .feat-body .sub{color:var(--mute);font-size:16px;margin-bottom:22px}
   .feat-body .meta{margin-bottom:10px;font-size:14px;color:var(--white)}
-  .feat-body .meta b{color:var(--cyan);font-family:'Space Grotesk'}
+  .feat-body .meta b{color:var(--cyan);font-family:'Clash Display'}
   .feat-body .stack{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 24px}
   .feat-body .stack span{font-size:12px;background:var(--panel2);border:1px solid var(--line);color:var(--white);padding:5px 12px;border-radius:50px}
   .feat-body .status{display:inline-flex;align-items:center;gap:7px;color:#4ade80;font-size:14px;font-weight:600;margin-bottom:24px}
@@ -77,7 +78,7 @@
 
   /* filter tabs */
   .tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-bottom:40px}
-  .tab{background:var(--panel2);border:1px solid var(--line);color:var(--mute);font-family:'Space Grotesk';font-weight:600;font-size:14px;padding:10px 22px;border-radius:50px;cursor:pointer;transition:.2s}
+  .tab{background:var(--panel2);border:1px solid var(--line);color:var(--mute);font-family:'Clash Display';font-weight:600;font-size:14px;padding:10px 22px;border-radius:50px;cursor:pointer;transition:.2s}
   .tab:hover{color:var(--white);border-color:var(--cyan)}
   .tab.active{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;border-color:transparent}
 
@@ -88,12 +89,12 @@
   .pcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s,opacity .35s;display:block;color:inherit}
   .pcard:hover{transform:translateY(-6px);border-color:rgba(34,211,238,.5);box-shadow:0 14px 36px rgba(34,211,238,.12)}
   .pcard.hide{display:none}
-  .pthumb{height:160px;display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:22px;letter-spacing:.5px;position:relative;text-align:center;padding:0 16px}
+  .pthumb{height:160px;display:grid;place-items:center;font-family:'Clash Display';font-weight:700;font-size:22px;letter-spacing:.5px;position:relative;text-align:center;padding:0 16px}
   .p1{background:linear-gradient(135deg,#c0673c,#2b1d14);color:#f6f0e6}
   .p2{background:linear-gradient(135deg,#1c1d22,#000);color:#c9a24b}
   .p3{background:linear-gradient(135deg,#1ba8a0,#0d2b3e);color:#fff}
   .p4{background:linear-gradient(135deg,#d4ff3d,#0a0a0a);color:#0a0a0a}
-  .p5{background:linear-gradient(135deg,#e8b4b8,#9c5f72);color:#fff;font-family:'Space Grotesk'}
+  .p5{background:linear-gradient(135deg,#e8b4b8,#9c5f72);color:#fff;font-family:'Clash Display'}
   .p6{background:linear-gradient(135deg,#16294a,#c9a84c);color:#fff}
   .p7{background:linear-gradient(135deg,#6c63ff,#ffd93d);color:#fff}
   .p8{background:linear-gradient(135deg,#0066ff,#00e5ff);color:#001226}
@@ -104,7 +105,7 @@
   .pmeta .cat{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--cyan);margin-bottom:7px}
   .pmeta h3{font-size:19px;font-weight:600;margin-bottom:5px}
   .pmeta p{color:var(--mute);font-size:14px}
-  .pmeta .v{margin-top:14px;font-size:14px;color:var(--cyan);font-weight:600;font-family:'Space Grotesk'}
+  .pmeta .v{margin-top:14px;font-size:14px;color:var(--cyan);font-weight:600;font-family:'Clash Display'}
 
   /* cta */
   .final{text-align:center}
@@ -117,7 +118,7 @@
 
   footer{padding:54px 0 30px;border-top:1px solid var(--line);margin-top:80px}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
-  .foot-col h4{font-family:'Space Grotesk';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .foot-col h4{font-family:'Clash Display';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
   .foot-col p{font-size:14px;color:var(--mute);margin-bottom:6px}
   .foot-col a{color:var(--mute);font-size:14px;display:block;margin-bottom:6px;transition:color .2s}
   .foot-col a:hover{color:var(--cyan)}

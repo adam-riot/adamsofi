@@ -7,15 +7,16 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="Pakej website AdamSofi: Starter RM500, Professional RM1,200, Enterprise RM2,500+. Add-ons & pelan penyelenggaraan.">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+  @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=satoshi@400,500,700,900&display=swap');
   :root{
     --bg:#08090d;--panel:#0f1117;--panel2:#13161f;--line:#1f2330;
     --cyan:#22d3ee;--blue:#3b82f6;--white:#eef1f6;--mute:#7d8597;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.08;letter-spacing:-.5px}
+  body{font-family:'Satoshi',sans-serif;background:var(--bg);color:var(--white);line-height:1.65;overflow-x:hidden}
+  h1,h2,h3{font-family:'Clash Display',sans-serif;line-height:1.08;letter-spacing:-.5px}
   .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
   a{text-decoration:none}
 
@@ -34,7 +35,7 @@
   .navlinks a{color:var(--mute);font-size:14px;font-weight:500;transition:color .2s}
   .navlinks a:hover,.navlinks a.active{color:var(--cyan)}
   @media(max-width:780px){.navlinks{display:none}}
-  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Space Grotesk';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:'Clash Display';font-weight:600;font-size:15px;padding:13px 26px;border-radius:11px;transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer;border:none}
   .btn-pri{background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;box-shadow:0 8px 24px rgba(34,211,238,.25)}
   .btn-pri:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.4)}
   .btn-gho{background:var(--panel2);color:var(--white);border:1px solid var(--line)}
@@ -43,7 +44,7 @@
   .phero{position:relative;padding:80px 0 40px;text-align:center;overflow:hidden}
   .phero::before{content:"";position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:700px;height:480px;background:radial-gradient(ellipse,rgba(34,211,238,.14),transparent 65%);z-index:0}
   .phero .wrap{position:relative;z-index:1}
-  .eyebrow{color:var(--cyan);font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;display:block}
+  .eyebrow{font-family:'JetBrains Mono',monospace;color:var(--cyan);font-size:12px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px;display:block}
   .phero h1{font-size:clamp(38px,6vw,64px);font-weight:700;letter-spacing:-2px;margin-bottom:18px}
   .phero h1 .g{background:linear-gradient(120deg,var(--cyan),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .phero p{color:var(--mute);font-size:18px;max-width:540px;margin:0 auto}
@@ -59,9 +60,9 @@
   .plan{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:34px 30px;position:relative;transition:border-color .25s,transform .25s}
   .plan:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
   .plan.pop{border-color:var(--cyan);background:linear-gradient(180deg,rgba(34,211,238,.06),var(--panel))}
-  .plan .rb{position:absolute;top:-13px;left:30px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;font-family:'Space Grotesk';font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 13px;border-radius:6px}
-  .plan .pn{font-family:'Space Grotesk';font-weight:600;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
-  .plan .amt{font-family:'Space Grotesk';font-weight:700;font-size:44px;line-height:1;margin-bottom:5px}
+  .plan .rb{position:absolute;top:-13px;left:30px;background:linear-gradient(135deg,var(--cyan),var(--blue));color:#06121a;font-family:'Clash Display';font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 13px;border-radius:6px}
+  .plan .pn{font-family:'Clash Display';font-weight:600;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+  .plan .amt{font-family:'Clash Display';font-weight:700;font-size:44px;line-height:1;margin-bottom:5px}
   .plan .amt small{font-size:17px;color:var(--mute);font-weight:500}
   .plan .pp{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:1px;margin-bottom:24px}
   .plan ul{list-style:none;margin-bottom:28px}
@@ -80,15 +81,15 @@
   .addon:hover{border-color:rgba(34,211,238,.4)}
   .addon .l h3{font-size:17px;font-weight:600;margin-bottom:3px}
   .addon .l p{color:var(--mute);font-size:13px}
-  .addon .pr{font-family:'Space Grotesk';font-weight:700;font-size:18px;color:var(--cyan);white-space:nowrap}
+  .addon .pr{font-family:'Clash Display';font-weight:700;font-size:18px;color:var(--cyan);white-space:nowrap}
 
   /* maintenance */
   .maint{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
   @media(max-width:880px){.maint{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
   .mcard{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:32px 28px;transition:.25s}
   .mcard:hover{border-color:rgba(34,211,238,.4);transform:translateY(-4px)}
-  .mcard .pn{font-family:'Space Grotesk';font-weight:600;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
-  .mcard .amt{font-family:'Space Grotesk';font-weight:700;font-size:38px;line-height:1;margin-bottom:4px}
+  .mcard .pn{font-family:'Clash Display';font-weight:600;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+  .mcard .amt{font-family:'Clash Display';font-weight:700;font-size:38px;line-height:1;margin-bottom:4px}
   .mcard .amt small{font-size:15px;color:var(--mute);font-weight:500}
   .mcard .pp{font-size:13px;color:var(--mute);margin-bottom:20px}
   .mcard ul{list-style:none}
@@ -105,7 +106,7 @@
 
   footer{padding:54px 0 30px;border-top:1px solid var(--line);margin-top:80px}
   .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:30px;margin-bottom:34px}
-  .foot-col h4{font-family:'Space Grotesk';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+  .foot-col h4{font-family:'Clash Display';font-size:15px;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
   .foot-col p{font-size:14px;color:var(--mute);margin-bottom:6px}
   .foot-col a{color:var(--mute);font-size:14px;display:block;margin-bottom:6px;transition:color .2s}
   .foot-col a:hover{color:var(--cyan)}
