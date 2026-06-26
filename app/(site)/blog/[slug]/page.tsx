@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { headers } from "next/headers";
 import slugify from "slugify";
 import { getArticle, getPublishedArticles, getRelatedArticles } from "@/lib/articles";
 import { formatDate, readingTime, stripHtml } from "@/lib/utils";
@@ -64,6 +65,7 @@ export default async function ArticlePage({
   const { html, toc } = buildToc(article.content);
   const related = await getRelatedArticles(article.category, article.slug);
   const url = `${SITE_URL}/blog/${article.slug}`;
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
 
   const ld = {
     "@context": "https://schema.org",
@@ -81,7 +83,7 @@ export default async function ArticlePage({
   return (
     <article className="post">
       <ViewTracker page={`/blog/${article.slug}`} slug={article.slug} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
+      <script type="application/ld+json" nonce={nonce} dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <div className="wrap post-wrap">
         <Link href="/blog" className="post-back">← Semua Artikel</Link>
         <div className="post-head">

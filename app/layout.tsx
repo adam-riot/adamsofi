@@ -32,6 +32,11 @@ export const metadata: Metadata = {
 
 export const viewport = { themeColor: "#08090d" };
 
+// A per-request CSP nonce (set in middleware.ts) can only be applied to Next's
+// <script> tags when pages render dynamically. This opts the app out of static
+// caching in exchange for a strict, nonce-based Content-Security-Policy.
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ms">
