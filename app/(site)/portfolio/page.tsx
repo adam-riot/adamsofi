@@ -16,7 +16,7 @@ export default function PortfolioPage() {
         <div className="wrap">
           <span className="eyebrow">Portfolio</span>
           <h1>Hasil kerja yang <span className="g">bercakap</span>.</h1>
-          <p>Dari platform pembelajaran sebenar ke demo website pelbagai industri — inilah kualiti yang anda boleh harapkan.</p>
+          <p>Dari platform pembelajaran sebenar ke demo website pelbagai industri - inilah kualiti yang anda boleh harapkan.</p>
         </div>
       </header>
 

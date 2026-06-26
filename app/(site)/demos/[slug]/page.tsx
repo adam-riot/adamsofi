@@ -19,7 +19,7 @@ export async function generateMetadata({
   if (!demo) return { title: "Demo" };
   return {
     title: `Demo: ${demo.name}`,
-    description: `Contoh website ${demo.category} oleh AdamSofi — ${demo.desc}`,
+    description: `Contoh website ${demo.category} oleh AdamSofi - ${demo.desc}`,
     alternates: { canonical: `/demos/${demo.slug}` },
   };
 }
@@ -40,7 +40,7 @@ export default async function DemoPage({
           <div className="demo-banner-l">
             <Link href="/portfolio" className="demo-back">← Portfolio</Link>
             <span className="demo-title">
-              Demo AdamSofi — <b>{demo.name}</b>
+              Demo AdamSofi - <b>{demo.name}</b>
               <span className="demo-cat">{demo.category}</span>
             </span>
           </div>

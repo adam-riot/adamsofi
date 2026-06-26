@@ -1,5 +1,5 @@
 -- ═══════════════════════════════════════════════════════════
--- AdamSofi — Neon Postgres schema
+-- AdamSofi - Neon Postgres schema
 -- Run in the Neon SQL editor (or psql) once.
 -- Access control is enforced at the app layer (no RLS needed).
 -- ═══════════════════════════════════════════════════════════

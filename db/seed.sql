@@ -4,7 +4,7 @@ INSERT INTO articles (title, slug, excerpt, content, category, tags, status, pub
   'Kenapa Bisnes Malaysia Perlu Website Sekarang',
   'kenapa-bisnes-malaysia-perlu-website',
   'Pelanggan zaman ni Google dulu sebelum beli. Kalau bisnes anda tak ada online presence, anda dah kalah sebelum bertanding.',
-  '<h2>Realiti 2026</h2><p>Lebih 90% pengguna internet di Malaysia akan cari maklumat bisnes secara online sebelum membuat keputusan. Kalau bisnes anda tak wujud dalam carian, anda hilang pelanggan setiap hari tanpa sedar.</p><h2>Website vs Media Sosial</h2><p>Media sosial penting, tapi ia bukan milik anda — algoritma berubah, akaun boleh kena banned. Website adalah aset digital yang anda kawal sepenuhnya, 24 jam.</p><h2>Mula Dengan Yang Kecil</h2><p>Anda tak perlu website besar. Satu landing page yang kemas dengan butang WhatsApp sudah cukup untuk mula menukar pelawat jadi pelanggan.</p>',
+  '<h2>Realiti 2026</h2><p>Lebih 90% pengguna internet di Malaysia akan cari maklumat bisnes secara online sebelum membuat keputusan. Kalau bisnes anda tak wujud dalam carian, anda hilang pelanggan setiap hari tanpa sedar.</p><h2>Website vs Media Sosial</h2><p>Media sosial penting, tapi ia bukan milik anda - algoritma berubah, akaun boleh kena banned. Website adalah aset digital yang anda kawal sepenuhnya, 24 jam.</p><h2>Mula Dengan Yang Kecil</h2><p>Anda tak perlu website besar. Satu landing page yang kemas dengan butang WhatsApp sudah cukup untuk mula menukar pelawat jadi pelanggan.</p>',
   'Bisnes Online', ARRAY['website','bisnes','malaysia'], 'published', NOW() - INTERVAL '1 day'
 ),
 (
@@ -17,8 +17,8 @@ INSERT INTO articles (title, slug, excerpt, content, category, tags, status, pub
 (
   'Apa Beza Landing Page dengan Website Biasa',
   'beza-landing-page-website',
-  'Ramai confuse antara dua ni. Simple je sebenarnya — fungsi lain, tujuan lain.',
-  '<h2>Landing Page</h2><p>Satu halaman fokus dengan satu matlamat — biasanya menukar pelawat kepada lead atau jualan.</p><h2>Website Biasa</h2><p>Beberapa halaman dengan pelbagai fungsi — tentang kami, servis, blog, hubungi.</p><h2>Mana Satu Untuk Anda?</h2><p>Baru mula? Landing page. Dah berkembang? Website penuh.</p>',
+  'Ramai confuse antara dua ni. Simple je sebenarnya - fungsi lain, tujuan lain.',
+  '<h2>Landing Page</h2><p>Satu halaman fokus dengan satu matlamat - biasanya menukar pelawat kepada lead atau jualan.</p><h2>Website Biasa</h2><p>Beberapa halaman dengan pelbagai fungsi - tentang kami, servis, blog, hubungi.</p><h2>Mana Satu Untuk Anda?</h2><p>Baru mula? Landing page. Dah berkembang? Website penuh.</p>',
   'Tips Website', ARRAY['landing page','website'], 'published', NOW() - INTERVAL '3 days'
 ),
 (
@@ -29,7 +29,7 @@ INSERT INTO articles (title, slug, excerpt, content, category, tags, status, pub
   'Tutorial', ARRAY['google','seo','tempatan'], 'published', NOW() - INTERVAL '4 days'
 ),
 (
-  'Domain .my vs .com — Mana Lebih Baik untuk Bisnes Malaysia',
+  'Domain .my vs .com - Mana Lebih Baik untuk Bisnes Malaysia',
   'domain-my-vs-com-bisnes-malaysia',
   'Soalan paling common dari client. Jawapan bergantung pada target market anda.',
   '<h2>Perbezaan Utama</h2><p>.com pilihan global. .my menunjukkan identiti Malaysia yang jelas.</p><h2>Bila Pilih .my</h2><p>Kalau pelanggan majoriti di Malaysia dan nak tonjolkan identiti tempatan.</p><h2>Bila Pilih .com</h2><p>Kalau sasarkan pasaran antarabangsa atau nak fleksibiliti.</p>',

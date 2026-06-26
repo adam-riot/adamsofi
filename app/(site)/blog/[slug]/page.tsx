@@ -122,7 +122,7 @@ export default async function ArticlePage({
           <div className="author-av">A</div>
           <div>
             <strong>Ditulis oleh Adam</strong>
-            <p>Web Developer &amp; Cikgu IT — bantu bisnes Malaysia ke online.</p>
+            <p>Web Developer &amp; Cikgu IT - bantu bisnes Malaysia ke online.</p>
           </div>
         </div>
 

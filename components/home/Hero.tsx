@@ -42,7 +42,7 @@ export default function Hero() {
           <br />untuk bisnes anda.
         </h1>
         <p className="reveal-up in" style={{ transitionDelay: ".15s" }}>
-          Website profesional yang menjual — mobile-friendly, terus boleh WhatsApp.
+          Website profesional yang menjual - mobile-friendly, terus boleh WhatsApp.
           Berpatutan, laju, tanpa karenah teknikal yang menyusahkan.
         </p>
         <div className="hero-cta reveal-up in" style={{ transitionDelay: ".3s" }}>

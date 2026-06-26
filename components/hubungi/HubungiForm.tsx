@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const PAKEJ = ["Starter — RM 500", "Professional — RM 1,200", "Enterprise — RM 2,500+", "Belum pasti / Nak tanya dulu"];
+const PAKEJ = ["Starter - RM 500", "Professional - RM 1,200", "Enterprise - RM 2,500+", "Belum pasti / Nak tanya dulu"];
 const ADDONS = [
   "Domain .my / .com.my (RM80/thn)", "Email Rasmi (RM120/thn)", "Logo Design (RM200–400)",
   "Copywriting (RM150/hlmn)", "Google My Business (RM150)", "Facebook Pixel + Analytics (RM200)",
@@ -58,7 +58,7 @@ export default function HubungiForm() {
       <div className="fg">
         <label>Jenis Pakej <span className="req">*</span></label>
         <select name="pakej" required defaultValue="">
-          <option value="" disabled>— Pilih pakej —</option>
+          <option value="" disabled>- Pilih pakej -</option>
           {PAKEJ.map((p) => (<option key={p}>{p}</option>))}
         </select>
       </div>

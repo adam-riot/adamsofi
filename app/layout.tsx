@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://adamsofi.com"),
   title: {
-    default: "AdamSofi — Landing Page Pantas untuk Bisnes Anda",
+    default: "AdamSofi - Landing Page Pantas untuk Bisnes Anda",
     template: "%s | AdamSofi",
   },
   description:
@@ -17,14 +17,14 @@ export const metadata: Metadata = {
     siteName: "AdamSofi",
     locale: "ms_MY",
     url: "https://adamsofi.com/",
-    title: "AdamSofi — Landing Page Pantas untuk Bisnes Anda",
-    description: "Website profesional yang menjual — mobile-friendly, terus WhatsApp. Berpatutan, laju, draft percuma dulu.",
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AdamSofi — Web Development Malaysia" }],
+    title: "AdamSofi - Landing Page Pantas untuk Bisnes Anda",
+    description: "Website profesional yang menjual - mobile-friendly, terus WhatsApp. Berpatutan, laju, draft percuma dulu.",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "AdamSofi - Web Development Malaysia" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AdamSofi — Landing Page Pantas untuk Bisnes Anda",
-    description: "Website profesional yang menjual — mobile-friendly, terus WhatsApp.",
+    title: "AdamSofi - Landing Page Pantas untuk Bisnes Anda",
+    description: "Website profesional yang menjual - mobile-friendly, terus WhatsApp.",
     images: ["/og-image.png"],
   },
   icons: { icon: "/favicon.svg" },

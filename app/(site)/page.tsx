@@ -9,7 +9,7 @@ import { demos } from "@/lib/demos";
 export const revalidate = 300;
 
 const why = [
-  { ic: "⚡", h: "Siap Pantas", p: "Landing page siap mengikut pakej — tak payah tunggu berbulan." },
+  { ic: "⚡", h: "Siap Pantas", p: "Landing page siap mengikut pakej - tak payah tunggu berbulan." },
   { ic: "💬", h: "Terus ke WhatsApp", p: "Pelanggan klik satu butang, terus mesej anda. Tiada friction." },
   { ic: "📱", h: "Cantik di Telefon", p: "Majoriti pelanggan guna telefon. Dioptimum untuk skrin kecil dulu." },
   { ic: "🎁", h: "Draft Dulu, Bayar Kemudian", p: "Saya buatkan draft percuma. Berkenan baru teruskan." },
@@ -157,7 +157,7 @@ export default async function HomePage() {
               <ScrollReveal key={t.n} className="wcard" delay={i * 80}>
                 <div className="ic">★★★★★</div>
                 <p style={{ fontStyle: "italic", marginBottom: 12 }}>&ldquo;{t.q}&rdquo;</p>
-                <h3 style={{ fontSize: 15, color: "var(--cyan)" }}>— {t.n}</h3>
+                <h3 style={{ fontSize: 15, color: "var(--cyan)" }}>- {t.n}</h3>
               </ScrollReveal>
             ))}
           </div>

@@ -58,7 +58,7 @@ const maint = [
 
 const faq = [
   { q: "Betul ke draft percuma?", a: "Betul. Saya buatkan draft awal dulu tanpa bayaran. Berkenan baru teruskan. Tiada paksaan." },
-  { q: "Berapa lama nak siap?", a: "Starter 5–7 hari, Professional 10–14 hari, Enterprise 21–30 hari — bergantung skop." },
+  { q: "Berapa lama nak siap?", a: "Starter 5–7 hari, Professional 10–14 hari, Enterprise 21–30 hari - bergantung skop." },
   { q: "Macam mana nak bayar?", a: "DuitNow QR atau transfer bank. Biasanya deposit dulu, baki bila siap dan anda puas hati." },
   { q: "Boleh ubah selepas siap?", a: "Setiap pakej ada kuota revision. Selepas tu perubahan kecil boleh dibincang dengan caj minimum." },
 ];

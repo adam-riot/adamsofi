@@ -11,14 +11,19 @@ export async function POST(req: Request) {
 
   try {
     const b = await req.json();
-    const slug = (b.slug?.trim() || slugify(b.title || "", { lower: true, strict: true })).slice(0, 120);
+    const noEm = (s: unknown) => (typeof s === "string" ? s.replace(/—/g, "-") : s);
+    const title = noEm(b.title) as string;
+    const excerpt = (noEm(b.excerpt) as string) || null;
+    const content = (noEm(b.content) as string) || "";
+    const category = (noEm(b.category) as string) || "Umum";
+    const slug = (b.slug?.trim() || slugify(title || "", { lower: true, strict: true })).slice(0, 120);
     const publishing = b.status === "published";
-    const tags: string[] = Array.isArray(b.tags) ? b.tags : [];
+    const tags: string[] = Array.isArray(b.tags) ? b.tags.map((t: string) => t.replace(/—/g, "-")) : [];
 
     const rows = await sql!`
       INSERT INTO articles (title, slug, excerpt, content, cover_url, category, tags, status, published_at)
-      VALUES (${b.title}, ${slug}, ${b.excerpt || null}, ${b.content || ""}, ${b.cover_url || null},
-              ${b.category || "Umum"}, ${tags}, ${b.status || "draft"},
+      VALUES (${title}, ${slug}, ${excerpt}, ${content}, ${b.cover_url || null},
+              ${category}, ${tags}, ${b.status || "draft"},
               ${publishing ? new Date().toISOString() : null})
       RETURNING *`;
     const article = rows[0];

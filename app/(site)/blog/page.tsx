@@ -8,7 +8,7 @@ export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "Blog & Artikel",
-  description: "Tips website, bisnes online, dan tutorial praktikal untuk usahawan Malaysia — dari AdamSofi.",
+  description: "Tips website, bisnes online, dan tutorial praktikal untuk usahawan Malaysia - dari AdamSofi.",
   alternates: { canonical: "/blog" },
 };
 

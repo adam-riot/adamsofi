@@ -35,7 +35,7 @@ export default function NewsletterBox() {
     <div className="newsletter-box">
       <span className="eyebrow">Newsletter</span>
       <h3>Dapat tips website &amp; bisnes terus ke inbox</h3>
-      <p>Artikel baru, tips praktikal, dan update — tiada spam.</p>
+      <p>Artikel baru, tips praktikal, dan update - tiada spam.</p>
       {state === "ok" ? (
         <div className="nl-ok">{msg}</div>
       ) : (

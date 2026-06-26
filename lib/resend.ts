@@ -59,16 +59,16 @@ export function inquiryEmail(data: {
   pakej: string; addons: string[]; penerangan?: string;
 }) {
   return shell(`
-    <h1 style="font-size:21px;color:#fff;margin:0 0 14px;">Inquiry Baru — ${data.pakej}</h1>
+    <h1 style="font-size:21px;color:#fff;margin:0 0 14px;">Inquiry Baru - ${data.pakej}</h1>
     <table style="width:100%;border-collapse:collapse;font-size:14px;">
       <tr><td style="padding:6px 0;color:#7d8597;">Nama</td><td style="color:#fff;">${data.nama}</td></tr>
       <tr><td style="padding:6px 0;color:#7d8597;">Bisnes</td><td style="color:#fff;">${data.bisnes}</td></tr>
       <tr><td style="padding:6px 0;color:#7d8597;">WhatsApp</td><td style="color:#fff;">${data.whatsapp}</td></tr>
       <tr><td style="padding:6px 0;color:#7d8597;">Emel</td><td style="color:#fff;">${data.email}</td></tr>
       <tr><td style="padding:6px 0;color:#7d8597;">Pakej</td><td style="color:#fff;">${data.pakej}</td></tr>
-      <tr><td style="padding:6px 0;color:#7d8597;">Add-ons</td><td style="color:#fff;">${data.addons.join(", ") || "—"}</td></tr>
+      <tr><td style="padding:6px 0;color:#7d8597;">Add-ons</td><td style="color:#fff;">${data.addons.join(", ") || "-"}</td></tr>
     </table>
-    <p style="margin-top:16px;"><b style="color:#fff;">Penerangan:</b><br>${data.penerangan || "—"}</p>
+    <p style="margin-top:16px;"><b style="color:#fff;">Penerangan:</b><br>${data.penerangan || "-"}</p>
     <p style="margin:24px 0;">${btn(`https://wa.me/${data.whatsapp.replace(/\D/g, "")}`, "Reply via WhatsApp →")}</p>
   `);
 }

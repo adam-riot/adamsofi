@@ -20,7 +20,7 @@ export async function POST(req: Request) {
     if (hasResend && resend) {
       await resend.emails.send({
         from: NEWSLETTER_FROM, to: CONTACT_TO, replyTo: email,
-        subject: `Inquiry Baru — ${pakej} dari ${bisnes}`,
+        subject: `Inquiry Baru - ${pakej} dari ${bisnes}`,
         html: inquiryEmail({ nama, whatsapp, email, bisnes, pakej, addons: addonsArr, penerangan }),
       }).catch(() => {});
     }

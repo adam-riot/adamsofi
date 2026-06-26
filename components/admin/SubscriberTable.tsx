@@ -44,7 +44,7 @@ export default function SubscriberTable({ subscribers }: { subscribers: Subscrib
           <tbody>
             {rows.map((s) => (
               <tr key={s.id}>
-                <td>{s.email}</td><td>{s.name || "—"}</td>
+                <td>{s.email}</td><td>{s.name || "-"}</td>
                 <td><span className={`badge-st ${s.status === "active" ? "st-pub" : "st-draft"}`}>{s.status}</span></td>
                 <td>{formatDate(s.subscribed_at)}</td>
               </tr>

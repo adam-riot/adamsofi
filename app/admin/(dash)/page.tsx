@@ -29,7 +29,7 @@ export default async function Dashboard() {
       </div>
 
       <div className="admin-panel">
-        <h2 className="admin-h2">Page Views — 7 Hari</h2>
+        <h2 className="admin-h2">Page Views - 7 Hari</h2>
         <div className="chart">
           {d.views7.map((v) => (
             <div className="chart-col" key={v.day}>

@@ -30,7 +30,7 @@ export default function InquiryTable({ inquiries }: { inquiries: Inquiry[] }) {
           <tr key={i.id}>
             <td><b>{i.nama}</b><br /><span className="muted-sm">{i.bisnes}</span></td>
             <td>{i.pakej}</td>
-            <td className="muted-sm">{i.addons.length ? i.addons.join(", ") : "—"}</td>
+            <td className="muted-sm">{i.addons.length ? i.addons.join(", ") : "-"}</td>
             <td>{formatDate(i.created_at)}</td>
             <td>
               <select className="st-select" value={i.status} disabled={busy === i.id} onChange={(e) => setStatus(i.id, e.target.value)}>

@@ -12,16 +12,21 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 
   try {
     const b = await req.json();
+    const noEm = (s: unknown) => (typeof s === "string" ? s.replace(/—/g, "-") : s);
+    const title = noEm(b.title) as string;
+    const excerpt = (noEm(b.excerpt) as string) || null;
+    const content = (noEm(b.content) as string) || "";
+    const category = (noEm(b.category) as string) || "Umum";
     const cur = await sql!`SELECT status FROM articles WHERE id = ${id} LIMIT 1`;
-    const slug = (b.slug?.trim() || slugify(b.title || "", { lower: true, strict: true })).slice(0, 120);
+    const slug = (b.slug?.trim() || slugify(title || "", { lower: true, strict: true })).slice(0, 120);
     const becomingPublished = b.status === "published" && cur[0]?.status !== "published";
-    const tags: string[] = Array.isArray(b.tags) ? b.tags : [];
+    const tags: string[] = Array.isArray(b.tags) ? b.tags.map((t: string) => t.replace(/—/g, "-")) : [];
     const publishedAt = becomingPublished ? new Date().toISOString() : null;
 
     const rows = await sql!`
       UPDATE articles SET
-        title = ${b.title}, slug = ${slug}, excerpt = ${b.excerpt || null}, content = ${b.content || ""},
-        cover_url = ${b.cover_url || null}, category = ${b.category || "Umum"}, tags = ${tags},
+        title = ${title}, slug = ${slug}, excerpt = ${excerpt}, content = ${content},
+        cover_url = ${b.cover_url || null}, category = ${category}, tags = ${tags},
         status = ${b.status || "draft"},
         published_at = COALESCE(${publishedAt}, published_at)
       WHERE id = ${id} RETURNING *`;
