@@ -1,42 +1,33 @@
 import { NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import slugify from "slugify";
-import { createSupabaseServer, hasSupabase } from "@/lib/supabase-server";
+import { sql, hasDb } from "@/lib/db";
+import { isAdmin } from "@/lib/session";
 import { broadcastArticle } from "@/lib/broadcast";
 
 export async function POST(req: Request) {
-  if (!hasSupabase) return NextResponse.json({ error: "Supabase belum dikonfigurasi." }, { status: 503 });
-  const supabase = await createSupabaseServer();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!(await isAdmin())) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!hasDb) return NextResponse.json({ error: "DB belum dikonfigurasi." }, { status: 503 });
 
   try {
     const b = await req.json();
     const slug = (b.slug?.trim() || slugify(b.title || "", { lower: true, strict: true })).slice(0, 120);
     const publishing = b.status === "published";
+    const tags: string[] = Array.isArray(b.tags) ? b.tags : [];
 
-    const { data, error } = await supabase.from("articles").insert({
-      title: b.title,
-      slug,
-      excerpt: b.excerpt || null,
-      content: b.content || "",
-      cover_url: b.cover_url || null,
-      category: b.category || "Umum",
-      tags: Array.isArray(b.tags) ? b.tags : [],
-      status: b.status || "draft",
-      published_at: publishing ? new Date().toISOString() : null,
-    }).select("*").single();
+    const rows = await sql!`
+      INSERT INTO articles (title, slug, excerpt, content, cover_url, category, tags, status, published_at)
+      VALUES (${b.title}, ${slug}, ${b.excerpt || null}, ${b.content || ""}, ${b.cover_url || null},
+              ${b.category || "Umum"}, ${tags}, ${b.status || "draft"},
+              ${publishing ? new Date().toISOString() : null})
+      RETURNING *`;
+    const article = rows[0];
 
-    if (error) return NextResponse.json({ error: error.message }, { status: 400 });
-
-    revalidatePath("/blog");
-    revalidatePath("/");
-    if (publishing) {
-      revalidatePath(`/blog/${slug}`);
-      await broadcastArticle(data);
-    }
-    return NextResponse.json({ success: true, article: data });
-  } catch {
-    return NextResponse.json({ error: "Ralat pelayan." }, { status: 500 });
+    revalidatePath("/blog"); revalidatePath("/");
+    if (publishing) { revalidatePath(`/blog/${slug}`); await broadcastArticle(article as never); }
+    return NextResponse.json({ success: true, article });
+  } catch (e) {
+    const msg = e instanceof Error && /unique/i.test(e.message) ? "Slug sudah wujud." : "Ralat pelayan.";
+    return NextResponse.json({ error: msg }, { status: 400 });
   }
 }

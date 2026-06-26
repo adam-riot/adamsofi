@@ -1,54 +1,33 @@
-import { createSupabaseServer, hasSupabase } from "./supabase-server";
+import { sql, hasDb } from "./db";
 import type { Article } from "./blog";
 
 export type { Article };
 
-/** Published articles (public). Returns [] if Supabase not configured. */
 export async function getPublishedArticles(): Promise<Article[]> {
-  if (!hasSupabase) return [];
+  if (!hasDb) return [];
   try {
-    const supabase = await createSupabaseServer();
-    const { data, error } = await supabase
-      .from("articles")
-      .select("*")
-      .eq("status", "published")
-      .order("published_at", { ascending: false });
-    if (error) return [];
-    return (data as Article[]) ?? [];
-  } catch {
-    return [];
-  }
+    const rows = await sql!`
+      SELECT * FROM articles WHERE status = 'published' ORDER BY published_at DESC NULLS LAST`;
+    return rows as Article[];
+  } catch { return []; }
 }
 
 export async function getArticle(slug: string): Promise<Article | null> {
-  if (!hasSupabase) return null;
+  if (!hasDb) return null;
   try {
-    const supabase = await createSupabaseServer();
-    const { data } = await supabase
-      .from("articles")
-      .select("*")
-      .eq("slug", slug)
-      .eq("status", "published")
-      .maybeSingle();
-    return (data as Article) ?? null;
-  } catch {
-    return null;
-  }
+    const rows = await sql!`
+      SELECT * FROM articles WHERE slug = ${slug} AND status = 'published' LIMIT 1`;
+    return (rows[0] as Article) ?? null;
+  } catch { return null; }
 }
 
-export async function getRelatedArticles(category: string, excludeSlug: string, limit = 3) {
-  if (!hasSupabase) return [];
+export async function getRelatedArticles(category: string, excludeSlug: string, limit = 3): Promise<Article[]> {
+  if (!hasDb) return [];
   try {
-    const supabase = await createSupabaseServer();
-    const { data } = await supabase
-      .from("articles")
-      .select("*")
-      .eq("status", "published")
-      .eq("category", category)
-      .neq("slug", excludeSlug)
-      .limit(limit);
-    return (data as Article[]) ?? [];
-  } catch {
-    return [];
-  }
+    const rows = await sql!`
+      SELECT * FROM articles
+      WHERE status = 'published' AND category = ${category} AND slug <> ${excludeSlug}
+      ORDER BY published_at DESC LIMIT ${limit}`;
+    return rows as Article[];
+  } catch { return []; }
 }

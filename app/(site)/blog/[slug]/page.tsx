@@ -10,6 +10,7 @@ import ArticleCard from "@/components/blog/ArticleCard";
 import NewsletterBox from "@/components/blog/NewsletterBox";
 import ShareButtons from "@/components/blog/ShareButtons";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ViewTracker from "@/components/ui/ViewTracker";
 
 export const revalidate = 300;
 
@@ -79,6 +80,7 @@ export default async function ArticlePage({
 
   return (
     <article className="post">
+      <ViewTracker page={`/blog/${article.slug}`} slug={article.slug} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <div className="wrap post-wrap">
         <Link href="/blog" className="post-back">← Semua Artikel</Link>

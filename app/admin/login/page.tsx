@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createSupabaseBrowser } from "@/lib/supabase-browser";
 
 export default function AdminLogin() {
   const router = useRouter();
@@ -15,14 +14,18 @@ export default function AdminLogin() {
     e.preventDefault();
     setErr(""); setLoading(true);
     try {
-      const supabase = createSupabaseBrowser();
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-      if (error) { setErr(error.message); setLoading(false); return; }
-      router.push("/admin");
-      router.refresh();
+      const res = await fetch("/api/admin/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const json = await res.json();
+      if (res.ok && json.success) {
+        router.push("/admin");
+        router.refresh();
+      } else { setErr(json.error || "Login gagal."); setLoading(false); }
     } catch {
-      setErr("Login gagal. Pastikan Supabase dikonfigurasi.");
-      setLoading(false);
+      setErr("Login gagal. Cuba lagi."); setLoading(false);
     }
   }
 

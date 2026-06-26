@@ -3,30 +3,34 @@
 ## Stack
 - Next.js 15 (App Router) + TypeScript
 - TailwindCSS + custom CSS variables in `app/globals.css`
-- Supabase (DB + Auth) via `@supabase/ssr`
+- Neon Postgres via `@neondatabase/serverless` (`lib/db.ts`)
+- Custom admin auth: HMAC-signed cookie (`lib/auth.ts`, edge-safe) — no external auth service
 - Resend (transactional + newsletter email)
 - Vercel (deployment; domain adamsofi.com)
 
 ## Design tokens
-All colors live in `app/globals.css :root` — do NOT hardcode colors in components.
+All colors in `app/globals.css :root` — do NOT hardcode colors in components.
 Fonts: Clash Display (headings) + Satoshi (body) + JetBrains Mono (eyebrows/logo icon)
-+ Space Grotesk (logo wordmark only). All loaded via @import in globals.css.
++ Space Grotesk (logo wordmark only). Loaded via @import in globals.css.
 
-## Brand mark
-`components/Logo.tsx` — `<A>` code icon (gold dot) + `adamsofi.` gradient wordmark.
+## Routes
+- `app/(site)/` route group = public site (own layout: Navbar/Footer/WAFloat/CursorGlow).
+- `app/admin/login` = login; `app/admin/(dash)/` = protected admin (sidebar chrome).
+- `app/api/` = route handlers. `_legacy/` = old static HTML (reference only).
+- `public/demos/<slug>.html` = 10 standalone demo sites, shown via iframe in `/demos/[slug]`.
 
-## Structure
-- `app/` routes (App Router). `_legacy/` = old static HTML (reference only, not served).
-- `public/demos/<slug>.html` = the 10 standalone demo sites, shown via iframe in `/demos/[slug]`.
-- `lib/` = supabase clients (server/admin/browser), resend + email templates, data access.
-- `components/` = layout, home, blog, ui (ScrollReveal, CursorGlow), admin.
+## Database (Neon)
+- Run `db/schema.sql` then optional `db/seed.sql` in the Neon SQL editor.
+- `lib/db.ts` exports `sql` (neon tagged-template client) + `hasDb`.
+- Data access: `lib/articles.ts` (public), `lib/admin.ts` (admin lists/stats), `lib/broadcast.ts`.
+- All functions degrade gracefully (return []/0) when DATABASE_URL is unset.
 
-## Supabase
-- Run `supabase/migrations/001_init.sql` then optional `supabase/seed.sql`.
-- Public reads use anon client (RLS: published articles only).
-- Server routes (subscribe/unsubscribe/inquiry/views/broadcast) use the SERVICE ROLE
-  client (`lib/supabase-admin.ts`) — server only, never import to client.
-- Admin = single Supabase Auth user (create in dashboard). Protected by middleware.
+## Auth
+- `ADMIN_EMAIL` + `ADMIN_PASSWORD` env define the single admin.
+- Login POST `/api/admin/login` → sets signed `as_admin` httpOnly cookie (7d).
+- `middleware.ts` verifies the cookie (HMAC, no DB) to protect `/admin/*`.
+- Server checks via `lib/session.ts` `isAdmin()`. Logout: POST `/api/admin/logout`.
+- Set a strong `AUTH_SECRET` (e.g. `openssl rand -hex 32`).
 
 ## Newsletter
 - Welcome email on subscribe. Broadcast on article publish (Resend batch API).
@@ -34,12 +38,11 @@ Fonts: Clash Display (headings) + Satoshi (body) + JetBrains Mono (eyebrows/logo
 - Resend domain must be verified before email sends.
 
 ## Blog
-- Articles in Supabase, rendered as ISR pages (`revalidate`).
-- On publish/update from admin, call revalidatePath for `/blog` and the article.
+- Articles in Neon, rendered as ISR pages (`revalidate = 300`).
+- Publish/update from admin calls `revalidatePath`. Views tracked via `/api/view` beacon.
 
 ## Env
 See `.env.local.example`. `.env.local` is gitignored.
 
 ## Deployment
-Vercel. NOT static export (admin/blog/newsletter/forms need a server).
-Old `.html` URLs 301-redirect to clean routes (see next.config.ts).
+Vercel (NOT static export). Old `.html` URLs 301-redirect to clean routes (next.config.ts).

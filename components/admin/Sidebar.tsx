@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { createSupabaseBrowser } from "@/lib/supabase-browser";
 
 const items = [
   { href: "/admin", label: "Dashboard", icon: "▦" },
@@ -18,7 +17,7 @@ export default function Sidebar() {
 
   async function signOut() {
     try {
-      await createSupabaseBrowser().auth.signOut();
+      await fetch("/api/admin/logout", { method: "POST" });
     } catch { /* noop */ }
     router.push("/admin/login");
     router.refresh();
