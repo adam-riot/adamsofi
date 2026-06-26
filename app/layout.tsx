@@ -1,9 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import WhatsAppFloat from "@/components/layout/WhatsAppFloat";
-import CursorGlow from "@/components/ui/CursorGlow";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://adamsofi.com"),
@@ -39,13 +35,7 @@ export const viewport = { themeColor: "#08090d" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="ms">
-      <body>
-        <CursorGlow />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
