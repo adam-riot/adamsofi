@@ -4,6 +4,9 @@ import { getPublishedArticles } from "@/lib/articles";
 
 const BASE = "https://adamsofi.com";
 
+// Query the DB at request time so newly published articles appear immediately.
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const articles = await getPublishedArticles();
 
