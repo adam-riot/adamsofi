@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Article } from "@/lib/articles";
+import type { Article } from "@/lib/blog";
 import { formatDate, readingTime } from "@/lib/utils";
 
 export default function ArticleCard({ article }: { article: Article }) {

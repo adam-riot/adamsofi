@@ -1,20 +1,7 @@
 import { createSupabaseServer, hasSupabase } from "./supabase-server";
+import type { Article } from "./blog";
 
-export type Article = {
-  id: string;
-  title: string;
-  slug: string;
-  excerpt: string | null;
-  content: string;
-  cover_url: string | null;
-  category: string;
-  tags: string[];
-  status: "draft" | "published";
-  views: number;
-  published_at: string | null;
-  created_at: string;
-  updated_at: string;
-};
+export type { Article };
 
 /** Published articles (public). Returns [] if Supabase not configured. */
 export async function getPublishedArticles(): Promise<Article[]> {
@@ -65,5 +52,3 @@ export async function getRelatedArticles(category: string, excludeSlug: string, 
     return [];
   }
 }
-
-export const BLOG_CATEGORIES = ["Semua", "Teknologi", "Bisnes Online", "Tips Website", "Tutorial", "Umum"];
