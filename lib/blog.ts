@@ -11,6 +11,7 @@ export type Article = {
   tags: string[];
   status: "draft" | "published";
   views: number;
+  lang: string;
   published_at: string | null;
   created_at: string;
   updated_at: string;

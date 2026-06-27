@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS articles (
   tags         TEXT[] DEFAULT '{}',
   status       TEXT DEFAULT 'draft',   -- 'draft' | 'published'
   views        INTEGER DEFAULT 0,
+  lang         TEXT NOT NULL DEFAULT 'ms',  -- 'ms' | 'en' | 'zh'
   published_at TIMESTAMPTZ,
   created_at   TIMESTAMPTZ DEFAULT NOW(),
   updated_at   TIMESTAMPTZ DEFAULT NOW()

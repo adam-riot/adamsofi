@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import type { Dict } from "@/lib/i18n/dictionaries";
 
-export default function ShareButtons({ url, title }: { url: string; title: string }) {
+export default function ShareButtons({ url, title, dict }: { url: string; title: string; dict: Dict }) {
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     try {
@@ -15,10 +16,10 @@ export default function ShareButtons({ url, title }: { url: string; title: strin
   const threads = `https://www.threads.net/intent/post?text=${encodeURIComponent(`${title} ${url}`)}`;
   return (
     <div className="share">
-      <span>Kongsi:</span>
+      <span>{dict.blog.share}</span>
       <a href={wa} target="_blank" rel="noopener" className="share-btn">WhatsApp</a>
       <a href={threads} target="_blank" rel="noopener" className="share-btn">Threads</a>
-      <button className="share-btn" onClick={copy}>{copied ? "Disalin ✓" : "Salin Link"}</button>
+      <button className="share-btn" onClick={copy}>{copied ? dict.blog.copied : dict.blog.copy}</button>
     </div>
   );
 }

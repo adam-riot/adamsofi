@@ -23,11 +23,12 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     const tags: string[] = Array.isArray(b.tags) ? b.tags.map((t: string) => t.replace(/—/g, "-")) : [];
     const publishedAt = becomingPublished ? new Date().toISOString() : null;
 
+    const lang = ["ms", "en", "zh"].includes(b.lang) ? b.lang : "ms";
     const rows = await sql!`
       UPDATE articles SET
         title = ${title}, slug = ${slug}, excerpt = ${excerpt}, content = ${content},
         cover_url = ${b.cover_url || null}, category = ${category}, tags = ${tags},
-        status = ${b.status || "draft"},
+        status = ${b.status || "draft"}, lang = ${lang},
         published_at = COALESCE(${publishedAt}, published_at)
       WHERE id = ${id} RETURNING *`;
     const article = rows[0];

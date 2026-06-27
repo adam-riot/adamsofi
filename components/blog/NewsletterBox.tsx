@@ -1,8 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import type { Dict } from "@/lib/i18n/dictionaries";
 
-export default function NewsletterBox() {
+export default function NewsletterBox({ dict }: { dict: Dict }) {
+  const t = dict.newsletter;
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [state, setState] = useState<"idle" | "loading" | "ok" | "err">("idle");
@@ -18,43 +20,26 @@ export default function NewsletterBox() {
         body: JSON.stringify({ email, name }),
       });
       const json = await res.json();
-      if (res.ok && json.success) {
-        setState("ok");
-        setMsg("✅ Terima kasih! Semak email anda.");
-      } else {
-        setState("err");
-        setMsg(json.error || "Gagal subscribe. Cuba lagi.");
-      }
+      if (res.ok && json.success) { setState("ok"); setMsg(t.ok); }
+      else { setState("err"); setMsg(json.error || t.err); }
     } catch {
-      setState("err");
-      setMsg("Gagal subscribe. Cuba lagi.");
+      setState("err"); setMsg(t.err);
     }
   }
 
   return (
     <div className="newsletter-box">
-      <span className="eyebrow">Newsletter</span>
-      <h3>Dapat tips website &amp; bisnes terus ke inbox</h3>
-      <p>Artikel baru, tips praktikal, dan update - tiada spam.</p>
+      <span className="eyebrow">{t.eyebrow}</span>
+      <h3>{t.h3}</h3>
+      <p>{t.p}</p>
       {state === "ok" ? (
         <div className="nl-ok">{msg}</div>
       ) : (
         <form onSubmit={submit} className="nl-form">
-          <input
-            type="text"
-            placeholder="Nama (pilihan)"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Emel anda"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <input type="text" placeholder={t.name} value={name} onChange={(e) => setName(e.target.value)} />
+          <input type="email" placeholder={t.email} required value={email} onChange={(e) => setEmail(e.target.value)} />
           <button type="submit" className="btn btn-pri" disabled={state === "loading"}>
-            {state === "loading" ? "Menghantar..." : "Subscribe →"}
+            {state === "loading" ? t.sending : t.button}
           </button>
           {state === "err" && <p className="nl-err">{msg}</p>}
         </form>

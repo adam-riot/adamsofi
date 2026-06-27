@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -37,9 +38,10 @@ export const viewport = { themeColor: "#08090d" };
 // caching in exchange for a strict, nonce-based Content-Security-Policy.
 export const dynamic = "force-dynamic";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = (await headers()).get("x-locale") || "ms";
   return (
-    <html lang="ms">
+    <html lang={locale}>
       <body>{children}</body>
     </html>
   );

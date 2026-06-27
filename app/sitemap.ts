@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { demos } from "@/lib/demos";
 import { getPublishedArticles } from "@/lib/articles";
+import { locales, lhref } from "@/lib/i18n/config";
 
 const BASE = "https://adamsofi.com";
 
@@ -8,28 +9,20 @@ const BASE = "https://adamsofi.com";
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const articles = await getPublishedArticles();
+  const staticPaths = ["/", "/servis", "/portfolio", "/blog", "/hubungi"];
+  const out: MetadataRoute.Sitemap = [];
 
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: `${BASE}/`, changeFrequency: "weekly", priority: 1 },
-    { url: `${BASE}/servis`, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/portfolio`, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/blog`, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/hubungi`, changeFrequency: "monthly", priority: 0.8 },
-  ];
-
-  const demoPages: MetadataRoute.Sitemap = demos.map((d) => ({
-    url: `${BASE}/demos/${d.slug}`,
-    changeFrequency: "yearly",
-    priority: 0.5,
-  }));
-
-  const articlePages: MetadataRoute.Sitemap = articles.map((a) => ({
-    url: `${BASE}/blog/${a.slug}`,
-    lastModified: a.updated_at,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
-
-  return [...staticPages, ...demoPages, ...articlePages];
+  for (const locale of locales) {
+    for (const p of staticPaths) {
+      out.push({ url: `${BASE}${lhref(locale, p)}`, changeFrequency: "weekly", priority: p === "/" ? 1 : 0.8 });
+    }
+    for (const d of demos) {
+      out.push({ url: `${BASE}${lhref(locale, `/demos/${d.slug}`)}`, changeFrequency: "yearly", priority: 0.5 });
+    }
+    const articles = await getPublishedArticles(locale);
+    for (const a of articles) {
+      out.push({ url: `${BASE}${lhref(locale, `/blog/${a.slug}`)}`, lastModified: a.updated_at, changeFrequency: "monthly", priority: 0.7 });
+    }
+  }
+  return out;
 }

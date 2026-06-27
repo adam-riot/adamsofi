@@ -20,10 +20,11 @@ export async function POST(req: Request) {
     const publishing = b.status === "published";
     const tags: string[] = Array.isArray(b.tags) ? b.tags.map((t: string) => t.replace(/—/g, "-")) : [];
 
+    const lang = ["ms", "en", "zh"].includes(b.lang) ? b.lang : "ms";
     const rows = await sql!`
-      INSERT INTO articles (title, slug, excerpt, content, cover_url, category, tags, status, published_at)
+      INSERT INTO articles (title, slug, excerpt, content, cover_url, category, tags, status, lang, published_at)
       VALUES (${title}, ${slug}, ${excerpt}, ${content}, ${b.cover_url || null},
-              ${category}, ${tags}, ${b.status || "draft"},
+              ${category}, ${tags}, ${b.status || "draft"}, ${lang},
               ${publishing ? new Date().toISOString() : null})
       RETURNING *`;
     const article = rows[0];

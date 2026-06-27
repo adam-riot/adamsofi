@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 /** AdamSofi brand mark: <A> code icon + adamsofi. wordmark. */
-export default function Logo() {
+export default function Logo({ href = "/" }: { href?: string }) {
   return (
-    <Link href="/" className="logo" aria-label="AdamSofi">
+    <Link href={href} className="logo" aria-label="AdamSofi">
       <span className="mk">
         <span className="gd" />
         <span className="ag">&lt;</span>

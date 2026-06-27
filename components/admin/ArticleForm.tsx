@@ -19,6 +19,7 @@ export default function ArticleForm({ initial }: { initial?: Article }) {
   const [excerpt, setExcerpt] = useState(initial?.excerpt ?? "");
   const [cover, setCover] = useState(initial?.cover_url ?? "");
   const [content, setContent] = useState(initial?.content ?? "");
+  const [lang, setLang] = useState(initial?.lang ?? "ms");
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
 
@@ -30,7 +31,7 @@ export default function ArticleForm({ initial }: { initial?: Article }) {
   async function save(status: "draft" | "published") {
     setErr(""); setBusy(true);
     const payload = {
-      title, slug, category, excerpt, cover_url: cover, content, status,
+      title, slug, category, excerpt, cover_url: cover, content, status, lang,
       tags: tags.split(",").map((t) => t.trim()).filter(Boolean),
     };
     try {
@@ -58,8 +59,9 @@ export default function ArticleForm({ initial }: { initial?: Article }) {
         </div>
         <div className="row2">
           <div className="fg"><label>Tags (pisah dengan koma)</label><input value={tags} onChange={(e) => setTags(e.target.value)} placeholder="website, bisnes" /></div>
-          <div className="fg"><label>Cover Image URL</label><input value={cover} onChange={(e) => setCover(e.target.value)} placeholder="https://..." /></div>
+          <div className="fg"><label>Bahasa</label><select value={lang} onChange={(e) => setLang(e.target.value)}><option value="ms">Bahasa Melayu</option><option value="en">English</option><option value="zh">中文</option></select></div>
         </div>
+        <div className="fg"><label>Cover Image URL</label><input value={cover} onChange={(e) => setCover(e.target.value)} placeholder="https://..." /></div>
         <div className="fg"><label>Excerpt</label><textarea value={excerpt} onChange={(e) => setExcerpt(e.target.value)} placeholder="Ringkasan pendek..." style={{ minHeight: 70 }} /></div>
         <div className="fg"><label>Kandungan</label><ArticleEditor value={content} onChange={setContent} /></div>
         {err && <p className="nl-err" style={{ marginBottom: 12 }}>{err}</p>}

@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useRef } from "react";
+import { lhref, type Locale } from "@/lib/i18n/config";
+import type { Dict } from "@/lib/i18n/dictionaries";
 
-export default function Hero() {
+export default function Hero({ locale, dict }: { locale: Locale; dict: Dict }) {
   const heroRef = useRef<HTMLElement>(null);
+  const t = dict.home;
 
   useEffect(() => {
     const hero = heroRef.current;
@@ -34,25 +37,19 @@ export default function Hero() {
       <div className="blob b2 float-2" />
       <div className="blob b3 float-3" />
       <div className="wrap">
-        <span className="chip reveal-up in">
-          <span className="pulse" /> Tempahan dibuka · Siap pantas
-        </span>
+        <span className="chip reveal-up in"><span className="pulse" /> {t.chip}</span>
         <h1 className="reveal-up in" style={{ transitionDelay: "0s" }}>
-          Landing page <span className="g">pantas</span>
-          <br />untuk bisnes anda.
+          {t.h1a} <span className="g">{t.h1g}</span><br />{t.h1b}
         </h1>
-        <p className="reveal-up in" style={{ transitionDelay: ".15s" }}>
-          Website profesional yang menjual - mobile-friendly, terus boleh WhatsApp.
-          Berpatutan, laju, tanpa karenah teknikal yang menyusahkan.
-        </p>
+        <p className="reveal-up in" style={{ transitionDelay: ".15s" }}>{t.heroP}</p>
         <div className="hero-cta reveal-up in" style={{ transitionDelay: ".3s" }}>
-          <Link href="/hubungi" className="btn btn-pri">Dapatkan Draft Percuma →</Link>
-          <Link href="/portfolio" className="btn btn-gho">Lihat Hasil Kerja</Link>
+          <Link href={lhref(locale, "/hubungi")} className="btn btn-pri">{t.ctaPrimary}</Link>
+          <Link href={lhref(locale, "/portfolio")} className="btn btn-gho">{t.ctaSecondary}</Link>
         </div>
         <div className="hero-meta reveal-up in" style={{ transitionDelay: ".45s" }}>
-          <div className="hm"><span className="i">⚡</span> Siap <b>pantas</b></div>
-          <div className="hm"><span className="i">📱</span> <b>Mobile</b>-friendly</div>
-          <div className="hm"><span className="i">🎁</span> Draft <b>percuma</b> dulu</div>
+          <div className="hm"><span className="i">⚡</span> {t.meta1}</div>
+          <div className="hm"><span className="i">📱</span> <b>{t.meta2a}</b>{t.meta2b}</div>
+          <div className="hm"><span className="i">🎁</span> {t.meta3}</div>
         </div>
       </div>
     </header>
