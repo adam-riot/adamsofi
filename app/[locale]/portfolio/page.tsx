@@ -2,14 +2,19 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
-import { type Locale, isLocale, lhref, alternates } from "@/lib/i18n/config";
+import { type Locale, isLocale, lhref, alternates, seoKeywords } from "@/lib/i18n/config";
 import { getDict } from "@/lib/i18n/dictionaries";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
   const locale: Locale = isLocale(raw) ? raw : "ms";
   const d = getDict(locale);
-  return { title: d.portfolio.eyebrow, description: d.portfolio.p, alternates: alternates(locale, "/portfolio") };
+  return {
+    title: `${d.portfolio.eyebrow} - AdamSofi`,
+    description: d.portfolio.p,
+    keywords: seoKeywords[locale],
+    alternates: alternates(locale, "/portfolio"),
+  };
 }
 
 export default async function PortfolioPage({ params }: { params: Promise<{ locale: string }> }) {

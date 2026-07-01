@@ -6,16 +6,19 @@ import ArticleCard from "@/components/blog/ArticleCard";
 import NewsletterBox from "@/components/blog/NewsletterBox";
 import { getPublishedArticles } from "@/lib/articles";
 import { demos } from "@/lib/demos";
-import { type Locale, isLocale, lhref, alternates } from "@/lib/i18n/config";
+import { headers } from "next/headers";
+import { type Locale, isLocale, lhref, alternates, siteTitle, seoKeywords, hreflang } from "@/lib/i18n/config";
 import { getDict } from "@/lib/i18n/dictionaries";
+import { SITE_URL, WHATSAPP } from "@/lib/demos";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
   const locale: Locale = isLocale(raw) ? raw : "ms";
   const d = getDict(locale);
   return {
-    title: { absolute: `AdamSofi - ${d.home.h1g} ${d.home.h1b}` },
+    title: { absolute: siteTitle[locale] },
     description: d.home.heroP,
+    keywords: seoKeywords[locale],
     alternates: alternates(locale, "/"),
   };
 }
@@ -27,9 +30,59 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const t = dict.home;
   const articles = (await getPublishedArticles(locale)).slice(0, 3);
   const featuredDemos = demos.slice(0, 3);
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
+  const ld = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${SITE_URL}/#org`,
+        name: "AdamSofi",
+        url: SITE_URL,
+        logo: `${SITE_URL}/favicon.svg`,
+        image: `${SITE_URL}/og-image.png`,
+        description: t.heroP,
+        sameAs: [`https://wa.me/${WHATSAPP}`, "https://www.threads.net/@mhmd.adam44"],
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: "AdamSofi",
+        inLanguage: hreflang[locale],
+        publisher: { "@id": `${SITE_URL}/#org` },
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": `${SITE_URL}/#service`,
+        name: "AdamSofi",
+        url: lhref(locale, "/"),
+        image: `${SITE_URL}/og-image.png`,
+        description: t.heroP,
+        serviceType: "Web Development",
+        priceRange: "RM500 - RM2500+",
+        areaServed: { "@type": "Country", name: "Malaysia" },
+        knowsAbout: seoKeywords[locale],
+        telephone: "+60182399476",
+        provider: { "@id": `${SITE_URL}/#org` },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Web Development Packages",
+          itemListElement: dict.servis.plans.map((p) => ({
+            "@type": "Offer",
+            name: p.name,
+            price: p.price.replace(/[^0-9]/g, ""),
+            priceCurrency: "MYR",
+          })),
+        },
+      },
+    ],
+  };
 
   return (
     <>
+      <script type="application/ld+json" nonce={nonce} dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <Hero locale={locale} dict={dict} />
 
       <div className="strip">

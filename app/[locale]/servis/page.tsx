@@ -2,14 +2,20 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import FAQ from "@/components/ui/FAQ";
-import { type Locale, isLocale, lhref, alternates } from "@/lib/i18n/config";
+import { headers } from "next/headers";
+import { type Locale, isLocale, lhref, alternates, seoKeywords } from "@/lib/i18n/config";
 import { getDict } from "@/lib/i18n/dictionaries";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
   const locale: Locale = isLocale(raw) ? raw : "ms";
   const d = getDict(locale);
-  return { title: d.servis.eyebrow, description: d.servis.p, alternates: alternates(locale, "/servis") };
+  return {
+    title: `${d.servis.eyebrow} - AdamSofi`,
+    description: d.servis.p,
+    keywords: seoKeywords[locale],
+    alternates: alternates(locale, "/servis"),
+  };
 }
 
 export default async function ServisPage({ params }: { params: Promise<{ locale: string }> }) {
@@ -17,9 +23,20 @@ export default async function ServisPage({ params }: { params: Promise<{ locale:
   const locale: Locale = isLocale(raw) ? raw : "ms";
   const t = getDict(locale).servis;
   const hubungi = lhref(locale, "/hubungi");
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: t.faq.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <>
+      <script type="application/ld+json" nonce={nonce} dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <header className="phero">
         <div className="wrap">
           <span className="eyebrow">{t.eyebrow}</span>

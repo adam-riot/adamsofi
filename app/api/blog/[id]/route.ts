@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import slugify from "slugify";
 import { sql, hasDb } from "@/lib/db";
 import { isAdmin } from "@/lib/session";
@@ -34,6 +34,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     const article = rows[0];
     if (!article) return NextResponse.json({ error: "Tidak dijumpai." }, { status: 404 });
 
+    revalidateTag("articles");
     revalidatePath("/blog"); revalidatePath("/"); revalidatePath(`/blog/${slug}`);
     if (becomingPublished) await broadcastArticle(article as never);
     return NextResponse.json({ success: true, article });
@@ -48,6 +49,7 @@ export async function DELETE(_req: Request, { params }: { params: Promise<{ id: 
   if (!hasDb) return NextResponse.json({ error: "DB belum dikonfigurasi." }, { status: 503 });
   const { id } = await params;
   await sql!`DELETE FROM articles WHERE id = ${id}`;
-  revalidatePath("/blog");
+  revalidateTag("articles");
+  revalidatePath("/blog"); revalidatePath("/");
   return NextResponse.json({ success: true });
 }

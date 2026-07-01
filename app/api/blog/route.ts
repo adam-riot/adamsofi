@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import slugify from "slugify";
 import { sql, hasDb } from "@/lib/db";
 import { isAdmin } from "@/lib/session";
@@ -29,6 +29,7 @@ export async function POST(req: Request) {
       RETURNING *`;
     const article = rows[0];
 
+    revalidateTag("articles");
     revalidatePath("/blog"); revalidatePath("/");
     if (publishing) { revalidatePath(`/blog/${slug}`); await broadcastArticle(article as never); }
     return NextResponse.json({ success: true, article });
