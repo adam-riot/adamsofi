@@ -11,6 +11,20 @@ const nextConfig: NextConfig = {
   async redirects() {
     // Preserve SEO from the old static .html URLs
     return [
+      // adamsofi.my (+ www) are alias domains: 301 everything to the canonical .com
+      // so search engines see a single domain instead of duplicate content.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "adamsofi.my" }],
+        destination: "https://adamsofi.com/:path*",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.adamsofi.my" }],
+        destination: "https://adamsofi.com/:path*",
+        permanent: true,
+      },
       { source: "/index.html", destination: "/", permanent: true },
       { source: "/servis.html", destination: "/servis", permanent: true },
       { source: "/portfolio.html", destination: "/portfolio", permanent: true },
