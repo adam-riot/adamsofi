@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getDemo } from "@/lib/demos";
 import { type Locale, isLocale, lhref, alternates } from "@/lib/i18n/config";
 import { getDict } from "@/lib/i18n/dictionaries";
+import WaLink from "@/components/ui/WaLink";
 
 export async function generateMetadata({
   params,
@@ -45,7 +46,7 @@ export default async function DemoPage({
           </div>
           <div className="demo-banner-r">
             <a href={`/demos/${demo.slug}.html`} target="_blank" rel="noopener" className="btn btn-gho demo-open">{t.openTab}</a>
-            <Link href={lhref(locale, "/hubungi")} className="btn btn-pri">{t.build}</Link>
+            <WaLink source={`demo-${demo.slug}`} text={t.waPrefill.replace("{name}", demo.name)} className="btn btn-pri">{t.build}</WaLink>
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Dict } from "@/lib/i18n/dictionaries";
+import WaLink from "@/components/ui/WaLink";
 
 export default function HubungiForm({ dict }: { dict: Dict }) {
   const t = dict.hubungi;
@@ -33,6 +34,9 @@ export default function HubungiForm({ dict }: { dict: Dict }) {
     return (
       <div className="form-card">
         <div className="success-msg" style={{ display: "block" }}>{t.success}</div>
+        <div style={{ marginTop: 16, textAlign: "center" }}>
+          <WaLink source="form-success" text={t.successWaPrefill}>{t.successWaBtn}</WaLink>
+        </div>
       </div>
     );
   }
@@ -72,6 +76,11 @@ export default function HubungiForm({ dict }: { dict: Dict }) {
         {state === "loading" ? t.sending : t.submit}
       </button>
       {state === "err" && <p className="nl-err" style={{ marginTop: 12 }}>{err}</p>}
+      <p style={{ marginTop: 14, fontSize: 13, color: "var(--mute)" }}>{t.formTrust}</p>
+      <p style={{ marginTop: 6, fontSize: 13, color: "var(--mute)" }}>
+        {t.orWa}{" "}
+        <WaLink source="form" text={t.formWaPrefill} className="mail">{t.orWaBtn}</WaLink>
+      </p>
     </form>
   );
 }

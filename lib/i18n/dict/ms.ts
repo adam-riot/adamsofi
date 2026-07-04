@@ -19,6 +19,8 @@ const ms = {
     heroP: "Website profesional yang menjual - mobile-friendly, terus boleh WhatsApp. Berpatutan, laju, tanpa karenah teknikal yang menyusahkan.",
     ctaPrimary: "Dapatkan Draft Percuma →",
     ctaSecondary: "Lihat Hasil Kerja",
+    ctaWa: "💬 WhatsApp Terus - Draft Percuma",
+    waPrefill: "Hi Adam! Saya berminat nak buat website untuk bisnes saya. Boleh saya dapatkan draft percuma?",
     meta1: "Siap pantas", meta2a: "Mobile", meta2b: "-friendly", meta3: "Draft percuma dulu",
     stripLabel: "Sesuai untuk:",
     stripTags: ["Kafe & Restoran", "Barbershop & Salon", "Klinik", "Gym & Studio", "Tuisyen", "Servis & Tukang"],
@@ -51,6 +53,7 @@ const ms = {
     finalA: "Jom mula dengan", finalG: "draft percuma", finalB: ".",
     finalP: "Tiada risiko, tiada komitmen. Mesej saya hari ini.",
     finalBtn: "💬 Mulakan Projek Anda",
+    finalFormBtn: "Atau isi borang projek →",
   },
   newsletter: {
     eyebrow: "Newsletter", h3: "Dapat tips website & bisnes terus ke inbox",
@@ -121,6 +124,12 @@ const ms = {
     penerangan: "Penerangan Ringkas", peneranganPh: "Cerita sikit tentang bisnes anda dan apa yang anda perlukan...",
     submit: "Hantar Permintaan →", sending: "Menghantar...",
     success: "✅ Terima kasih! Kami akan hubungi anda dalam masa 24 jam. Semak WhatsApp atau email anda.",
+    successWaBtn: "💬 Atau WhatsApp Kami Sekarang",
+    successWaPrefill: "Hi Adam, saya baru hantar borang projek di adamsofi.com.",
+    formTrust: "✅ Konsultasi percuma · Respons dalam 24 jam · Tiada komitmen",
+    orWa: "Tak nak isi borang?",
+    orWaBtn: "WhatsApp terus →",
+    formWaPrefill: "Hi Adam! Saya berminat nak buat website. Boleh kita bincang?",
     errFill: "Sila lengkapkan semua medan wajib.", errSend: "Gagal hantar. Cuba lagi atau WhatsApp kami.",
     infoWa: "WhatsApp Terus", infoWaBtn: "Chat Sekarang →",
     infoEmail: "Email", infoHours: "Waktu Respons",
@@ -146,7 +155,10 @@ const ms = {
     failH: "Pautan tidak sah", failP: "Token unsubscribe tidak dijumpai atau telah tamat tempoh.",
     back: "Kembali ke Utama →",
   },
-  demo: { back: "Portfolio", titlePrefix: "Demo AdamSofi -", openTab: "Buka tab penuh ↗", build: "Bina Website Macam Ni →" },
+  demo: {
+    back: "Portfolio", titlePrefix: "Demo AdamSofi -", openTab: "Buka tab penuh ↗", build: "Bina Website Macam Ni →",
+    waPrefill: 'Hi Adam! Saya berminat nak website macam demo "{name}". Boleh saya dapatkan draft percuma?',
+  },
 };
 
 export default ms;

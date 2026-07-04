@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { lhref, type Locale } from "@/lib/i18n/config";
 import type { Dict } from "@/lib/i18n/dictionaries";
+import WaLink from "@/components/ui/WaLink";
 
 export default function Hero({ locale, dict }: { locale: Locale; dict: Dict }) {
   const heroRef = useRef<HTMLElement>(null);
@@ -43,7 +44,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dict }) {
         </h1>
         <p className="reveal-up in" style={{ transitionDelay: ".15s" }}>{t.heroP}</p>
         <div className="hero-cta reveal-up in" style={{ transitionDelay: ".3s" }}>
-          <Link href={lhref(locale, "/hubungi")} className="btn btn-pri">{t.ctaPrimary}</Link>
+          <WaLink source="hero" text={t.waPrefill}>{t.ctaWa}</WaLink>
           <Link href={lhref(locale, "/portfolio")} className="btn btn-gho">{t.ctaSecondary}</Link>
         </div>
         <div className="hero-meta reveal-up in" style={{ transitionDelay: ".45s" }}>

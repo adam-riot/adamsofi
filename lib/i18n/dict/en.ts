@@ -21,6 +21,8 @@ const en: Dict = {
     heroP: "A professional website that sells - mobile-friendly, straight to WhatsApp. Affordable, fast, without the technical hassle.",
     ctaPrimary: "Get a Free Draft →",
     ctaSecondary: "See Our Work",
+    ctaWa: "💬 WhatsApp Us - Free Draft",
+    waPrefill: "Hi Adam! I'm interested in a website for my business. Can I get a free draft?",
     meta1: "Fast turnaround", meta2a: "Mobile", meta2b: "-friendly", meta3: "Free draft first",
     stripLabel: "Perfect for:",
     stripTags: ["Cafes & Restaurants", "Barbershops & Salons", "Clinics", "Gyms & Studios", "Tuition Centres", "Services & Trades"],
@@ -53,6 +55,7 @@ const en: Dict = {
     finalA: "Let's start with a", finalG: "free draft", finalB: ".",
     finalP: "No risk, no commitment. Message me today.",
     finalBtn: "💬 Start Your Project",
+    finalFormBtn: "Or fill in the project form →",
   },
   newsletter: {
     eyebrow: "Newsletter", h3: "Get website & business tips straight to your inbox",
@@ -123,6 +126,12 @@ const en: Dict = {
     penerangan: "Brief Description", peneranganPh: "Tell us a bit about your business and what you need...",
     submit: "Send Request →", sending: "Sending...",
     success: "✅ Thank you! We'll contact you within 24 hours. Check your WhatsApp or email.",
+    successWaBtn: "💬 Or WhatsApp Us Now",
+    successWaPrefill: "Hi Adam, I just submitted the project form on adamsofi.com.",
+    formTrust: "✅ Free consultation · Response within 24 hours · No commitment",
+    orWa: "Prefer not to fill in the form?",
+    orWaBtn: "WhatsApp us directly →",
+    formWaPrefill: "Hi Adam! I'm interested in a website. Can we discuss?",
     errFill: "Please complete all required fields.", errSend: "Failed to send. Try again or WhatsApp us.",
     infoWa: "WhatsApp Direct", infoWaBtn: "Chat Now →",
     infoEmail: "Email", infoHours: "Response Hours",
@@ -148,7 +157,10 @@ const en: Dict = {
     failH: "Invalid link", failP: "The unsubscribe token was not found or has expired.",
     back: "Back to Home →",
   },
-  demo: { back: "Portfolio", titlePrefix: "AdamSofi Demo -", openTab: "Open full tab ↗", build: "Build a Website Like This →" },
+  demo: {
+    back: "Portfolio", titlePrefix: "AdamSofi Demo -", openTab: "Open full tab ↗", build: "Build a Website Like This →",
+    waPrefill: 'Hi Adam! I want a website like the "{name}" demo. Can I get a free draft?',
+  },
 };
 
 export default en;

@@ -9,7 +9,8 @@ import { demos } from "@/lib/demos";
 import { headers } from "next/headers";
 import { type Locale, isLocale, lhref, alternates, siteTitle, seoKeywords, hreflang } from "@/lib/i18n/config";
 import { getDict } from "@/lib/i18n/dictionaries";
-import { SITE_URL, WHATSAPP } from "@/lib/demos";
+import { SITE_URL, WHATSAPP, EMAIL } from "@/lib/demos";
+import WaLink from "@/components/ui/WaLink";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale: raw } = await params;
@@ -65,6 +66,19 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         areaServed: { "@type": "Country", name: "Malaysia" },
         knowsAbout: seoKeywords[locale],
         telephone: "+60182399476",
+        email: EMAIL,
+        address: { "@type": "PostalAddress", addressCountry: "MY", addressRegion: "Selangor" },
+        openingHoursSpecification: [
+          { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" },
+          { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "10:00", closes: "14:00" },
+        ],
+        contactPoint: {
+          "@type": "ContactPoint",
+          contactType: "customer service",
+          telephone: "+60182399476",
+          email: EMAIL,
+          availableLanguage: ["Malay", "English", "Chinese"],
+        },
         provider: { "@id": `${SITE_URL}/#org` },
         hasOfferCatalog: {
           "@type": "OfferCatalog",
@@ -207,9 +221,12 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
             <div className="inner">
               <h2>{t.finalA} <span className="g">{t.finalG}</span>{t.finalB}</h2>
               <p>{t.finalP}</p>
-              <Link href={lhref(locale, "/hubungi")} className="btn btn-pri" style={{ fontSize: 17, padding: "16px 32px" }}>
+              <WaLink source="home-final" text={t.waPrefill} style={{ fontSize: 17, padding: "16px 32px" }}>
                 {t.finalBtn}
-              </Link>
+              </WaLink>
+              <div style={{ marginTop: 14 }}>
+                <Link href={lhref(locale, "/hubungi")} className="btn btn-gho">{t.finalFormBtn}</Link>
+              </div>
             </div>
           </ScrollReveal>
         </div>

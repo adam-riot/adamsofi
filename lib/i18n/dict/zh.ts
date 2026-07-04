@@ -21,6 +21,8 @@ const zh: Dict = {
     heroP: "会带来销量的专业网站：适配手机、一键直达 WhatsApp。实惠、快速，没有繁琐的技术麻烦。",
     ctaPrimary: "获取免费草稿 →",
     ctaSecondary: "查看作品",
+    ctaWa: "💬 WhatsApp 联系 - 免费草稿",
+    waPrefill: "Hi Adam！我想为我的生意做一个网站，可以先看免费草稿吗？",
     meta1: "快速交付", meta2a: "手机", meta2b: "适配", meta3: "先看免费草稿",
     stripLabel: "适合：",
     stripTags: ["咖啡馆与餐厅", "理发店与沙龙", "诊所", "健身房与工作室", "补习中心", "服务与技工"],
@@ -53,6 +55,7 @@ const zh: Dict = {
     finalA: "就从", finalG: "免费草稿", finalB: "开始吧。",
     finalP: "零风险，无承诺。今天就联系我。",
     finalBtn: "💬 开始您的项目",
+    finalFormBtn: "或填写项目表格 →",
   },
   newsletter: {
     eyebrow: "订阅", h3: "把网站与生意建议直接送到您的邮箱",
@@ -123,6 +126,12 @@ const zh: Dict = {
     penerangan: "简要说明", peneranganPh: "简单说说您的生意以及您的需求...",
     submit: "发送请求 →", sending: "发送中...",
     success: "✅ 谢谢！我们将在 24 小时内联系您。请查看您的 WhatsApp 或邮箱。",
+    successWaBtn: "💬 或立即 WhatsApp 我们",
+    successWaPrefill: "Hi Adam，我刚在 adamsofi.com 提交了项目表格。",
+    formTrust: "✅ 免费咨询 · 24 小时内回复 · 无需承诺",
+    orWa: "不想填表格？",
+    orWaBtn: "直接 WhatsApp →",
+    formWaPrefill: "Hi Adam！我想做一个网站，可以聊聊吗？",
     errFill: "请填写所有必填字段。", errSend: "发送失败。请重试或 WhatsApp 我们。",
     infoWa: "WhatsApp 直达", infoWaBtn: "立即聊天 →",
     infoEmail: "邮箱", infoHours: "回复时间",
@@ -148,7 +157,10 @@ const zh: Dict = {
     failH: "链接无效", failP: "未找到退订令牌或令牌已过期。",
     back: "返回首页 →",
   },
-  demo: { back: "作品集", titlePrefix: "AdamSofi 演示 -", openTab: "打开完整标签页 ↗", build: "做一个这样的网站 →" },
+  demo: {
+    back: "作品集", titlePrefix: "AdamSofi 演示 -", openTab: "打开完整标签页 ↗", build: "做一个这样的网站 →",
+    waPrefill: 'Hi Adam！我想要一个像 "{name}" 演示这样的网站，可以先看免费草稿吗？',
+  },
 };
 
 export default zh;

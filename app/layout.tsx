@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
   icons: { icon: "/favicon.svg" },
+  // Google Search Console: set GOOGLE_SITE_VERIFICATION in Vercel env, redeploy,
+  // then verify via the "HTML tag" method in GSC.
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export const viewport = { themeColor: "#08090d" };
