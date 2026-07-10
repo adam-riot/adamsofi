@@ -276,6 +276,7 @@ footer { padding: 56px 0 30px; border-top: 1px solid var(--line); margin-top: 90
 @media (max-width: 680px) { .demo-open { display: none; } .demo-banner-inner { height: auto; padding: 12px 0; } }
 
 /* ===== PORTFOLIO FEATURED ===== */
+.feat-wrap + .feat-wrap { margin-top: 28px; }
 .feat { position: relative; border-radius: 24px; padding: 2px; background: linear-gradient(135deg, var(--cyan), var(--blue)); }
 .feat-inner { background: var(--panel); border-radius: 22px; overflow: hidden; position: relative; }
 .feat-glow { position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 0%, rgba(34,211,238,.12), transparent 55%); pointer-events: none; }

@@ -39,27 +39,29 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
             <span className="eyebrow">{t.featEyebrow}</span>
             <h2>{t.featH2}</h2>
           </ScrollReveal>
-          <ScrollReveal>
-            <div className="feat">
-              <div className="feat-inner">
-                <div className="feat-glow" />
-                <div className="feat-grid">
-                  <div className="feat-shot"><div className="mock">Code<span>Cikgu</span></div></div>
-                  <div className="feat-body">
-                    <span className="feat-tag">{t.featTag}</span>
-                    <h2>CodeCikgu.com</h2>
-                    <div className="feat-sub">{t.featSub}</div>
-                    <div className="feat-meta">{t.featMeta}</div>
-                    <div className="feat-stack">
-                      {["Next.js 15", "TypeScript", "TailwindCSS", "Neon", "Vercel"].map((s) => (<span key={s}>{s}</span>))}
+          {t.featured.map((f, i) => (
+            <ScrollReveal key={f.name} delay={i * 80} className="feat-wrap">
+              <div className="feat">
+                <div className="feat-inner">
+                  <div className="feat-glow" />
+                  <div className="feat-grid">
+                    <div className="feat-shot"><div className="mock">{f.mockA}<span>{f.mockB}</span></div></div>
+                    <div className="feat-body">
+                      <span className="feat-tag">{f.tag}</span>
+                      <h2>{f.name}</h2>
+                      <div className="feat-sub">{f.sub}</div>
+                      <div className="feat-meta">{f.meta}</div>
+                      <div className="feat-stack">
+                        {f.stack.map((s) => (<span key={s}>{s}</span>))}
+                      </div>
+                      <div className="feat-status">{f.status}</div>
+                      <a href={f.url} target="_blank" rel="noopener" className="btn btn-pri">{f.btn}</a>
                     </div>
-                    <div className="feat-status">{t.featStatus}</div>
-                    <a href="https://codecikgu.com" target="_blank" rel="noopener" className="btn btn-pri">{t.featBtn}</a>
                   </div>
                 </div>
               </div>
-            </div>
-          </ScrollReveal>
+            </ScrollReveal>
+          ))}
         </div>
       </section>
 
