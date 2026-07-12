@@ -32,7 +32,7 @@ function strictCsp(nonce: string): string {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.fontshare.com",
     "img-src 'self' data: https:",
     "font-src 'self' https://fonts.gstatic.com https://cdn.fontshare.com",
-    "connect-src 'self'",
+    "connect-src 'self' https://*.public.blob.vercel-storage.com https://*.private.blob.vercel-storage.com",
     "frame-src 'self'",
     "object-src 'none'",
     "base-uri 'self'",
