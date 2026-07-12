@@ -3,7 +3,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import slugify from "slugify";
+import { upload } from "@vercel/blob/client";
 import type { Ebook } from "@/lib/ebooks";
+
+const COVER_EXT: Record<string, string> = { "image/png": "png", "image/jpeg": "jpg", "image/webp": "webp" };
 
 export default function EbookForm({ initial }: { initial?: Ebook }) {
   const router = useRouter();
@@ -18,9 +21,55 @@ export default function EbookForm({ initial }: { initial?: Ebook }) {
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
 
+  const [coverPct, setCoverPct] = useState(0);
+  const [coverErr, setCoverErr] = useState("");
+  const [filePct, setFilePct] = useState(0);
+  const [fileErr, setFileErr] = useState("");
+
   function onTitle(v: string) {
     setTitle(v);
     if (!slugTouched) setSlug(slugify(v, { lower: true, strict: true }));
+  }
+
+  async function onCoverPick(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (!slug) { setCoverErr("Isi tajuk dahulu (slug diperlukan)."); return; }
+    setCoverErr(""); setCoverPct(1);
+    try {
+      const ext = COVER_EXT[file.type] || "png";
+      const blob = await upload(`ebook-covers/${slug}/cover.${ext}`, file, {
+        access: "public",
+        handleUploadUrl: "/api/ebook/upload-cover",
+        onUploadProgress: (p) => setCoverPct(p.percentage),
+      });
+      setCover(blob.url);
+      setCoverPct(0);
+    } catch (e) {
+      setCoverErr(e instanceof Error ? e.message : "Muat naik gagal.");
+      setCoverPct(0);
+    }
+  }
+
+  async function onFilePick(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    e.target.value = "";
+    if (!file) return;
+    if (!slug) { setFileErr("Isi tajuk dahulu (slug diperlukan)."); return; }
+    setFileErr(""); setFilePct(1);
+    try {
+      const blob = await upload(`ebook-files/${slug}/ebook.pdf`, file, {
+        access: "private",
+        handleUploadUrl: "/api/ebook/upload-file",
+        onUploadProgress: (p) => setFilePct(p.percentage),
+      });
+      setFileUrl(blob.pathname);
+      setFilePct(0);
+    } catch (e) {
+      setFileErr(e instanceof Error ? e.message : "Muat naik gagal.");
+      setFilePct(0);
+    }
   }
 
   async function save(status: "draft" | "published") {
@@ -52,8 +101,40 @@ export default function EbookForm({ initial }: { initial?: Ebook }) {
           <div className="fg"><label>Slug</label><input value={slug} onChange={(e) => { setSlug(e.target.value); setSlugTouched(true); }} /></div>
           <div className="fg"><label>Harga (RM)</label><input type="number" min="0" step="0.01" value={price} onChange={(e) => setPrice(e.target.value)} placeholder="29.00" /></div>
         </div>
-        <div className="fg"><label>Cover Image URL</label><input value={cover} onChange={(e) => setCover(e.target.value)} placeholder="https://..." /></div>
-        <div className="fg"><label>Fail PDF URL</label><input value={fileUrl} onChange={(e) => setFileUrl(e.target.value)} placeholder="https://... (Vercel Blob / Google Drive / dsb)" /></div>
+
+        <div className="fg">
+          <label>Cover Image</label>
+          <input type="file" accept="image/png,image/jpeg,image/webp" onChange={onCoverPick} />
+          {coverPct > 0 && (
+            <div style={{ marginTop: 8, height: 6, background: "var(--panel2)", borderRadius: 4, overflow: "hidden" }}>
+              <div style={{ width: `${coverPct}%`, height: "100%", background: "var(--cyan)", transition: "width .2s" }} />
+            </div>
+          )}
+          {coverErr && <p className="nl-err" style={{ marginTop: 8 }}>{coverErr}</p>}
+          {cover && (
+            <div style={{ marginTop: 10 }}>
+              <img src={cover} alt="Cover preview" style={{ maxWidth: 160, borderRadius: 8, display: "block" }} />
+              <p style={{ fontSize: 12, color: "var(--mute)", marginTop: 4, wordBreak: "break-all" }}>{cover}</p>
+            </div>
+          )}
+        </div>
+
+        <div className="fg">
+          <label>Fail PDF Ebook</label>
+          <input type="file" accept="application/pdf" onChange={onFilePick} />
+          {filePct > 0 && (
+            <div style={{ marginTop: 8, height: 6, background: "var(--panel2)", borderRadius: 4, overflow: "hidden" }}>
+              <div style={{ width: `${filePct}%`, height: "100%", background: "var(--cyan)", transition: "width .2s" }} />
+            </div>
+          )}
+          {fileErr && <p className="nl-err" style={{ marginTop: 8 }}>{fileErr}</p>}
+          {fileUrl && (
+            <p style={{ fontSize: 13, color: "var(--mute)", marginTop: 8 }}>
+              ✓ Storage Path: <span style={{ color: "var(--white)", wordBreak: "break-all" }}>{fileUrl}</span>
+            </p>
+          )}
+        </div>
+
         <div className="fg"><label>Penerangan</label><textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Penerangan jualan ringkas..." style={{ minHeight: 120 }} /></div>
         {err && <p className="nl-err" style={{ marginBottom: 12 }}>{err}</p>}
         <div className="admin-actions">
