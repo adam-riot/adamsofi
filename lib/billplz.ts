@@ -64,6 +64,16 @@ export function verifySignature(fields: Record<string, string>, receivedSig: str
 
   const expected = crypto.createHmac("sha256", X_SIGNATURE_KEY).update(source).digest("hex");
 
+  // Temporary diagnostic: prefixes/lengths only, never the secret key or full source (contains PII).
+  console.log("verifySignature debug:", {
+    keyLen: X_SIGNATURE_KEY.length,
+    sourceLen: source.length,
+    expectedPrefix: expected.slice(0, 12),
+    expectedLen: expected.length,
+    receivedPrefix: receivedSig.slice(0, 12),
+    receivedLen: receivedSig.length,
+  });
+
   const a = Buffer.from(expected, "utf8");
   const b = Buffer.from(receivedSig, "utf8");
   if (a.length !== b.length) return false;
