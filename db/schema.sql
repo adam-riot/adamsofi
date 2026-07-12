@@ -67,3 +67,38 @@ CREATE TABLE IF NOT EXISTS page_views (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 CREATE INDEX IF NOT EXISTS page_views_created_idx ON page_views (created_at);
+
+-- ── EBOOKS ──────────────────────────────────────────────────
+CREATE TABLE IF NOT EXISTS ebooks (
+  id           UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  title        TEXT NOT NULL,
+  slug         TEXT NOT NULL UNIQUE,
+  description  TEXT,
+  cover_url    TEXT,
+  file_url     TEXT NOT NULL,        -- hosted PDF, pasted by admin (Vercel Blob / Drive / etc)
+  price        INTEGER NOT NULL,     -- price in sen (RM29.00 = 2900), matches Billplz's cent-based amount
+  status       TEXT DEFAULT 'draft', -- 'draft' | 'published'
+  created_at   TIMESTAMPTZ DEFAULT NOW(),
+  updated_at   TIMESTAMPTZ DEFAULT NOW()
+);
+
+DROP TRIGGER IF EXISTS ebooks_updated_at ON ebooks;
+CREATE TRIGGER ebooks_updated_at
+  BEFORE UPDATE ON ebooks
+  FOR EACH ROW EXECUTE FUNCTION update_updated_at();
+
+-- ── EBOOK ORDERS (Billplz) ──────────────────────────────────
+CREATE TABLE IF NOT EXISTS ebook_orders (
+  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  ebook_id        UUID NOT NULL REFERENCES ebooks(id),
+  buyer_name      TEXT NOT NULL,
+  buyer_email     TEXT NOT NULL,
+  buyer_phone     TEXT,
+  amount          INTEGER NOT NULL,       -- sen, snapshot of ebooks.price at purchase time
+  status          TEXT DEFAULT 'pending', -- 'pending' | 'paid' | 'failed'
+  billplz_bill_id TEXT UNIQUE,
+  download_token  TEXT DEFAULT encode(gen_random_bytes(32), 'hex'),
+  created_at      TIMESTAMPTZ DEFAULT NOW(),
+  paid_at         TIMESTAMPTZ
+);
+CREATE INDEX IF NOT EXISTS ebook_orders_bill_idx ON ebook_orders (billplz_bill_id);

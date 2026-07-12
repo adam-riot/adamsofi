@@ -1,7 +1,7 @@
 import type { Dict } from "./ms";
 
 const zh: Dict = {
-  nav: { servis: "服务", portfolio: "作品集", blog: "博客", hubungi: "联系", cta: "开始项目", home: "首页" },
+  nav: { servis: "服务", portfolio: "作品集", blog: "博客", ebook: "电子书", hubungi: "联系", cta: "开始项目", home: "首页" },
   common: {
     lihatSemua: "查看全部",
     hubungiKami: "联系我们 →",
@@ -127,6 +127,28 @@ const zh: Dict = {
     tabs: { semua: "全部", fnb: "餐饮", fesyen: "时尚", hartanah: "房产", pendidikan: "教育", elektronik: "电子", wellness: "养生" },
     lihatDemo: "查看演示 →",
     finalA: "想为", finalG: "您的生意", finalB: "做这样的网站吗？",
+  },
+  ebook: {
+    eyebrow: "电子书", h1a: "为您的网络生意", h1g: "提供", h1b: "实用指南。",
+    p: "专为马来西亚创业者撰写的深度电子书。",
+    none: "暂无电子书，敬请期待！",
+    lihatBtn: "查看电子书 →", hargaLabel: "价格",
+    beliBtn: "立即购买", backEbook: "← 所有电子书",
+    form: {
+      nama: "全名", email: "邮箱", whatsapp: "WhatsApp 号码（可选）",
+      submit: "继续付款 →", sending: "处理中...",
+      err: "出错了，请重试。", errFill: "请填写有效的姓名和邮箱。",
+      note: "安全可靠 - 由 Billplz 提供技术支持。",
+    },
+    thankYou: {
+      paidTitle: "谢谢！付款成功。🎉",
+      paidP: "您的电子书已可下载。下载链接也已发送到您的邮箱。",
+      downloadBtn: "📥 立即下载",
+      pendingTitle: "正在确认您的付款...",
+      pendingP: "通常只需几秒钟。此页面将自动刷新。",
+      notFoundTitle: "找不到订单",
+      notFoundP: "请重新检查链接，如果您已完成付款请联系我们。",
+    },
   },
   hubungi: {
     eyebrow: "联系", h1a: "开始", h1g: "您的项目", h1b: "。",

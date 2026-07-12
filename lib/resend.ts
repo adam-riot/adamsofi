@@ -54,6 +54,16 @@ export function broadcastEmail(
   `);
 }
 
+export function ebookDeliveryEmail(data: { name: string; ebookTitle: string; downloadUrl: string }) {
+  return shell(`
+    <h1 style="font-size:22px;color:#fff;margin:0 0 14px;">Terima kasih atas pembelian anda! 🎉</h1>
+    <p>Hi ${data.name},</p>
+    <p>Pembayaran untuk <b style="color:#fff;">${data.ebookTitle}</b> telah disahkan. Ebook anda sedia untuk dimuat turun:</p>
+    <p style="margin:24px 0;">${btn(data.downloadUrl, "📥 Muat Turun Ebook")}</p>
+    <p style="font-size:12px;color:#7d8597;">Simpan email ini - pautan muat turun ini kekal sah untuk anda guna bila-bila masa.</p>
+  `);
+}
+
 export function inquiryEmail(data: {
   nama: string; whatsapp: string; email: string; bisnes: string;
   pakej: string; addons: string[]; penerangan?: string;

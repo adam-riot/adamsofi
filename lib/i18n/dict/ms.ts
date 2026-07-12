@@ -1,5 +1,5 @@
 const ms = {
-  nav: { servis: "Servis", portfolio: "Portfolio", blog: "Blog", hubungi: "Hubungi", cta: "Mulakan Projek", home: "Utama" },
+  nav: { servis: "Servis", portfolio: "Portfolio", blog: "Blog", ebook: "Ebook", hubungi: "Hubungi", cta: "Mulakan Projek", home: "Utama" },
   common: {
     lihatSemua: "Lihat Semua",
     hubungiKami: "Hubungi Kami →",
@@ -125,6 +125,28 @@ const ms = {
     tabs: { semua: "Semua", fnb: "F&B", fesyen: "Fesyen", hartanah: "Hartanah", pendidikan: "Pendidikan", elektronik: "Elektronik", wellness: "Wellness" },
     lihatDemo: "Lihat Demo →",
     finalA: "Nak website macam ni untuk", finalG: "bisnes anda", finalB: "?",
+  },
+  ebook: {
+    eyebrow: "Ebook", h1a: "Panduan", h1g: "praktikal", h1b: "untuk bisnes online anda.",
+    p: "Ebook terperinci, ditulis khas untuk usahawan Malaysia.",
+    none: "Tiada ebook lagi. Nantikan tak lama lagi!",
+    lihatBtn: "Lihat Ebook →", hargaLabel: "Harga",
+    beliBtn: "Beli Sekarang", backEbook: "← Semua Ebook",
+    form: {
+      nama: "Nama Penuh", email: "Emel", whatsapp: "Nombor WhatsApp (pilihan)",
+      submit: "Teruskan ke Pembayaran →", sending: "Memproses...",
+      err: "Ralat. Sila cuba lagi.", errFill: "Sila lengkapkan nama dan emel yang sah.",
+      note: "Selamat & selamat - dikuasakan oleh Billplz.",
+    },
+    thankYou: {
+      paidTitle: "Terima kasih! Pembayaran berjaya. 🎉",
+      paidP: "Ebook anda sedia untuk dimuat turun. Pautan juga telah dihantar ke emel anda.",
+      downloadBtn: "📥 Muat Turun Sekarang",
+      pendingTitle: "Sedang mengesahkan pembayaran...",
+      pendingP: "Ini biasanya mengambil masa beberapa saat sahaja. Halaman ini akan refresh secara automatik.",
+      notFoundTitle: "Pesanan tidak dijumpai",
+      notFoundP: "Sila semak semula pautan atau hubungi kami jika anda sudah membuat pembayaran.",
+    },
   },
   hubungi: {
     eyebrow: "Hubungi", h1a: "Jom mula", h1g: "projek anda", h1b: ".",

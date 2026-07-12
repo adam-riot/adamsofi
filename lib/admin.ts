@@ -1,5 +1,13 @@
 import { sql, hasDb } from "./db";
 import type { Article } from "./blog";
+import type { Ebook } from "./ebooks";
+
+export type EbookOrder = {
+  id: string; ebook_id: string; ebook_title: string;
+  buyer_name: string; buyer_email: string; buyer_phone: string | null;
+  amount: number; status: "pending" | "paid" | "failed";
+  billplz_bill_id: string | null; created_at: string; paid_at: string | null;
+};
 
 export type Subscriber = {
   id: string; email: string; name: string | null;
@@ -85,6 +93,29 @@ export async function listInquiries(limit?: number): Promise<Inquiry[]> {
       ? await sql!`SELECT * FROM inquiries ORDER BY created_at DESC LIMIT ${limit}`
       : await sql!`SELECT * FROM inquiries ORDER BY created_at DESC`;
     return rows as Inquiry[];
+  } catch { return []; }
+}
+
+export async function listEbooks(): Promise<Ebook[]> {
+  if (!hasDb) return [];
+  try { return (await sql!`SELECT * FROM ebooks ORDER BY updated_at DESC`) as Ebook[]; }
+  catch { return []; }
+}
+
+export async function getEbookById(id: string): Promise<Ebook | null> {
+  if (!hasDb) return null;
+  try { const r = await sql!`SELECT * FROM ebooks WHERE id = ${id} LIMIT 1`; return (r[0] as Ebook) ?? null; }
+  catch { return null; }
+}
+
+export async function listEbookOrders(): Promise<EbookOrder[]> {
+  if (!hasDb) return [];
+  try {
+    const rows = await sql!`
+      SELECT o.*, e.title AS ebook_title
+      FROM ebook_orders o JOIN ebooks e ON e.id = o.ebook_id
+      ORDER BY o.created_at DESC`;
+    return rows as EbookOrder[];
   } catch { return []; }
 }
 

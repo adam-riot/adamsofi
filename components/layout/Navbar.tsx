@@ -16,6 +16,7 @@ export default function Navbar({ locale, dict }: { locale: Locale; dict: Dict })
     { href: lhref(locale, "/servis"), label: dict.nav.servis },
     { href: lhref(locale, "/portfolio"), label: dict.nav.portfolio },
     { href: lhref(locale, "/blog"), label: dict.nav.blog },
+    { href: lhref(locale, "/ebook"), label: dict.nav.ebook },
     { href: lhref(locale, "/hubungi"), label: dict.nav.hubungi },
   ];
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");

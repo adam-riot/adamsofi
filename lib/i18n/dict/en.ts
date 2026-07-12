@@ -1,7 +1,7 @@
 import type { Dict } from "./ms";
 
 const en: Dict = {
-  nav: { servis: "Services", portfolio: "Portfolio", blog: "Blog", hubungi: "Contact", cta: "Start a Project", home: "Home" },
+  nav: { servis: "Services", portfolio: "Portfolio", blog: "Blog", ebook: "Ebook", hubungi: "Contact", cta: "Start a Project", home: "Home" },
   common: {
     lihatSemua: "View All",
     hubungiKami: "Contact Us →",
@@ -127,6 +127,28 @@ const en: Dict = {
     tabs: { semua: "All", fnb: "F&B", fesyen: "Fashion", hartanah: "Property", pendidikan: "Education", elektronik: "Electronics", wellness: "Wellness" },
     lihatDemo: "View Demo →",
     finalA: "Want a website like this for", finalG: "your business", finalB: "?",
+  },
+  ebook: {
+    eyebrow: "Ebook", h1a: "Practical", h1g: "guides", h1b: "for your online business.",
+    p: "In-depth ebooks, written specifically for Malaysian entrepreneurs.",
+    none: "No ebooks yet. Stay tuned!",
+    lihatBtn: "View Ebook →", hargaLabel: "Price",
+    beliBtn: "Buy Now", backEbook: "← All Ebooks",
+    form: {
+      nama: "Full Name", email: "Email", whatsapp: "WhatsApp Number (optional)",
+      submit: "Continue to Payment →", sending: "Processing...",
+      err: "Something went wrong. Please try again.", errFill: "Please fill in a valid name and email.",
+      note: "Safe & secure - powered by Billplz.",
+    },
+    thankYou: {
+      paidTitle: "Thank you! Payment successful. 🎉",
+      paidP: "Your ebook is ready to download. The link has also been sent to your email.",
+      downloadBtn: "📥 Download Now",
+      pendingTitle: "Confirming your payment...",
+      pendingP: "This usually takes just a few seconds. This page will refresh automatically.",
+      notFoundTitle: "Order not found",
+      notFoundP: "Please double-check the link or contact us if you've already made the payment.",
+    },
   },
   hubungi: {
     eyebrow: "Contact", h1a: "Let's start", h1g: "your project", h1b: ".",

@@ -17,3 +17,8 @@ export function formatDate(iso?: string | null): string {
 export function stripHtml(html: string): string {
   return html.replace(/<[^>]+>/g, "").trim();
 }
+
+/** Format a sen amount as "RM 29.00". */
+export function formatRM(sen: number): string {
+  return `RM ${(sen / 100).toFixed(2)}`;
+}

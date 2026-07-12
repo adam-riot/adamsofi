@@ -1,15 +1,16 @@
 import type { MetadataRoute } from "next";
 import { demos } from "@/lib/demos";
 import { getPublishedArticles } from "@/lib/articles";
+import { getPublishedEbooks } from "@/lib/ebooks";
 import { locales, lhref } from "@/lib/i18n/config";
 
 const BASE = "https://adamsofi.com";
 
-// Query the DB at request time so newly published articles appear immediately.
+// Query the DB at request time so newly published articles/ebooks appear immediately.
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const staticPaths = ["/", "/servis", "/portfolio", "/blog", "/hubungi"];
+  const staticPaths = ["/", "/servis", "/portfolio", "/blog", "/ebook", "/hubungi"];
   const out: MetadataRoute.Sitemap = [];
 
   for (const locale of locales) {
@@ -22,6 +23,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const articles = await getPublishedArticles(locale);
     for (const a of articles) {
       out.push({ url: `${BASE}${lhref(locale, `/blog/${a.slug}`)}`, lastModified: a.updated_at, changeFrequency: "monthly", priority: 0.7 });
+    }
+    const ebooks = await getPublishedEbooks();
+    for (const e of ebooks) {
+      out.push({ url: `${BASE}${lhref(locale, `/ebook/${e.slug}`)}`, lastModified: e.updated_at, changeFrequency: "monthly", priority: 0.7 });
     }
   }
   return out;
