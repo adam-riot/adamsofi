@@ -5,6 +5,18 @@ const AUTH_COOKIE = "as_admin";
 const SECRET = process.env.AUTH_SECRET || "dev-insecure-secret-change-me";
 const enc = new TextEncoder();
 
+// Constant-time string comparison — avoids leaking signature match progress via response timing.
+function timingSafeEqual(a: string, b: string): boolean {
+  const aBytes = enc.encode(a);
+  const bBytes = enc.encode(b);
+  let diff = aBytes.length ^ bBytes.length;
+  const len = Math.max(aBytes.length, bBytes.length);
+  for (let i = 0; i < len; i++) {
+    diff |= (aBytes[i] ?? 0) ^ (bBytes[i] ?? 0);
+  }
+  return diff === 0;
+}
+
 async function verify(token: string | undefined): Promise<boolean> {
   if (!token) return false;
   const [payload, sig] = token.split(".");
@@ -16,7 +28,7 @@ async function verify(token: string | undefined): Promise<boolean> {
   let expect = "";
   for (const b of new Uint8Array(sigBuf)) expect += String.fromCharCode(b);
   expect = btoa(expect).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-  if (expect !== sig) return false;
+  if (!timingSafeEqual(expect, sig)) return false;
   try {
     const json = JSON.parse(atob(payload.replace(/-/g, "+").replace(/_/g, "/")));
     return typeof json.exp === "number" && Date.now() < json.exp;

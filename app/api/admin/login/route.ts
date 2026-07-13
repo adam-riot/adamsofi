@@ -8,6 +8,8 @@ export async function POST(req: Request) {
   }
   const { email, password } = await req.json();
   if (!checkCredentials(email || "", password || "")) {
+    // Small fixed delay on failure — cheap friction against automated credential-guessing.
+    await new Promise((r) => setTimeout(r, 400));
     return NextResponse.json({ error: "Emel atau kata laluan salah." }, { status: 401 });
   }
   const token = await createToken(7);

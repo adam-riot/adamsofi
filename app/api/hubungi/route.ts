@@ -18,9 +18,11 @@ export async function POST(req: Request) {
     }
 
     if (hasResend && resend) {
+      // Strip newlines from user input before it lands in a header-adjacent field (subject).
+      const noNewline = (s: string) => String(s).replace(/[\r\n]+/g, " ");
       await resend.emails.send({
         from: NEWSLETTER_FROM, to: CONTACT_TO, replyTo: email,
-        subject: `Inquiry Baru - ${pakej} dari ${bisnes}`,
+        subject: `Inquiry Baru - ${noNewline(pakej)} dari ${noNewline(bisnes)}`,
         html: inquiryEmail({ nama, whatsapp, email, bisnes, pakej, addons: addonsArr, penerangan }),
       }).catch(() => {});
     }

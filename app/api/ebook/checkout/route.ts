@@ -46,6 +46,7 @@ export async function POST(req: Request) {
 
     return NextResponse.json({ success: true, url: bill.url });
   } catch (e) {
-    return NextResponse.json({ error: e instanceof Error ? e.message : "Ralat pelayan." }, { status: 500 });
+    console.error("ebook checkout failed", e);
+    return NextResponse.json({ error: "Ralat pelayan. Sila cuba lagi." }, { status: 500 });
   }
 }

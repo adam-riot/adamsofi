@@ -3,6 +3,7 @@ import path from "path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
   outputFileTracingRoot: path.join(process.cwd()),
   images: {
     // Allow remote cover images for blog articles

@@ -12,6 +12,18 @@ function b64url(bytes: Uint8Array): string {
   return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
+/** Constant-time string comparison (works in Edge + Node, unlike Node's crypto.timingSafeEqual). */
+function timingSafeEqual(a: string, b: string): boolean {
+  const aBytes = enc.encode(a);
+  const bBytes = enc.encode(b);
+  let diff = aBytes.length ^ bBytes.length;
+  const len = Math.max(aBytes.length, bBytes.length);
+  for (let i = 0; i < len; i++) {
+    diff |= (aBytes[i] ?? 0) ^ (bBytes[i] ?? 0);
+  }
+  return diff === 0;
+}
+
 async function hmac(data: string): Promise<string> {
   const key = await crypto.subtle.importKey(
     "raw", enc.encode(SECRET), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
@@ -32,7 +44,7 @@ export async function verifyToken(token: string | undefined | null): Promise<boo
   if (!token) return false;
   const [payload, sig] = token.split(".");
   if (!payload || !sig) return false;
-  if ((await hmac(payload)) !== sig) return false;
+  if (!timingSafeEqual(await hmac(payload), sig)) return false;
   try {
     const json = JSON.parse(atob(payload.replace(/-/g, "+").replace(/_/g, "/")));
     return typeof json.exp === "number" && Date.now() < json.exp;
@@ -46,8 +58,10 @@ export function checkCredentials(email: string, password: string): boolean {
   const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
   const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
   if (!ADMIN_PASSWORD) return false;
-  const emailOk = !ADMIN_EMAIL || email.trim().toLowerCase() === ADMIN_EMAIL.toLowerCase();
-  return emailOk && password === ADMIN_PASSWORD;
+  // Both checks always run (no short-circuit) so response time doesn't reveal which one failed.
+  const emailOk = !ADMIN_EMAIL || timingSafeEqual(email.trim().toLowerCase(), ADMIN_EMAIL.toLowerCase());
+  const passwordOk = timingSafeEqual(password, ADMIN_PASSWORD);
+  return emailOk && passwordOk;
 }
 
 export const authConfigured = Boolean(process.env.ADMIN_PASSWORD && process.env.AUTH_SECRET);
