@@ -25,15 +25,7 @@ export default async function EbookListPage({ params }: { params: Promise<{ loca
 
   return (
     <>
-      <header className="phero">
-        <div className="wrap">
-          <span className="eyebrow">{t.eyebrow}</span>
-          <h1>{t.h1a} <span className="g">{t.h1g}</span> {t.h1b}</h1>
-          <p>{t.p}</p>
-        </div>
-      </header>
-
-      <section style={{ paddingTop: 30 }}>
+      <section style={{ paddingTop: 90 }}>
         <div className="wrap">
           {ebooks.length === 0 ? (
             <p style={{ textAlign: "center", color: "var(--mute)", padding: "20px 0 40px" }}>{t.none}</p>
