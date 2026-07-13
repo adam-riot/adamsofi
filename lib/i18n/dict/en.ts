@@ -17,7 +17,7 @@ const en: Dict = {
   },
   home: {
     chip: "Now booking · Fast turnaround",
-    h1a: "A", h1g: "fast", h1b: "landing page for your business.",
+    h1a: "An affordable,", h1g: "fast", h1b: "landing page for your business.",
     heroP: "A professional website that sells - mobile-friendly, straight to WhatsApp. Affordable, fast, without the technical hassle.",
     ctaPrimary: "Get a Free Draft →",
     ctaSecondary: "See Our Work",

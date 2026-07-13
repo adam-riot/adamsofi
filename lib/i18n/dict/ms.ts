@@ -15,7 +15,7 @@ const ms = {
   },
   home: {
     chip: "Tempahan dibuka · Siap pantas",
-    h1a: "Landing page", h1g: "pantas", h1b: "untuk bisnes anda.",
+    h1a: "Landing page murah &", h1g: "pantas", h1b: "untuk bisnes anda.",
     heroP: "Website profesional yang menjual - mobile-friendly, terus boleh WhatsApp. Berpatutan, laju, tanpa karenah teknikal yang menyusahkan.",
     ctaPrimary: "Dapatkan Draft Percuma →",
     ctaSecondary: "Lihat Hasil Kerja",
