@@ -49,30 +49,27 @@ export async function createBill(input: {
 /**
  * Verifies a Billplz X-Signature. Works for both the callback payload (plain
  * field names) and the redirect query params (`billplz[id]` etc — brackets
- * are stripped before sorting/concatenating, matching Billplz's algorithm).
- * Source string = all fields except x_signature, sorted by key
- * case-insensitively, each pair as `key+value` with no separator, joined by "|".
+ * are stripped before concatenating, matching Billplz's algorithm).
+ * Source string = all fields except x_signature, each pair concatenated as
+ * `key+value` with no separator, THEN those combined strings are sorted
+ * (case-insensitive, plain ASCII order) and joined by "|". Sorting the
+ * combined string (not the bare key) matters: it's why "paid_amount" and
+ * "paid_at" sort before bare "paid" — "paid"+"true" becomes "paidtrue", and
+ * "_" sorts before "t" at the position where they diverge.
  */
 export function verifySignature(fields: Record<string, string>, receivedSig: string): boolean {
   if (!X_SIGNATURE_KEY || !receivedSig) return false;
 
   const source = Object.keys(fields)
     .filter((k) => !k.toLowerCase().includes("x_signature"))
-    .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
     .map((k) => `${k.replace(/[[\]]/g, "")}${fields[k]}`)
+    .sort((a, b) => {
+      const la = a.toLowerCase(), lb = b.toLowerCase();
+      return la < lb ? -1 : la > lb ? 1 : 0;
+    })
     .join("|");
 
   const expected = crypto.createHmac("sha256", X_SIGNATURE_KEY).update(source).digest("hex");
-
-  // Temporary diagnostic: prefixes/lengths only, never the secret key or full source (contains PII).
-  console.log("verifySignature debug:", {
-    keyLen: X_SIGNATURE_KEY.length,
-    sourceLen: source.length,
-    expectedPrefix: expected.slice(0, 12),
-    expectedLen: expected.length,
-    receivedPrefix: receivedSig.slice(0, 12),
-    receivedLen: receivedSig.length,
-  });
 
   const a = Buffer.from(expected, "utf8");
   const b = Buffer.from(receivedSig, "utf8");

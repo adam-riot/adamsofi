@@ -15,8 +15,6 @@ export async function POST(req: Request) {
 
   const signature = fields.x_signature;
   if (!signature || !verifySignature(fields, signature)) {
-    // Temporary diagnostic: field NAMES only (no values) to see what Billplz actually sent.
-    console.log("billplz callback rejected. fields received:", Object.keys(fields), "had x_signature:", Boolean(signature));
     return NextResponse.json({ error: "Invalid signature." }, { status: 400 });
   }
 
