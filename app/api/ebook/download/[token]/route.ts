@@ -12,7 +12,7 @@ export async function GET(_req: Request, { params }: { params: Promise<{ token: 
   }
 
   const rows = await sql!`
-    SELECT o.status, e.file_url, e.title
+    SELECT o.status, o.delivered_file_path, e.file_url, e.title
     FROM ebook_orders o JOIN ebooks e ON e.id = o.ebook_id
     WHERE o.download_token = ${token} LIMIT 1`;
   const row = rows[0];
@@ -25,9 +25,11 @@ export async function GET(_req: Request, { params }: { params: Promise<{ token: 
     return new NextResponse("Storage belum dikonfigurasi.", { status: 503 });
   }
 
-  // file_url holds a storage path in the private "ebook-files" store (e.g. "ebook-files/slug/ebook.pdf"),
-  // not a public URL — the blob is only readable server-side via get(), never exposed directly.
-  const result = await get(row.file_url, { access: "private", token: FILES_TOKEN });
+  // Prefer the per-buyer watermarked copy; fall back to the master file if
+  // watermarking hasn't run yet (e.g. still in flight) or failed.
+  // Neither path is a public URL — the blob is only readable server-side via get().
+  const filePath = row.delivered_file_path || row.file_url;
+  const result = await get(filePath, { access: "private", token: FILES_TOKEN });
   if (result?.statusCode !== 200) {
     return new NextResponse("File not found.", { status: 404 });
   }

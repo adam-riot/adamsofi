@@ -98,7 +98,10 @@ CREATE TABLE IF NOT EXISTS ebook_orders (
   status          TEXT DEFAULT 'pending', -- 'pending' | 'paid' | 'failed'
   billplz_bill_id TEXT UNIQUE,
   download_token  TEXT DEFAULT encode(gen_random_bytes(32), 'hex'),
+  delivered_file_path TEXT, -- per-buyer watermarked copy (private store); falls back to ebooks.file_url if null
   created_at      TIMESTAMPTZ DEFAULT NOW(),
   paid_at         TIMESTAMPTZ
 );
 CREATE INDEX IF NOT EXISTS ebook_orders_bill_idx ON ebook_orders (billplz_bill_id);
+
+ALTER TABLE ebook_orders ADD COLUMN IF NOT EXISTS delivered_file_path TEXT;
