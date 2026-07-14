@@ -29,8 +29,9 @@ export default function Sidebar() {
 
   return (
     <aside className="admin-side">
-      <Link href="/admin" className="logo admin-logo">
-        <span className="mk"><span className="gd" /><span className="ag">&lt;</span><span className="ax">A</span><span className="ag r">&gt;</span></span>
+      <Link href="/admin" className="logo admin-logo" style={{ flexDirection: "column", alignItems: "flex-start", gap: 4 }}>
+        {/* eslint-disable-next-line @next/next/no-img-element -- vector logo, no raster optimization needed */}
+        <img src="/logo-full-dark.svg" alt="AdamSofi" style={{ height: 24, width: "auto" }} />
         <span className="word">admin</span>
       </Link>
       <nav className="admin-nav">

@@ -33,8 +33,8 @@ export default function AdminLogin() {
     <div className="admin-login">
       <form className="admin-login-card" onSubmit={submit}>
         <div className="logo" style={{ justifyContent: "center", marginBottom: 8 }}>
-          <span className="mk"><span className="gd" /><span className="ag">&lt;</span><span className="ax">A</span><span className="ag r">&gt;</span></span>
-          <span className="word">adam<span className="g">sofi</span><span className="pd">.</span></span>
+          {/* eslint-disable-next-line @next/next/no-img-element -- vector logo, no raster optimization needed */}
+          <img src="/logo-full-dark.svg" alt="AdamSofi" style={{ height: 34, width: "auto" }} />
         </div>
         <h1>Admin Login</h1>
         <div className="fg"><label>Emel</label><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required /></div>

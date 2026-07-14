@@ -28,7 +28,14 @@ export const metadata: Metadata = {
     description: "Website profesional yang menjual - mobile-friendly, terus WhatsApp.",
     images: ["/og-image.png"],
   },
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
   // Google Search Console: set GOOGLE_SITE_VERIFICATION in Vercel env, redeploy,
   // then verify via the "HTML tag" method in GSC.
   ...(process.env.GOOGLE_SITE_VERIFICATION

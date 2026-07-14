@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="13" fill="#0D1117"/>
-  <circle cx="32" cy="14" r="3.4" fill="#E9B949"/>
-  <text x="32" y="45" text-anchor="middle" font-family="'JetBrains Mono','Courier New',monospace" font-weight="700" font-size="31" letter-spacing="-1">
-    <tspan fill="#33C9E8">&lt;</tspan><tspan fill="#ffffff">A</tspan><tspan fill="#2F7BEA">&gt;</tspan>
-  </text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<rect width="512" height="512" rx="116" fill="#0F172A"/>
+<path transform="translate(22.91,346.00) scale(0.122070,-0.122070)" d="M47 0 544 1490H1017L1529 0H1133L1032 317H536L439 0ZM619 587H946L926 651Q887 779 850.0 919.0Q813 1059 777 1209Q743 1058 709.5 918.0Q676 778 639 651Z" fill="#FFFFFF"/>
+<path d="M 216.6 363.5 L 245.3 363.5 L 322.7 148.5 L 294.0 148.5 Z" fill="#06B6D4"/>
+<path transform="translate(324.05,346.00) scale(0.122070,-0.122070)" d="M691 -20Q411 -20 243.5 107.0Q76 234 72 492H411Q417 383 491.5 328.0Q566 273 687 273Q797 273 860.0 317.5Q923 362 923 433Q923 497 863.5 534.5Q804 572 682 600L524 637Q331 681 221.0 781.0Q111 881 111 1049Q111 1187 185.5 1290.5Q260 1394 391.0 1452.0Q522 1510 691 1510Q864 1510 991.0 1451.5Q1118 1393 1188.0 1288.5Q1258 1184 1260 1046H921Q914 1127 855.0 1172.0Q796 1217 690 1217Q584 1217 530.0 1176.0Q476 1135 476 1073Q476 1004 536.0 966.5Q596 929 696 907L825 877Q1041 829 1160.5 720.0Q1280 611 1280 432Q1280 220 1124.0 100.0Q968 -20 691 -20Z" fill="#FFFFFF"/>
 </svg>
