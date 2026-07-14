@@ -120,6 +120,13 @@ const ms = {
         stack: ["Landing Page", "WhatsApp CTA", "Mobile-First"],
         status: "✅ Status: Live", btn: "Lawati easycamp.my →", url: "https://easycamp.my",
       },
+      {
+        tag: "🚀 Produk Sendiri", mockA: "Invoice", mockB: "Kita", name: "InvoiceKita.my",
+        sub: "Invois pantas untuk peniaga TikTok, freelancer & vendor Malaysia",
+        meta: "Invois siap dalam 30 saat · Hantar terus WhatsApp · Bayar via DuitNow QR",
+        stack: ["Web App", "WhatsApp Integration", "DuitNow QR"],
+        status: "✅ Status: Live", btn: "Lawati invoicekita.my →", url: "https://invoicekita.my",
+      },
     ],
     gridH2: "Demo Websites", gridP: "Contoh kerja untuk pelbagai industri. Klik untuk lihat demo penuh.",
     tabs: { semua: "Semua", fnb: "F&B", fesyen: "Fesyen", hartanah: "Hartanah", pendidikan: "Pendidikan", elektronik: "Elektronik", wellness: "Wellness" },

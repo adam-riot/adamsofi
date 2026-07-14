@@ -122,6 +122,13 @@ const zh: Dict = {
         stack: ["落地页", "WhatsApp CTA", "移动优先"],
         status: "✅ 状态：运行中", btn: "访问 easycamp.my →", url: "https://easycamp.my",
       },
+      {
+        tag: "🚀 自有产品", mockA: "Invoice", mockB: "Kita", name: "InvoiceKita.my",
+        sub: "为马来西亚 TikTok 卖家、自由工作者与供应商打造的快速开票工具",
+        meta: "30 秒内完成发票 · 直接分享至 WhatsApp · 支持 DuitNow QR 付款",
+        stack: ["Web App", "WhatsApp 集成", "DuitNow QR"],
+        status: "✅ 状态：运行中", btn: "访问 invoicekita.my →", url: "https://invoicekita.my",
+      },
     ],
     gridH2: "演示网站", gridP: "各行业的作品示例。点击查看完整演示。",
     tabs: { semua: "全部", fnb: "餐饮", fesyen: "时尚", hartanah: "房产", pendidikan: "教育", elektronik: "电子", wellness: "养生" },

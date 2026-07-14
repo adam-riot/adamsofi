@@ -122,6 +122,13 @@ const en: Dict = {
         stack: ["Landing Page", "WhatsApp CTA", "Mobile-First"],
         status: "✅ Status: Live", btn: "Visit easycamp.my →", url: "https://easycamp.my",
       },
+      {
+        tag: "🚀 Own Product", mockA: "Invoice", mockB: "Kita", name: "InvoiceKita.my",
+        sub: "Fast invoicing for TikTok sellers, freelancers & vendors in Malaysia",
+        meta: "Invoice ready in 30 seconds · Straight to WhatsApp · Pay via DuitNow QR",
+        stack: ["Web App", "WhatsApp Integration", "DuitNow QR"],
+        status: "✅ Status: Live", btn: "Visit invoicekita.my →", url: "https://invoicekita.my",
+      },
     ],
     gridH2: "Demo Websites", gridP: "Example work across industries. Click to view the full demo.",
     tabs: { semua: "All", fnb: "F&B", fesyen: "Fashion", hartanah: "Property", pendidikan: "Education", elektronik: "Electronics", wellness: "Wellness" },
