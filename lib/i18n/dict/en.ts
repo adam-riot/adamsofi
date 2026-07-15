@@ -114,6 +114,7 @@ const en: Dict = {
         meta: "160 quiz questions · Tutoring system · PDF download · Admin dashboard",
         stack: ["Next.js 15", "TypeScript", "TailwindCSS", "Neon", "Vercel"],
         status: "✅ Status: Live", btn: "Visit codecikgu.com →", url: "https://codecikgu.com",
+        logo: "/portfolio-logos/codecikgu.svg",
       },
       {
         tag: "✅ Client Project", mockA: "Easy", mockB: "Camp", name: "EasyCamp.my",
@@ -121,6 +122,7 @@ const en: Dict = {
         meta: "Online quotation form · Leads straight to WhatsApp · Mobile-friendly",
         stack: ["Landing Page", "WhatsApp CTA", "Mobile-First"],
         status: "✅ Status: Live", btn: "Visit easycamp.my →", url: "https://easycamp.my",
+        logo: "/portfolio-logos/easycamp.png",
       },
       {
         tag: "🚀 Own Product", mockA: "Invoice", mockB: "Kita", name: "InvoiceKita.my",
@@ -128,6 +130,7 @@ const en: Dict = {
         meta: "Invoice ready in 30 seconds · Straight to WhatsApp · Pay via DuitNow QR",
         stack: ["Web App", "WhatsApp Integration", "DuitNow QR"],
         status: "✅ Status: Live", btn: "Visit invoicekita.my →", url: "https://invoicekita.my",
+        logo: "/portfolio-logos/invoicekita.svg",
       },
     ],
     gridH2: "Demo Websites", gridP: "Example work across industries. Click to view the full demo.",

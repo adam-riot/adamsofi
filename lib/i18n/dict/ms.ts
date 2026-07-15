@@ -112,6 +112,7 @@ const ms = {
         meta: "160 soalan kuiz · Sistem tutoring · PDF download · Admin dashboard",
         stack: ["Next.js 15", "TypeScript", "TailwindCSS", "Neon", "Vercel"],
         status: "✅ Status: Live", btn: "Lawati codecikgu.com →", url: "https://codecikgu.com",
+        logo: "/portfolio-logos/codecikgu.svg",
       },
       {
         tag: "✅ Client Project", mockA: "Easy", mockB: "Camp", name: "EasyCamp.my",
@@ -119,6 +120,7 @@ const ms = {
         meta: "Borang quotation online · Lead terus ke WhatsApp · Mobile-friendly",
         stack: ["Landing Page", "WhatsApp CTA", "Mobile-First"],
         status: "✅ Status: Live", btn: "Lawati easycamp.my →", url: "https://easycamp.my",
+        logo: "/portfolio-logos/easycamp.png",
       },
       {
         tag: "🚀 Produk Sendiri", mockA: "Invoice", mockB: "Kita", name: "InvoiceKita.my",
@@ -126,6 +128,7 @@ const ms = {
         meta: "Invois siap dalam 30 saat · Hantar terus WhatsApp · Bayar via DuitNow QR",
         stack: ["Web App", "WhatsApp Integration", "DuitNow QR"],
         status: "✅ Status: Live", btn: "Lawati invoicekita.my →", url: "https://invoicekita.my",
+        logo: "/portfolio-logos/invoicekita.svg",
       },
     ],
     gridH2: "Demo Websites", gridP: "Contoh kerja untuk pelbagai industri. Klik untuk lihat demo penuh.",

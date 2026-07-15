@@ -45,7 +45,14 @@ export default async function PortfolioPage({ params }: { params: Promise<{ loca
                 <div className="feat-inner">
                   <div className="feat-glow" />
                   <div className="feat-grid">
-                    <div className="feat-shot"><div className="mock">{f.mockA}<span>{f.mockB}</span></div></div>
+                    <div className={`feat-shot ${f.logo ? "has-logo" : ""}`}>
+                      {f.logo ? (
+                        // eslint-disable-next-line @next/next/no-img-element -- vector/transparent logos, no raster optimization needed
+                        <img src={f.logo} alt={f.name} className="feat-shot-logo" />
+                      ) : (
+                        <div className="mock">{f.mockA}<span>{f.mockB}</span></div>
+                      )}
+                    </div>
                     <div className="feat-body">
                       <span className="feat-tag">{f.tag}</span>
                       <h2>{f.name}</h2>

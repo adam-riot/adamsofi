@@ -114,6 +114,7 @@ const zh: Dict = {
         meta: "160 道测验题 · 辅导系统 · PDF 下载 · 管理后台",
         stack: ["Next.js 15", "TypeScript", "TailwindCSS", "Neon", "Vercel"],
         status: "✅ 状态：运行中", btn: "访问 codecikgu.com →", url: "https://codecikgu.com",
+        logo: "/portfolio-logos/codecikgu.svg",
       },
       {
         tag: "✅ 客户项目", mockA: "Easy", mockB: "Camp", name: "EasyCamp.my",
@@ -121,6 +122,7 @@ const zh: Dict = {
         meta: "在线报价表单 · 潜在客户直接导流至 WhatsApp · 移动端友好",
         stack: ["落地页", "WhatsApp CTA", "移动优先"],
         status: "✅ 状态：运行中", btn: "访问 easycamp.my →", url: "https://easycamp.my",
+        logo: "/portfolio-logos/easycamp.png",
       },
       {
         tag: "🚀 自有产品", mockA: "Invoice", mockB: "Kita", name: "InvoiceKita.my",
@@ -128,6 +130,7 @@ const zh: Dict = {
         meta: "30 秒内完成发票 · 直接分享至 WhatsApp · 支持 DuitNow QR 付款",
         stack: ["Web App", "WhatsApp 集成", "DuitNow QR"],
         status: "✅ 状态：运行中", btn: "访问 invoicekita.my →", url: "https://invoicekita.my",
+        logo: "/portfolio-logos/invoicekita.svg",
       },
     ],
     gridH2: "演示网站", gridP: "各行业的作品示例。点击查看完整演示。",

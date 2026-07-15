@@ -283,6 +283,8 @@ footer { padding: 56px 0 30px; border-top: 1px solid var(--line); margin-top: 90
 .feat-grid { display: grid; grid-template-columns: 1.05fr 1fr; position: relative; z-index: 1; }
 @media (max-width: 840px) { .feat-grid { grid-template-columns: 1fr; } }
 .feat-shot { min-height: 340px; background: linear-gradient(135deg, #0b3d5c, #0a0f1f); position: relative; display: flex; align-items: flex-end; padding: 30px; overflow: hidden; }
+.feat-shot.has-logo { align-items: center; justify-content: center; }
+.feat-shot-logo { position: relative; z-index: 1; max-width: 76%; max-height: 150px; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 4px 24px rgba(0,0,0,.35)); }
 .feat-shot::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(34,211,238,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.1) 1px, transparent 1px); background-size: 38px 38px; mask: radial-gradient(ellipse 80% 80% at 60% 30%, #000, transparent 75%); }
 .feat-shot .mock { position: relative; z-index: 1; font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 42px; color: var(--white); text-shadow: 0 4px 24px rgba(0,0,0,.5); }
 .feat-shot .mock span { color: var(--cyan); }
